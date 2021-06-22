@@ -4,15 +4,27 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 
 cask "1password"
+cask "dropbox"
 cask "firefox"
 cask "font-fira-code"
 cask "google-chrome"
 cask "hammerspoon"
-cask "iterm2"
 cask "notion"
 cask "raycast"
 cask "spotify"
 cask "visual-studio-code"
+
+# Dev Tools
+cask "docker"
+cask "rider"
+cask "webstorm"
+cask "intellij-idea"
+cask "goland"
+cask "iterm2"
+
+# Work Tools
+cask "slack"
+cask "microsoft-teams"
 
 # Quick Look Plugins (https://github.com/sindresorhus/quick-look-plugins)
 cask "qlcolorcode"

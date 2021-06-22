@@ -9,4 +9,6 @@ xcode-select --install
 Then run `make`
 
 ## Post Installation
-- make `drts` as the default profile in iTerm
+- allow Hammerspoon accessibility access
+- make `drts` as the default profile in iTerm (this sometime does not work on first run, fix that later)
+- restart the machine
