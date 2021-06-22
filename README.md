@@ -7,3 +7,6 @@ xcode-select --install
 ```
 
 Then run `make`
+
+## Post Installation
+- make `drts` as the default profile in iTerm

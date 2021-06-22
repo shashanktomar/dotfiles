@@ -11,7 +11,7 @@ export ACCEPT_EULA=Y
 
 all: $(OS)
 
-macos: sudo core-macos packages raw-installs link
+macos: sudo core-macos packages raw-installs link mac-defaults
 
 core-macos: brew npm ruby
 
@@ -42,10 +42,12 @@ link:
 	mkdir -p $(XDG_CONFIG_HOME)
 	stow -t $(HOME) runcom
 	stow -t $(XDG_CONFIG_HOME) config
+	ln -fs $(DOTFILES_DIR)/iterm/profiles/drts.json $(XDG_CONFIG_HOME)/iterm2/AppSupport/DynamicProfiles/drts.json
 
 unlink: 
 	stow --delete -t $(HOME) runcom
 	stow --delete -t $(XDG_CONFIG_HOME) config
+	rm $(XDG_CONFIG_HOME)/iterm2/AppSupport/DynamicProfiles/drts.json 
 	for FILE in $$(\ls -A runcom); do if [ -f $(HOME)/$$FILE.bak ]; then \
 		mv -v $(HOME)/$$FILE.bak $(HOME)/$${FILE%%.bak}; fi; done
 
@@ -61,3 +63,6 @@ cask-apps: brew
 
 node-packages: npm
 	. $(NVM_DIR)/nvm.sh; npm install -g $(shell cat install/npmfile)
+
+mac-defaults:
+	$(DOTFILES_DIR)/macos/setup.sh
