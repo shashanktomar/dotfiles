@@ -64,7 +64,7 @@ defaults write com.apple.BezelServices kDimTime -int 300
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
-# Enable Fn Keys
+# Enable Fn Keys (this does not seem to work on big sur)
 defaults write "Apple Global Domain" com.apple.keyboard.fnState 1
 
 ###############################################################################
@@ -194,17 +194,6 @@ defaults write com.apple.iCal "Show Week Numbers" -bool true
 
 # Week starts on monday
 defaults write com.apple.iCal "first day of week" -int 1
-
-###############################################################################
-# Menubar                                                                    #
-###############################################################################
-
-defaults write com.apple.systemuiserver menuExtras -array \
-"/System/Library/CoreServices/Menu Extras/AirPort.menu" \
-"/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
-"/System/Library/CoreServices/Menu Extras/Clock.menu" \
-"/System/Library/CoreServices/Menu Extras/Displays.menu" \
-"/System/Library/CoreServices/Menu Extras/Volume.menu"
 
 ###############################################################################
 # Kill affected applications                                                  #
