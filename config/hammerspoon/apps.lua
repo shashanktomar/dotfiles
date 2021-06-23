@@ -10,3 +10,6 @@ local function toggleApplication(name)
 end
 
 hs.hotkey.bind(mash, "t", function() toggleApplication("iTerm") end)
+hs.hotkey.bind(mash, "c", function() toggleApplication("Google Chrome") end)
+hs.hotkey.bind(mash, "f", function() toggleApplication("Firefox") end)
+hs.hotkey.bind(mash, "p", function() toggleApplication("1Password 7") end)

@@ -12,7 +12,11 @@ The hyper key is defined as `⌘ + ⌥ + ⌃` (control + option + command). Pres
 
 | Key | App                |
 | --- | ------------------ |
-| T   | iTerm2             |
+| t   | iTerm2             |
+| c   | chrome             |
+| f   | firefox            |
+| f   | firefox            |
+| p   | 1Password          |
 
 ## Window Management
 
