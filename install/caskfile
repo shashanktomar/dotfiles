@@ -19,6 +19,7 @@ cask "visual-studio-code"
 # Dev Tools
 cask "docker"
 cask "dotnet-sdk3-1-400"
+cask "dotnet-sdk5-0-200"
 cask "goland"
 cask "intellij-idea"
 cask "iterm2"
