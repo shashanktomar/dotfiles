@@ -15,6 +15,7 @@ cask "notion"
 cask "raycast"
 cask "spotify"
 cask "visual-studio-code"
+cask "xbar"
 
 # Dev Tools
 cask "docker"
