@@ -19,6 +19,7 @@ cask "visual-studio-code"
 cask "xbar"
 
 # Dev Tools
+cask "datagrip"
 cask "docker"
 cask "dotnet-sdk3-1-400"
 cask "dotnet-sdk5-0-200"
