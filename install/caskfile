@@ -3,6 +3,8 @@ tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "isen-ng/dotnet-sdk-versions"
+tap "AdoptOpenJDK/openjdk"
+
 
 cask "1password"
 cask "airserver"
@@ -19,6 +21,8 @@ cask "visual-studio-code"
 cask "xbar"
 
 # Dev Tools
+cask "adoptopenjdk/openjdk/adoptopenjdk8"
+cask "adoptopenjdk/openjdk/adoptopenjdk11"
 cask "datagrip"
 cask "docker"
 cask "dotnet-sdk3-1-400"

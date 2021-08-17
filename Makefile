@@ -31,7 +31,7 @@ npm:
 ruby: brew
 	brew install ruby
 
-installs: brew-packages cask-apps raw-installs post-installs
+installs: brew-packages cask-apps node-packages raw-installs post-installs
 
 raw-installs:
 	$(DOTFILES_DIR)/install/raw-installs.sh
