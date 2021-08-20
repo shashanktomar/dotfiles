@@ -47,3 +47,6 @@ cask "qlimagesize"
 cask "suspicious-package"
 cask "quicklookase"
 cask "qlvideo"
+
+# K8s
+cask "kui"
