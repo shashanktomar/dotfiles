@@ -35,8 +35,9 @@ cask "sourcetree"
 cask "webstorm"
 
 # Work Tools
-cask "slack"
+cask "gitter"
 cask "microsoft-teams"
+cask "slack"
 
 # Quick Look Plugins (https://github.com/sindresorhus/quick-look-plugins)
 cask "qlcolorcode"
