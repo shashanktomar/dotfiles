@@ -5,7 +5,6 @@ tap "homebrew/cask-versions"
 tap "isen-ng/dotnet-sdk-versions"
 tap "AdoptOpenJDK/openjdk"
 
-
 cask "1password"
 cask "airserver"
 cask "dropbox"

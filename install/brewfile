@@ -4,35 +4,40 @@ tap "homebrew/core"
 tap "TylerBrock/saw"
 tap "hashicorp/tap"
 
-brew "awscli"
-brew "aws-sam-cli"
-brew "bat"
-brew "bats-core"
+# utils
+brew "bat" # cat aternative
 brew "coreutils"
-brew "cue-lang/tap/cue"
-brew "dockutil"
-brew "gh"
-brew "git"
-brew "git-extras"
-brew "go"
-brew "httpie"
-brew "jenv"
-brew "jq"
+brew "dockutil" # tools for managing mac dock items
+brew "httpie" # curl alternative
 brew "mackup"
-brew "mono"
-brew "pandoc"
-brew "peco"
-brew "python"
-brew "ripgrep"
-brew "shellcheck"
-brew "ssh-copy-id"
-brew "stow"
-brew "saw"
-brew "terraform"
+brew "pandoc" # Swiss-army knife of markup format conversion
+brew "peco" # Simplistic interactive filtering tool
+brew "ripgrep" # grep alternative
+brew "ssh-copy-id" # Add a public key to a remote machine's authorized_keys file
+brew "stow" # symlink farm manager
 brew "tree"
 brew "wget"
 brew "zsh"
 brew "z"
+
+# language tools
+brew "bats-core" #bash automated testing system
+brew "cue-lang/tap/cue"
+brew "go"
+brew "jenv"
+brew "jq"
+brew "mono" # Cross platform, open source .NET framework
+brew "python"
+brew "shellcheck" # Static analysis and lint tool, for (ba)sh scripts
+
+# development tools
+brew "awscli"
+brew "aws-sam-cli"
+brew "gh"
+brew "git"
+brew "git-extras"
+brew "saw" # multi-purpose tool for AWS CloudWatch Logs
+brew "terraform"
 
 # k8s related stuff
 brew "helm"
