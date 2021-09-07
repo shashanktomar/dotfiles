@@ -1,0 +1,2 @@
+github.com/golang/protobuf/protoc-gen-go@v1.5.2
+google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1

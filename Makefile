@@ -33,7 +33,7 @@ macos: sudo core-macos installs link mac-defaults ## Setup a new fresh machine. 
 
 core-macos: brew npm ruby ## Install core packages for macos: brew, npm and ruby
 
-installs: brew-packages cask-apps node-packages raw-installs post-installs ## Install brew, cask and node apps. Also install some raw package using bash script.
+installs: brew-packages cask-apps go-packages node-packages raw-installs post-installs ## Install brew, cask and language packages. Also install some raw package using bash script.
 
 brew-packages: brew ## Install brew packages from /install/brewfile
 	brew bundle --file=$(DOTFILES_DIR)/install/brewfile
@@ -43,6 +43,9 @@ cask-apps: brew ## Install brew cask packages from /install/caskfile
 	defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
 	for EXT in $$(cat install/vscodefile); do code --install-extension $$EXT; done
 	# xattr -d -r com.apple.quarantine ~/Library/QuickLook
+
+go-packages: ## Install go packages from /install/gofile
+	for EXT in $$(cat install/gofile); do go install $$EXT; done
 
 node-packages: npm ## Install npm packages from /install/npmfile
 	. $(NVM_DIR)/nvm.sh; npm install -g $(shell cat install/npmfile)

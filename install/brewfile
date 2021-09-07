@@ -3,6 +3,7 @@ tap "homebrew/bundle"
 tap "homebrew/core"
 tap "TylerBrock/saw"
 tap "hashicorp/tap"
+tap "garden-io/garden"
 
 # utils
 brew "bat" # cat aternative
@@ -27,6 +28,7 @@ brew "go"
 brew "jenv"
 brew "jq"
 brew "mono" # Cross platform, open source .NET framework
+brew "protobuf"
 brew "python"
 brew "shellcheck" # Static analysis and lint tool, for (ba)sh scripts
 
@@ -37,9 +39,11 @@ brew "gh"
 brew "git"
 brew "git-extras"
 brew "saw" # multi-purpose tool for AWS CloudWatch Logs
-brew "terraform"
+brew "hashicorp/tap/terraform"
+brew "hashicorp/tap/waypoint"
 
 # k8s related stuff
+brew "garden-cli"
 brew "helm"
 brew "krew"
 brew "kubebuilder"
