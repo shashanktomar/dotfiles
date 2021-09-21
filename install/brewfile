@@ -4,6 +4,7 @@ tap "homebrew/core"
 tap "TylerBrock/saw"
 tap "hashicorp/tap"
 tap "garden-io/garden"
+tap "pulumi/tap"
 
 # utils
 brew "bat" # cat aternative
@@ -41,6 +42,8 @@ brew "git-extras"
 brew "saw" # multi-purpose tool for AWS CloudWatch Logs
 brew "hashicorp/tap/terraform"
 brew "hashicorp/tap/waypoint"
+brew "pulumi"
+brew "pulumictl"
 
 # k8s related stuff
 brew "garden-cli"

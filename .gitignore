@@ -1,2 +1,4 @@
 brewfile.lock.json
 Caskfile.lock.json
+private_*
+.oh-my-zsh/repos/
