@@ -1,0 +1,1 @@
+export PATH=/opt/pulumi:/opt/pulumi/bin:$PATH
