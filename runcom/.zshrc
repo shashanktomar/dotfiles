@@ -80,7 +80,7 @@ plugins=(
   yarn 
   jsontools
   node 
-  osx 
+  macos 
   sudo
   docker
   aws

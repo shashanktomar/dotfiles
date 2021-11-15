@@ -39,6 +39,7 @@ brew "shellcheck" # Static analysis and lint tool, for (ba)sh scripts
 # development tools
 brew "awscli"
 brew "aws-sam-cli"
+brew "dagger/tap/dagger"
 brew "golangci-lint"
 brew "gh"
 brew "git"
