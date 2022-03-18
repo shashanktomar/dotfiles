@@ -1,1 +1,0 @@
-zstyle ':autocomplete:*' min-delay 0.5

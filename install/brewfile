@@ -6,9 +6,11 @@ tap "homebrew/core"
 tap "jesseduffield/lazygit"
 tap "pulumi/tap"
 tap "TylerBrock/saw"
+tap "cooklang/tap"
 
 # utils
 brew "bat" # cat aternative
+brew "cooklang/tap/cook" # well, it is a recipe cli
 brew "coreutils"
 brew "dockutil" # tools for managing mac dock items
 brew "httpie" # curl alternative
@@ -28,7 +30,6 @@ brew "bats-core" #bash automated testing system
 brew "cue-lang/tap/cue"
 brew "go"
 brew "jenv"
-brew "jq"
 brew "mono" # Cross platform, open source .NET framework
 brew "protobuf"
 brew "python"
@@ -39,17 +40,21 @@ brew "shellcheck" # Static analysis and lint tool, for (ba)sh scripts
 # development tools
 brew "awscli"
 brew "aws-sam-cli"
+brew "azure-cli"
 brew "dagger/tap/dagger"
+brew "dive"
 brew "golangci-lint"
 brew "gh"
 brew "git"
 brew "git-extras"
 brew "jesseduffield/lazygit/lazygit"
+brew "jq"
 brew "hashicorp/tap/terraform"
 brew "hashicorp/tap/waypoint"
 brew "pulumi"
 brew "pulumictl"
 brew "saw" # multi-purpose tool for AWS CloudWatch Logs
+brew "svn"
 
 # k8s related stuff
 brew "garden-cli"

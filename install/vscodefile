@@ -1,8 +1,4 @@
-CoenraadS.bracket-pair-colorizer-2
 dbaeumer.vscode-eslint
-dendron.dendron
-dendron.dendron-markdown-shortcuts
-dendron.dendron-paste-image
 eamodio.gitlens
 esbenp.prettier-vscode
 GitHub.copilot
@@ -27,3 +23,6 @@ streetsidesoftware.code-spell-checker
 stuart.unique-window-colors
 wholroyd.HCL
 yinfei.luahelper
+
+golf1052.base16-generator
+dracula-theme.theme-dracula
