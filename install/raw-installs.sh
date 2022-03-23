@@ -16,3 +16,7 @@ if [[ ! -d $ZSH_PATH ]]; then
 else
     echo "$ZSH_PATH already exist. Not installing Oh-My-Zsh"
 fi
+
+# Install vim-plug
+curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

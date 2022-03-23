@@ -13,7 +13,11 @@ brew "bat" # cat aternative
 brew "cooklang/tap/cook" # well, it is a recipe cli
 brew "coreutils"
 brew "dockutil" # tools for managing mac dock items
+brew "dua-cli" # Disk Usage Analyzer
+brew "fd" # Simple, fast and user-friendly alternative to find
+brew "fzf"
 brew "httpie" # curl alternative
+brew "jless" # JSON viewer
 brew "mackup"
 brew "pandoc" # Swiss-army knife of markup format conversion
 brew "peco" # Simplistic interactive filtering tool
@@ -47,10 +51,11 @@ brew "golangci-lint"
 brew "gh"
 brew "git"
 brew "git-extras"
-brew "jesseduffield/lazygit/lazygit"
-brew "jq"
 brew "hashicorp/tap/terraform"
 brew "hashicorp/tap/waypoint"
+brew "jesseduffield/lazygit/lazygit"
+brew "jq"
+brew "neovim"
 brew "pulumi"
 brew "pulumictl"
 brew "saw" # multi-purpose tool for AWS CloudWatch Logs

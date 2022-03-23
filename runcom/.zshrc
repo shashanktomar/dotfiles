@@ -109,6 +109,12 @@ else
   export EDITOR='code'
 fi
 
+# Tell fzf to use rgrep
+if type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='rg --files'
+  export FZF_DEFAULT_OPTS='-m --height 50% --border'
+fi
+
 ###############################################################################
 ######################### p10k config #########################################
 ###############################################################################
