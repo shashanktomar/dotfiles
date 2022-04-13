@@ -4,3 +4,4 @@ private_*
 .oh-my-zsh/repos/
 config/nvim/autoload/**
 config/nvim/plugged/**
+config/nvim_old/plugged/**
