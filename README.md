@@ -6,7 +6,7 @@ sudo softwareupdate -i -a
 xcode-select --install
 ```
 
-Then run `make`
+Then run `make all` 
 
 ## Post Installation
 - allow Hammerspoon accessibility access
