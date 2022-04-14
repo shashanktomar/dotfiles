@@ -5,3 +5,4 @@ private_*
 config/nvim/autoload/**
 config/nvim/plugged/**
 config/nvim_old/plugged/**
+config/nvim/plugin/packer_compiled.lua

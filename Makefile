@@ -27,13 +27,13 @@ help: ## Display this help.
 
 all: $(OS) ## You want to run this if you are setting up everything from scratch. It just call macos for now.
 
-macos: sudo core-macos installs link mac-defaults ## Setup a new fresh machine. The target is idempotent.
+macos: sudo core-macos installs link post-installs mac-defaults ## Setup a new fresh machine. The target is idempotent.
 
 ##@ Installation
 
 core-macos: brew npm ruby ## Install core packages for macos: brew, npm and ruby
 
-installs: brew-packages cask-apps go-packages node-packages raw-installs post-installs ## Install brew, cask and language packages. Also install some raw package using bash script.
+installs: brew-packages cask-apps go-packages node-packages raw-installs ## Install brew, cask and language packages. Also install some raw package using bash script.
 
 brew-packages: brew ## Install brew packages from /install/brewfile
 	brew bundle --file=$(DOTFILES_DIR)/install/brewfile

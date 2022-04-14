@@ -20,3 +20,9 @@ fi
 # Install vim-plug
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# Install dockutil. Brew does not have the latest version
+DLURL=$(curl --silent "https://api.github.com/repos/kcrawford/dockutil/releases/latest" | jq -r .assets[].browser_download_url | grep pkg)
+curl -sL ${DLURL} -o /tmp/dockutil.pkg
+sudo installer -pkg "/tmp/dockutil.pkg" -target /
+rm /tmp/dockutil.pkg
