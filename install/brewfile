@@ -1,3 +1,4 @@
+# taps
 tap "aws/tap"
 tap "garden-io/garden"
 tap "hashicorp/tap"
@@ -8,11 +9,11 @@ tap "pulumi/tap"
 tap "TylerBrock/saw"
 tap "cooklang/tap"
 
-# utils
+# dev-utils
 brew "bat" # cat aternative
-brew "cooklang/tap/cook" # well, it is a recipe cli
 brew "coreutils"
 brew "git-delta" # pager for git
+brew "dive"
 brew "dockutil" # tools for managing mac dock items
 brew "dua-cli" # Disk Usage Analyzer
 brew "exa" # ls alternative
@@ -20,6 +21,9 @@ brew "fd" # Simple, fast and user-friendly alternative to find
 brew "findutils"
 brew "fzf"
 brew "gawk"
+brew "gh"
+brew "git"
+brew "git-extras"
 brew "grep"
 brew "gnutls"
 brew "gnu-getopt"
@@ -28,11 +32,13 @@ brew "gnu-sed"
 brew "gnu-tar"
 brew "htop" # htop alternative
 brew "httpie" # curl alternative
+brew "jesseduffield/lazygit/lazygit"
 brew "jless" # JSON viewer
-brew "mackup"
-brew "pandoc" # Swiss-army knife of markup format conversion
+brew "jq"
+brew "neovim"
 brew "peco" # Simplistic interactive filtering tool
 brew "ripgrep" # grep alternative
+brew "svn"
 brew "ssh-copy-id" # Add a public key to a remote machine's authorized_keys file
 brew "stow" # symlink farm manager
 brew "tree"
@@ -40,37 +46,40 @@ brew "wget"
 brew "zsh"
 brew "z"
 
+# other-utils
+brew "cooklang/tap/cook" # well, it is a recipe cli
+brew "mackup"
+brew "pandoc" # Swiss-army knife of markup format conversion
+
 # language tools
+## bash
 brew "bats-core" #bash automated testing system
-brew "cue-lang/tap/cue"
+brew "shellcheck" # Static analysis and lint tool, for (ba)sh scripts
+## go
 brew "go"
-brew "jenv"
-brew "mono" # Cross platform, open source .NET framework
+brew "golangci-lint"
+## python
 brew "protobuf"
 brew "python"
 brew "python@3"
 brew "pipenv"
-brew "shellcheck" # Static analysis and lint tool, for (ba)sh scripts
+## other
+brew "cue-lang/tap/cue"
+brew "jenv"
+brew "mono" # Cross platform, open source .NET framework
 
-# development tools
+# cloud tools
 brew "awscli"
 brew "aws-sam-cli"
 brew "azure-cli"
+brew "saw" # multi-purpose tool for AWS CloudWatch Logs
+
+# IAC tools
 brew "dagger/tap/dagger"
-brew "dive"
-brew "golangci-lint"
-brew "gh"
-brew "git"
-brew "git-extras"
 brew "hashicorp/tap/terraform"
 brew "hashicorp/tap/waypoint"
-brew "jesseduffield/lazygit/lazygit"
-brew "jq"
-brew "neovim"
 brew "pulumi"
 brew "pulumictl"
-brew "saw" # multi-purpose tool for AWS CloudWatch Logs
-brew "svn"
 
 # k8s related stuff
 brew "garden-cli"
