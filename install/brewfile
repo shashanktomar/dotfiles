@@ -17,7 +17,15 @@ brew "dockutil" # tools for managing mac dock items
 brew "dua-cli" # Disk Usage Analyzer
 brew "exa" # ls alternative
 brew "fd" # Simple, fast and user-friendly alternative to find
+brew "findutils"
 brew "fzf"
+brew "gawk"
+brew "grep"
+brew "gnutls"
+brew "gnu-getopt"
+brew "gnu-indent"
+brew "gnu-sed"
+brew "gnu-tar"
 brew "htop" # htop alternative
 brew "httpie" # curl alternative
 brew "jless" # JSON viewer

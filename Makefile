@@ -63,7 +63,7 @@ link: ## Create symlinks for zsh files and some other programs
 		mv -v $(HOME)/$$FILE{,.bak}; fi; done
 	mkdir -p $(XDG_CONFIG_HOME)
 	stow -t $(HOME) runcom
-	stow -t $(XDG_CONFIG_HOME) config
+	stow --no-folding -t $(XDG_CONFIG_HOME) config
 
 unlink: ## Delete symlinks for zsh files and some other programs
 	stow --delete -t $(HOME) runcom

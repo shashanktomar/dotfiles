@@ -17,9 +17,8 @@ else
     echo "$ZSH_PATH already exist. Not installing Oh-My-Zsh"
 fi
 
-# Install vim-plug
-curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# NvChad for nvim
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
 
 # Install dockutil. Brew does not have the latest version
 DLURL=$(curl --silent "https://api.github.com/repos/kcrawford/dockutil/releases/latest" | jq -r .assets[].browser_download_url | grep pkg)
