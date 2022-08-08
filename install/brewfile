@@ -11,6 +11,7 @@ tap "cooklang/tap"
 
 # dev-utils
 brew "bat" # cat aternative
+brew "cmake"
 brew "coreutils"
 brew "git-delta" # pager for git
 brew "dive"
