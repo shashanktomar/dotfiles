@@ -58,6 +58,9 @@ brew "shellcheck" # Static analysis and lint tool, for (ba)sh scripts
 ## go
 brew "go"
 brew "golangci-lint"
+## lua
+brew "lua"
+brew "luarocks"
 ## python
 brew "protobuf"
 brew "python"
