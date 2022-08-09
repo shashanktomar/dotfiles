@@ -50,7 +50,12 @@ M.user = {
       require "custom.plugins.lspconfig"
     end,
   },
-  
+
+  -- treesitter related plugins
+  ["nvim-treesitter/playground"] = {
+    after = "nvim-treesitter"
+  },
+
   -- cmp related plugins
   ["hrsh7th/cmp-cmdline"] = {
     after = "cmp-buffer"
@@ -66,6 +71,7 @@ M.remove = {
 }
 
 M.override = {
+  ['nvim-treesitter/nvim-treesitter'] = require "custom.plugins.treesitter",
   ["williamboman/mason.nvim"] = {
     ensure_installed = require("custom.plugins.mason").ensure_installed
   },
