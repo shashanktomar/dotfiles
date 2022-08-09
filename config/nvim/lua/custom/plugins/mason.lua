@@ -17,8 +17,10 @@ M.ensure_installed = {
   "typescript-language-server",
   "prettierd",
   "eslint_d",
+  "eslint-lsp",
 
   --other
+  "dockerfile-language-server",
   "markdownlint",
   "json-lsp",
   "jq",

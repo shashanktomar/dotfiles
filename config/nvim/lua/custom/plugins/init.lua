@@ -51,6 +51,17 @@ M.user = {
     end,
   },
 
+  ["jose-elias-alvarez/null-ls.nvim"] = {
+    after = "nvim-lspconfig",
+    config = function ()
+      require "custom.plugins.nullls"
+    end
+  },
+
+  -- ["tamago324/nlsp-settings.nvim"] = {
+    -- after = "nvim-lspconfig"
+  -- },
+
   -- treesitter related plugins
   ["nvim-treesitter/playground"] = {
     after = "nvim-treesitter"

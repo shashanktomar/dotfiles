@@ -8,7 +8,7 @@ M.editing = {
 
   n = {
     -- Use space only as leader key
-    -- ["<Space>"] = { "<Nop>"},
+    ["<Space>"] = { "<Nop>"},
 
     -- Move text
     ["<A-Down>"] = { "<Esc>:m .+1<CR>", " move line down"},
