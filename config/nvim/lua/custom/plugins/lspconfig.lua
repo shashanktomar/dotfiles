@@ -25,6 +25,7 @@ for _, plugin in ipairs(servers) do
 	lsp[plugin].setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
+    root_dir = lsp.util.root_pattern('.git')
 	})
 end
 

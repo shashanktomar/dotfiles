@@ -20,6 +20,7 @@ M.ensure_installed = {
   "eslint-lsp",
 
   --other
+  "codespell",
   "dockerfile-language-server",
   "markdownlint",
   "json-lsp",
