@@ -13,12 +13,12 @@ local completion = null_ls.builtins.completion
 local sources = {
 	code_actions.eslint_d,
 	-- code_actions.prettierd,
-	code_actions.gitsigns,
+	-- code_actions.gitsigns,
 	code_actions.shellcheck,
 
 	formatting.eslint_d,
 	formatting.shfmt,
-	-- formatting.perttierd,
+	formatting.prettierd,
 	formatting.stylua,
 	formatting.codespell,
 
