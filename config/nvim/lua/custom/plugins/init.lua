@@ -79,6 +79,11 @@ M.user = {
 	-- Other
 	["shashanktomar/vim-myhelp"] = {},
 	["mhinz/vim-startify"] = {},
+	["rcarriga/nvim-notify"] = {
+		config = function()
+			require("custom.plugins.notify")
+		end,
+	},
 }
 
 M.remove = {
