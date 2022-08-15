@@ -3,7 +3,8 @@ local M = {}
 M.editing = {
 	i = {
 		-- Press jj fast to exit insert mode
-		["jj"] = { "<Esc>", " exit insert mode" },
+		["jk"] = { "<Esc>", " exit insert mode" },
+		["<Esc>"] = { "<Nop>", "", { noremap = true } },
 	},
 
 	n = {
@@ -13,6 +14,7 @@ M.editing = {
 		-- Move text
 		["<A-Down>"] = { "<Esc>:m .+1<CR>", " move line down" },
 		["<A-Up>"] = { "<Esc>:m .-2<CR>", " move line up" },
+    -- remember that swap lines is `ddp`
 
 		-- Duplicate lines
 		["<A-S-Down>"] = { "yyp", " copy line down" },
@@ -21,12 +23,12 @@ M.editing = {
 }
 
 M.window = {
-   n = {
-        ["<C-S-Up>"] = { ":resize -2<CR>", " increase size up" },
-        ["<C-S-Down>"] = { ":resize +2<CR>", " increase size down" },
-        ["<C-S-Left>"] = { ":vertical resize -2<CR>", " increase size left" },
-        ["<C-S-Right>"] = { ":vertical resize +2<CR>", " increase size right" },
-    }
+	n = {
+		["<C-S-Up>"] = { ":resize -2<CR>", " increase size up" },
+		["<C-S-Down>"] = { ":resize +2<CR>", " increase size down" },
+		["<C-S-Left>"] = { ":vertical resize -2<CR>", " increase size left" },
+		["<C-S-Right>"] = { ":vertical resize +2<CR>", " increase size right" },
+	},
 }
 
 M.nvterm = {
