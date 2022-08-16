@@ -10,7 +10,8 @@ M.editing = {
 	n = {
 		-- Use space only as leader key
 		["<Space>"] = { "<Nop>" },
-
+    -- save file
+    ["<leader>w"] = { "<Esc>:w <CR>", " save file"},
 		-- Move text
 		["<A-Down>"] = { "<Esc>:m .+1<CR>", " move line down" },
 		["<A-Up>"] = { "<Esc>:m .-2<CR>", " move line up" },

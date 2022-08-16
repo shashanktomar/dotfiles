@@ -93,6 +93,7 @@ M.mason = {
 		"jq",
 		"json-lsp",
 		"markdownlint",
+    "vale"
 	},
 }
 

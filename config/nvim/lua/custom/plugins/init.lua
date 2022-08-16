@@ -84,6 +84,9 @@ M.user = {
 			require("custom.plugins.notify")
 		end,
 	},
+	["folke/which-key.nvim"] = {
+		disable = false,
+	},
 }
 
 M.remove = {
