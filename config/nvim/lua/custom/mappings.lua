@@ -10,16 +10,19 @@ M.editing = {
 	n = {
 		-- Use space only as leader key
 		["<Space>"] = { "<Nop>" },
-    -- save file
-    ["<leader>w"] = { "<Esc>:w <CR>", " save file"},
+		-- save file
+		["<leader>w"] = { "<Esc>:w <CR>", " save file" },
 		-- Move text
 		["<A-Down>"] = { "<Esc>:m .+1<CR>", " move line down" },
 		["<A-Up>"] = { "<Esc>:m .-2<CR>", " move line up" },
-    -- remember that swap lines is `ddp`
+		-- remember that swap lines is `ddp`
 
 		-- Duplicate lines
 		["<A-S-Down>"] = { "yyp", " copy line down" },
 		["<A-S-Up>"] = { "yyP", " copy line up" },
+
+		-- Enter a new line without entering insert mode
+		["<A-o>"] = { "o<Esc>", "- insert a new line" },
 	},
 }
 
