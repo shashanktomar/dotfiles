@@ -5,7 +5,6 @@ opt.tabstop = 2
 opt.softtabstop = 2
 opt.shiftwidth = 2
 
-opt.ttimeoutlen = 1000 -- Time in milliseconds to wait for a key code sequence to complete
 opt.backup = false -- disable a backup file
 opt.swapfile = true -- enable swap file creation
 opt.dir = vim.fn.stdpath("data") .. "/swp" -- swap file directory

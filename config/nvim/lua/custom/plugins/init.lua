@@ -54,7 +54,7 @@ M.user = {
 	["jose-elias-alvarez/null-ls.nvim"] = {
 		after = "nvim-lspconfig",
 		config = function()
-			require("custom.plugins.null-ls")
+			require("custom.plugins.null_ls")
 		end,
 	},
 
@@ -93,12 +93,13 @@ M.remove = {
 	"goolord/alpha-nvim",
 }
 
-local overrides = require("custom.plugins.overrides")
-
 M.override = {
-	["kyazdani42/nvim-tree.lua"] = overrides.nvim_tree,
-	["nvim-treesitter/nvim-treesitter"] = overrides.treesitter,
-	["williamboman/mason.nvim"] = overrides.mason,
+	["kyazdani42/nvim-tree.lua"] = require("custom.plugins.nvim_tree"),
+	["nvim-treesitter/nvim-treesitter"] = require("custom.plugins.treesitter"),
+	["williamboman/mason.nvim"] = require("custom.plugins.mason"),
+
+	["nvim-telescope/telescope.nvim"] = require("custom.plugins.telescope"),
+
 	["hrsh7th/nvim-cmp"] = function()
 		local cmp = require("cmp")
 		return require("custom.plugins.cmp")(cmp)
