@@ -2,10 +2,10 @@ local autocmd = vim.api.nvim_create_autocmd
 local createGroup = vim.api.nvim_create_augroup
 
 -- Close nvim if NvimTree is only running buffer
-autocmd(
-  "BufEnter",
-  { command = [[if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]] }
-)
+-- autocmd(
+--   "BufEnter",
+--   { command = [[if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]] }
+-- )
 
 -- Highlight on yank
 autocmd("TextYankPost", {

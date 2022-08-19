@@ -1,17 +1,25 @@
 local M = {}
 
+M.unregister = {
+	n = {
+		["<leader>wK"] = { "<Nop>", "" }, -- unmap which-key mapped by nvchad
+		["<leader>wk"] = { "<Nop>", "" }, -- unmap which-key mapped by nvchad
+		["<leader>fw"] = { "<Nop>", "" }, -- unmap find live_grep mapped by nvchad
+	},
+}
+
 M.editing = {
 	i = {
 		-- Press jj fast to exit insert mode
-		["jk"] = { "<Esc>", " exit insert mode" },
-		["<Esc>"] = { "<Nop>", "", { noremap = true } },
+		["jk"] = { "<Esc>", " exit insert mode", { nowait = true } },
+		["<Esc>"] = { "<Nop>", "" },
 	},
 
 	n = {
 		-- Use space only as leader key
 		["<Space>"] = { "<Nop>" },
 		-- save file
-		["<leader>w"] = { "<Esc>:w <CR>", " save file" },
+		["<leader>w"] = { "<Esc>:w<CR>", " save file", { nowait = true } },
 		-- Move text
 		["<A-Down>"] = { "<Esc>:m .+1<CR>", " move line down" },
 		["<A-Up>"] = { "<Esc>:m .-2<CR>", " move line up" },
@@ -38,7 +46,7 @@ M.window = {
 }
 
 M.nvterm = {
-  plugin = true,
+	plugin = true,
 	n = {
 		["<C-`>"] = {
 			function()
@@ -68,14 +76,6 @@ M.nvterm = {
 			"   toggle vertical term",
 		},
 	},
-}
-
-M.telescope = {
-  plugin = true,
-
-  n = {
-    ["<leader>fp"] = { "<cmd> Telescope projects <CR>", "open projects" },
-  }
 }
 
 return M
