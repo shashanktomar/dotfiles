@@ -32,10 +32,13 @@ M.window = {
 		["<C-S-Down>"] = { ":resize +2<CR>", " increase size down" },
 		["<C-S-Left>"] = { ":vertical resize -2<CR>", " increase size left" },
 		["<C-S-Right>"] = { ":vertical resize +2<CR>", " increase size right" },
+
+		["<leader>s"] = { "<Esc>:SymbolsOutline<CR>" },
 	},
 }
 
 M.nvterm = {
+  plugin = true,
 	n = {
 		["<C-`>"] = {
 			function()
@@ -67,10 +70,12 @@ M.nvterm = {
 	},
 }
 
-M.windows = {
-	n = {
-		["<leader>s"] = { "<Esc>:SymbolsOutline<CR>" },
-	},
+M.telescope = {
+  plugin = true,
+
+  n = {
+    ["<leader>fp"] = { "<cmd> Telescope projects <CR>", "open projects" },
+  }
 }
 
 return M

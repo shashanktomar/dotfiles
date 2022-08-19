@@ -43,6 +43,22 @@
 local M = {}
 
 M.user = {
+	-- telescope related plugins
+	-- see this https://github.com/NvChad/NvChad/issues/1255
+	["nvim-telescope/telescope.nvim"] = {
+		module = "telescope",
+		config = function()
+			require("plugins.configs.telescope")
+			require("custom.plugins.telescope").setup_extensions()
+		end,
+	},
+
+	["ahmedkhalf/project.nvim"] = {
+	  config = function()
+	    require("custom.plugins.project")
+	  end
+	},
+
 	-- LSP Related Plugins
 	["neovim/nvim-lspconfig"] = {
 		config = function()
@@ -60,6 +76,9 @@ M.user = {
 
 	["simrat39/symbols-outline.nvim"] = {
 		after = "nvim-lspconfig",
+    config = function ()
+      require("custom.plugins.symbols-outline")
+    end
 	},
 
 	-- ["tamago324/nlsp-settings.nvim"] = {
@@ -84,6 +103,7 @@ M.user = {
 			require("custom.plugins.notify")
 		end,
 	},
+
 	["folke/which-key.nvim"] = {
 		disable = false,
 	},
@@ -97,8 +117,7 @@ M.override = {
 	["kyazdani42/nvim-tree.lua"] = require("custom.plugins.nvim_tree"),
 	["nvim-treesitter/nvim-treesitter"] = require("custom.plugins.treesitter"),
 	["williamboman/mason.nvim"] = require("custom.plugins.mason"),
-
-	["nvim-telescope/telescope.nvim"] = require("custom.plugins.telescope"),
+	["nvim-telescope/telescope.nvim"] = require("custom.plugins.telescope").setup_options,
 
 	["hrsh7th/nvim-cmp"] = function()
 		local cmp = require("cmp")

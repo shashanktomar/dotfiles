@@ -1,6 +1,6 @@
-local present, null_ls = pcall(require, "null-ls")
+local ok, null_ls = pcall(require, "null-ls")
 
-if not present then
+if not ok then
 	return
 end
 

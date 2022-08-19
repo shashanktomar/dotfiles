@@ -17,6 +17,7 @@ local servers = {
 	"html",
 	"jsonls",
 	"kotlin_language_server",
+	"marksman",
 	"tsserver",
 	"yamlls",
 }
@@ -25,7 +26,7 @@ for _, plugin in ipairs(servers) do
 	lsp[plugin].setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
-    root_dir = lsp.util.root_pattern('.git')
+		root_dir = lsp.util.root_pattern(".git"),
 	})
 end
 

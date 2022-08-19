@@ -25,6 +25,7 @@ M.ensure_installed = {
 	"jq",
 	"json-lsp",
 	"markdownlint",
+  "marksman",
 	"vale",
 }
 
