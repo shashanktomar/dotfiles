@@ -2,9 +2,12 @@ local M = {}
 
 M.unregister = {
 	n = {
-		["<leader>wK"] = { "<Nop>", "" }, -- unmap which-key mapped by nvchad
-		["<leader>wk"] = { "<Nop>", "" }, -- unmap which-key mapped by nvchad
-		["<leader>fw"] = { "<Nop>", "" }, -- unmap find live_grep mapped by nvchad
+		["<leader>wK"] = { "<Nop>" }, -- unmap which-key mapped by nvchad
+		["<leader>wk"] = { "<Nop>" }, -- unmap which-key mapped by nvchad
+		["<leader>fw"] = { "<Nop>" }, -- unmap find live_grep mapped by nvchad
+		["<leader>tk"] = { "<Nop>" }, -- unmap telescope keymaps
+		["<leader>gt"] = { "<Nop>" }, -- unmap git status 
+		["<leader>cm"] = { "<Nop>" }, -- unmap git commits
 	},
 }
 
@@ -12,7 +15,7 @@ M.editing = {
 	i = {
 		-- Press jj fast to exit insert mode
 		["jk"] = { "<Esc>", " exit insert mode", { nowait = true } },
-		["<Esc>"] = { "<Nop>", "" },
+		["<Esc>"] = { "<Nop>" },
 	},
 
 	n = {

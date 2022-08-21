@@ -19,6 +19,6 @@ return function()
 				},
 			},
 		},
-		extensions_list = { "themes", "terms", "projects", "file_browser", "ui-select", "fzf" },
+		extensions_list = { "themes", "terms", "projects", "file_browser", "ui-select", "fzf", "env" },
 	}
 end

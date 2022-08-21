@@ -9,7 +9,7 @@ M.plugins = {
 }
 
 M.ui = {
-    theme = "everforest"
+    theme = "chadracula"
 }
 
 M.mappings = require "custom.mappings"

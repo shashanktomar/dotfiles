@@ -14,8 +14,8 @@ M.register = function()
 				name = "find",
 				a = { "all files in project" },
 				b = { "open buffers" },
-        c = { "<cmd>Telescope command_history<cr>", "command history"},
-				e = { "<cmd>Telescope file_browser<cr>", "file system" },
+				c = { "<cmd>Telescope command_history<cr>", "command history" },
+				e = { "<cmd>Telescope file_browser<cr>", "explore file system" },
 				f = { "files in project" },
 				g = { "<cmd>Telescope live_grep<cr>", "live grep" },
 				h = { "help pages" },
@@ -26,10 +26,17 @@ M.register = function()
 				x = {
 					name = "other",
 					a = { "<cmd>Telescope autocommands<cr>", "vim autocommands" },
+					e = { "<cmd>Telescope env<cr>", "environment vars" },
 					k = { "<cmd>Telescope keymaps<cr>", "normal mode keymaps" },
 					o = { "<cmd>Telescope vim_options<cr>", "vim options" },
 				},
 			},
+      g = {
+        name = "git",
+        b = { "<cmd> Telescope git_branches <CR>", "branches" },
+        c = { "<cmd> Telescope git_commits <CR>", "commits" },
+        s = { "<cmd> Telescope git_status <CR>", "status" }
+      },
 			["?"] = {
 				function()
 					vim.cmd("WhichKey")

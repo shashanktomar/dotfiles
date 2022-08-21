@@ -22,4 +22,13 @@ M.notify = function(message, level, title)
   require("notify")(message, level, notify_options)
 end
 
+M.create_dir = function (path)
+  local present = vim.fn.isdirectory(path)
+  if present == 1 then
+    return
+  end
+
+  vim.fn.mkdir(path)
+end
+
 return M
