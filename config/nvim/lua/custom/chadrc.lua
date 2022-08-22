@@ -1,17 +1,17 @@
 -- Just an example, supposed to be placed in /lua/custom/
 local M = {}
-local customPlugins = require "custom.plugins"
+local customPlugins = require("custom.plugins")
 -- make sure you maintain the structure of `core/default_config.lua` here,
 M.plugins = {
-    user = customPlugins.user,
-    remove = customPlugins.remove,
-    override = customPlugins.override,
+	user = customPlugins.user,
+	remove = customPlugins.remove,
+	override = customPlugins.override,
 }
 
 M.ui = {
-    theme = "chadracula"
+	theme = "chadracula",
 }
 
-M.mappings = require "custom.mappings"
+M.mappings = require("custom.mappings")
 
 return M

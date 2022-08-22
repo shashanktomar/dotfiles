@@ -27,7 +27,7 @@ autocmd("FileType", {
 autocmd("FileType", { pattern = "man", command = [[nnoremap <buffer><silent> q :quit<CR>]] })
 
 -- Enable spell checking for certain file types
-autocmd(
-  { "BufRead", "BufNewFile" },
-  { pattern = { "*.txt", "*.md", "*.tex" }, command = "setlocal spell" }
-)
+-- autocmd(
+--   { "BufRead", "BufNewFile" },
+--   { pattern = { "*.txt", "*.md", "*.tex" }, command = "setlocal spell" }
+-- )

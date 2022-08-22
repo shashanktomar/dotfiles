@@ -8,6 +8,8 @@ M.register = function()
 	end
 
 	wk.register({
+		["<M-n>"] = { "next usage of word under cursor" }, -- powered by illuminate
+		["<M-p>"] = { "previous usage of word under cursor" }, -- powered by illuminate
 		["<leader>"] = {
 			name = "|____|",
 			f = {
@@ -26,17 +28,18 @@ M.register = function()
 				x = {
 					name = "other",
 					a = { "<cmd>Telescope autocommands<cr>", "vim autocommands" },
+					c = { "<cmd>Telescope commands<cr>", "vim commands" },
 					e = { "<cmd>Telescope env<cr>", "environment vars" },
 					k = { "<cmd>Telescope keymaps<cr>", "normal mode keymaps" },
 					o = { "<cmd>Telescope vim_options<cr>", "vim options" },
 				},
 			},
-      g = {
-        name = "git",
-        b = { "<cmd> Telescope git_branches <CR>", "branches" },
-        c = { "<cmd> Telescope git_commits <CR>", "commits" },
-        s = { "<cmd> Telescope git_status <CR>", "status" }
-      },
+			g = {
+				name = "git",
+				b = { "<cmd> Telescope git_branches <CR>", "branches" },
+				c = { "<cmd> Telescope git_commits <CR>", "commits" },
+				s = { "<cmd> Telescope git_status <CR>", "status" },
+			},
 			["?"] = {
 				function()
 					vim.cmd("WhichKey")

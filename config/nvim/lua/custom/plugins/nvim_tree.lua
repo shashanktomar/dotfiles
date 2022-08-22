@@ -16,6 +16,11 @@ M.renderer = {
   icons = {
     show = {
       git = config.enable_git_icons
+    },
+    glyphs = {
+      git = {
+        unstaged = ""
+      }
     }
   }
 }

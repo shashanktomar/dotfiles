@@ -43,12 +43,12 @@
 local M = {}
 
 M.user = {
-  -- plugins used by other plugins
-  ["kkharji/sqlite.lua"] = {
-    config = function ()
-      require("custom.utils").create_dir(vim.fn.stdpath("data") .. "/databases") -- create databases directory if missing
-    end
-  },
+	-- plugins used by other plugins
+	["kkharji/sqlite.lua"] = {
+		config = function()
+			require("custom.utils").create_dir(vim.fn.stdpath("data") .. "/databases") -- create databases directory if missing
+		end,
+	},
 
 	-- telescope related plugins
 	-- see this https://github.com/NvChad/NvChad/issues/1255
@@ -58,7 +58,7 @@ M.user = {
 	["nvim-telescope/telescope-file-browser.nvim"] = {},
 	["nvim-telescope/telescope-symbols.nvim"] = {},
 	["nvim-telescope/telescope-ui-select.nvim"] = {},
-  ["LinArcX/telescope-env.nvim"] = {},
+	["LinArcX/telescope-env.nvim"] = {},
 	["nvim-telescope/telescope-fzf-native.nvim"] = { run = "make" },
 
 	["ahmedkhalf/project.nvim"] = {
@@ -86,6 +86,13 @@ M.user = {
 		after = "nvim-lspconfig",
 		config = function()
 			require("custom.plugins.symbols-outline")
+		end,
+	},
+
+	["RRethy/vim-illuminate"] = {
+		after = "nvim-lspconfig",
+		config = function()
+			require("custom.plugins.illuminate")
 		end,
 	},
 

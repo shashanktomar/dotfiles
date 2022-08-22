@@ -8,6 +8,22 @@ return function()
 				override_file_sorter = true, -- override the file sorter
 				case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 			},
+			project = {
+				theme = "ivy", -- TODO: not working for some reason
+			},
+		},
+		pickers = {
+			find_files = {
+				hidden = true,
+			},
+      oldfiles = {
+        initial_mode = "normal"
+      },
+			buffers = {
+				ignore_current_buffer = true,
+				initial_mode = "normal",
+				sort_mru = true,
+			},
 		},
 		defaults = {
 			prompt_prefix = " ",
