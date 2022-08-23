@@ -69,7 +69,7 @@ brew "python"
 brew "python@3"
 brew "pipenv"
 ## rust
-brew rust-analyzer
+brew "rust-analyzer"
 ## other
 brew "cue-lang/tap/cue"
 brew "jenv"
