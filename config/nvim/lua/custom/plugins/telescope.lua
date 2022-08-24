@@ -16,13 +16,18 @@ return function()
 			find_files = {
 				hidden = true,
 			},
-      oldfiles = {
-        initial_mode = "normal"
-      },
+			oldfiles = {
+				initial_mode = "normal",
+			},
 			buffers = {
 				ignore_current_buffer = true,
 				initial_mode = "normal",
 				sort_mru = true,
+				mappings = {
+					n = {
+						["x"] = actions.delete_buffer,
+					},
+				},
 			},
 		},
 		defaults = {

@@ -1,13 +1,19 @@
 local M = {}
 
+-- Most of the keymaps are defined under whichkey config
+
 M.unregister = {
 	n = {
 		["<leader>wK"] = { "<Nop>" }, -- unmap which-key mapped by nvchad
 		["<leader>wk"] = { "<Nop>" }, -- unmap which-key mapped by nvchad
 		["<leader>fw"] = { "<Nop>" }, -- unmap find live_grep mapped by nvchad
 		["<leader>tk"] = { "<Nop>" }, -- unmap telescope keymaps
-		["<leader>gt"] = { "<Nop>" }, -- unmap git status 
+		["<leader>gt"] = { "<Nop>" }, -- unmap git status
 		["<leader>cm"] = { "<Nop>" }, -- unmap git commits
+		["<leader>rn"] = { "<Nop>" }, -- unmap relative line number mapped by nvchad
+		["<leader>ra"] = { "<Nop>" }, -- unmap lsp rename mapped by nvchad
+		["<leader>fm"] = { "<Nop>" }, -- unmap lsp formatting mapped by nvchad
+		["<C-s>"] = { "<Nop>" }, -- unmap save file mapped by nvchad
 	},
 }
 
@@ -21,8 +27,6 @@ M.editing = {
 	n = {
 		-- Use space only as leader key
 		["<Space>"] = { "<Nop>" },
-		-- save file
-		["<leader>w"] = { "<Esc>:w<CR>", " save file", { nowait = true } },
 		-- Move text
 		["<A-Down>"] = { "<Esc>:m .+1<CR>", " move line down" },
 		["<A-Up>"] = { "<Esc>:m .-2<CR>", " move line up" },
@@ -43,8 +47,6 @@ M.window = {
 		["<C-S-Down>"] = { ":resize +2<CR>", " increase size down" },
 		["<C-S-Left>"] = { ":vertical resize -2<CR>", " increase size left" },
 		["<C-S-Right>"] = { ":vertical resize +2<CR>", " increase size right" },
-
-		["<leader>s"] = { "<Esc>:SymbolsOutline<CR>" },
 	},
 }
 

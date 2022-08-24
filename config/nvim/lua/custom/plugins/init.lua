@@ -98,10 +98,6 @@ M.user = {
 		end,
 	},
 
-	-- ["tamago324/nlsp-settings.nvim"] = {
-	-- after = "nvim-lspconfig"
-	-- },
-
 	-- treesitter related plugins
 	["nvim-treesitter/playground"] = {
 		after = "nvim-treesitter",
@@ -110,6 +106,10 @@ M.user = {
 	-- cmp related plugins
 	["hrsh7th/cmp-cmdline"] = {
 		after = "cmp-buffer",
+	},
+
+	["lukas-reineke/cmp-rg"] = {
+		after = "cmp-cmdline",
 	},
 
 	-- Other

@@ -12,6 +12,27 @@ M.register = function()
 		["<M-p>"] = { "previous usage of word under cursor" }, -- powered by illuminate
 		["<leader>"] = {
 			name = "|____|",
+			c = {
+				name = "code",
+				f = {
+					function()
+						vim.lsp.buf.formatting({})
+					end,
+					"format [LSP]",
+				},
+				r = {
+					function()
+						require("nvchad_ui.renamer").open()
+					end,
+					"rename [LSP]",
+				},
+				s = {
+					function()
+						vim.lsp.buf.signature_help()
+					end,
+					"signature help [LSP]",
+				},
+			},
 			f = {
 				name = "find",
 				a = { "all files in project" },
@@ -40,6 +61,15 @@ M.register = function()
 				c = { "<cmd> Telescope git_commits <CR>", "commits" },
 				s = { "<cmd> Telescope git_status <CR>", "status" },
 			},
+			o = {
+				name = "open",
+				s = { "<cmd> SymbolsOutline <CR>", "symbols window" },
+			},
+			s = { "<cmd> w <CR>", "save buffer" },
+			S = { "<cmd> wa <CR>", "save all buffers" },
+			w = {
+				name = "workspace",
+			},
 			["?"] = {
 				function()
 					vim.cmd("WhichKey")
@@ -52,11 +82,9 @@ end
 
 M.options = function()
 	local opt = {}
-
 	opt.icons = {
 		group = "",
 	}
-
 	return opt
 end
 
