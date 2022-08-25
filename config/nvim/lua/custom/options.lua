@@ -38,8 +38,3 @@ vim.cmd([[set iskeyword+=-]])
 vim.opt.shortmess:append("c")
 vim.cmd("set inccommand=split") -- incremental substitution as explained here https://www.youtube.com/watch?v=sA3z6gsqOuw
 vim.cmd("set rnu!") -- set relative line numbers by default
-
--- illuminate related settings
-vim.cmd("highlight link IlluminatedWordText Visual")
-vim.cmd("highlight link IlluminatedWordRead Visual")
-vim.cmd("highlight link IlluminatedWordWrite Visual")

@@ -8,8 +8,8 @@ return function()
 				override_file_sorter = true, -- override the file sorter
 				case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 			},
-			project = {
-				theme = "ivy", -- TODO: not working for some reason
+			["ui-select"] = {
+				require("telescope.themes").get_cursor({}),
 			},
 		},
 		pickers = {
@@ -29,6 +29,10 @@ return function()
 					},
 				},
 			},
+			project = { -- TODO: this is not working
+				initial_mode = "normal",
+				theme = "ivy",
+			},
 		},
 		defaults = {
 			prompt_prefix = " ",
@@ -40,6 +44,6 @@ return function()
 				},
 			},
 		},
-		extensions_list = { "themes", "terms", "projects", "file_browser", "ui-select", "fzf", "env" },
+		extensions_list = { "themes", "terms", "project", "file_browser", "ui-select", "fzf", "env" },
 	}
 end

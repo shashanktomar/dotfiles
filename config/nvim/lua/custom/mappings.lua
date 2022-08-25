@@ -17,6 +17,7 @@ M.disabled = {
 		["<leader>D"] = "", -- unmap lsp type-definition mapped by nvchad
 		["<leader>f"] = "", -- unmap floating diagnostic mapped by nvchad
 		["<leader>q"] = "", -- unmap diagnostic setloclist mapped by nvchad
+		["<leader>ca"] = "", -- unmap lsp code action mapped by nvchad
 		["[d"] = "", -- unmap lsp goto previous diagnostic mapped by nvchad
 		["]d"] = "", -- unmap lsp goto next diagnostic mapped by nvchad
 		["d]"] = "", -- unmap lsp goto buggy next diagnostic mapped by nvchad
@@ -34,6 +35,7 @@ M.editing = {
 	i = {
 		-- Press jj fast to exit insert mode
 		["jk"] = { "<Esc>", " exit insert mode", { nowait = true } },
+		["kj"] = { "<Esc>", " exit insert mode", { nowait = true } },
 		["<Esc>"] = { "<Nop>" },
 	},
 
@@ -56,6 +58,8 @@ M.editing = {
 
 M.lsp = {
 	n = {
+    ["gh"] = { "<cmd> Lspsaga lsp_finder <CR>", "lsp finder [lsp-saga]"},
+    ["<leader>ca"] = { "<cmd> Lspsaga code_action <CR>", "code action [lsp-saga]"},
 		["<leader>r"] = {
 			function()
 				require("nvchad_ui.renamer").open()
@@ -70,19 +74,8 @@ M.lsp = {
 			"floating diagnostic [LSP]",
 		},
 
-		["[d"] = {
-			function()
-				vim.diagnostic.goto_prev()
-			end,
-			"previous diagnostic [LSP]",
-		},
-
-		["]d"] = {
-			function()
-				vim.diagnostic.goto_next()
-			end,
-			"next diagnostic [LSP]",
-		},
+		["[d"] = { "<cmd> Lspsaga diagnostic_jump_prev <CR>", "previous diagnostic [lsp-saga]"},
+		["]d"] = { "<cmd> Lspsaga diagnostic_jump_next <CR>", "next diagnostic [lsp-saga]"},
 
 		["<leader>cf"] = {
 			function()
@@ -126,12 +119,13 @@ M.find = {
 		["<leader>fc"] = { "<cmd> Telescope command_history <CR>", "command history" },
 		["<leader>fe"] = { "<cmd> Telescope file_browser <CR>", "explore file system" },
 		["<leader>fg"] = { "<cmd> Telescope live_grep <CR>", "live grep" },
-		["<leader>fp"] = { "<cmd> Telescope projects <CR>", "projects" },
+		["<leader>fp"] = { "<cmd> Telescope project <CR>", "projects" },
 		["<leader>fs"] = { "<cmd> Telescope symbols <CR>", "symbols" },
 		["<leader>fw"] = { "<cmd> Telescope grep_string <CR>", "grep word under cursor" },
 		["<leader>fxa"] = { "<cmd> Telescope autocommands <CR>", "vim autocommands" },
 		["<leader>fxc"] = { "<cmd> Telescope commands <CR>", "vim commands" },
 		["<leader>fxe"] = { "<cmd> Telescope env <CR>", "environment vars" },
+		["<leader>fxh"] = { "<cmd> Telescope highlights <CR>", "environment vars" },
 		["<leader>fxk"] = { "<cmd> Telescope keymaps <CR>", "normal mode keymaps" },
 		["<leader>fxo"] = { "<cmd> Telescope vim_options <CR>", "vim options" },
 

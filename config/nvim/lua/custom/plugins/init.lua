@@ -58,14 +58,9 @@ M.user = {
 	["nvim-telescope/telescope-file-browser.nvim"] = {},
 	["nvim-telescope/telescope-symbols.nvim"] = {},
 	["nvim-telescope/telescope-ui-select.nvim"] = {},
+	["nvim-telescope/telescope-project.nvim"] = {},
 	["LinArcX/telescope-env.nvim"] = {},
 	["nvim-telescope/telescope-fzf-native.nvim"] = { run = "make" },
-
-	["ahmedkhalf/project.nvim"] = {
-		config = function()
-			require("custom.plugins.project")
-		end,
-	},
 
 	-- LSP Related Plugins
 	["neovim/nvim-lspconfig"] = {
@@ -98,6 +93,12 @@ M.user = {
 		end,
 	},
 
+  ["glepnir/lspsaga.nvim"]= {
+    config = function ()
+      require("custom.plugins.lspsaga")
+    end
+  },
+
 	-- treesitter related plugins
 	["nvim-treesitter/playground"] = {
 		after = "nvim-treesitter",
@@ -114,7 +115,11 @@ M.user = {
 
 	-- Other
 	["shashanktomar/vim-myhelp"] = {},
-	["mhinz/vim-startify"] = {},
+	["mhinz/vim-startify"] = {
+    config = function ()
+      require("custom.plugins.startify")
+    end
+  },
 	["editorconfig/editorconfig-vim"] = {},
 	["rcarriga/nvim-notify"] = {
 		config = function()

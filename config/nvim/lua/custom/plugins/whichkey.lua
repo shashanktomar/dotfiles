@@ -30,7 +30,6 @@ M.register = function()
 			name = "|____|",
 			c = {
 				name = "code",
-        a = { "code action [LSP]" }
 			},
 			f = {
 				name = "find",
