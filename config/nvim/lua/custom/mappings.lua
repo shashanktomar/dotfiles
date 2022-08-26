@@ -62,12 +62,12 @@ M.movement = {
 		-- also check treesitter config
 
 		-- remember that swap lines is `ddp`
-		["<M-Down>"] = { "<Esc>:m .+1<CR>", " move line down" },
-		["<M-S-Down>"] = { "yyp", " copy line down" },
-		["<M-Up>"] = { "<Esc>:m .-2<CR>", " move line up" },
-		["<M-S-Up>"] = { "yyP", " copy line up" },
-		["<M-o>"] = { "o<Esc>", "↵ insert a new line" },
-		["<M-l>"] = { "<cmd> set rnu! <CR>", "toggle relative line numbers" },
+		["<M-j>"] = { "<Esc>:m .+1<CR>", " move line down" },
+		["<M-k>"] = { "<Esc>:m .-2<CR>", " move line up" },
+		["<M-J>"] = { "yyp", " copy line down" },
+		["<M-K>"] = { "yyP", " copy line up" },
+		["<M-o>"] = { "o<Esc>", "↵ insert a new line down" },
+		["<M-O>"] = { "O<Esc>", "↵ insert a new line up" },
 	},
 }
 
@@ -150,12 +150,30 @@ M.find = {
 
 M.git = {
 	n = {
-		["<leader>gb"] = { "<cmd> Telescope git_branches <CR>", "branches" },
-		["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "commits" },
-		["<leader>gs"] = { "<cmd> Telescope git_status <CR>", "status" },
+		["<leader>ga"] = { "<cmd> Gitsigns stage_buffer <CR>", "stage buffer" },
+		["<leader>ghs"] = { "<cmd> Gitsigns stage_hunk <CR>", "stage hunk" },
+		["<leader>ghS"] = { "<cmd> Gitsigns undo_stage_hunk <CR>", "unstage hunk" },
+		["<leader>ghr"] = { "<cmd> Gitsigns reset_hunk <CR>", "reset hunk" },
+		["<leader>gx"] = { "<cmd> Gitsigns reset_buffer <CR>", "reset buffer" },
+		["<leader>gt"] = { require("custom.plugins.toggleterm").lazygit_toggle, "open lazygit" },
 	},
 }
 
+M.terminal = {
+	n = {
+		["<leader>ta"] = { "<cmd> ToggleTermToggleAll <CR>", "toggle all" },
+		["<leader>tt"] = { "<cmd> ToggleTerm direction=tab <CR>", "tab" },
+		["<leader>to"] = { require("custom.plugins.toggleterm").htop_toggle, "htop" },
+	},
+	t = {
+		["<esc>"] = { [[<C-\><C-n>]], "quit terminal", { buffer = 0 } },
+		["jk"] = { [[<C-\><C-n>]], "quit terminal", { buffer = 0 } },
+		["<C-h>"] = { [[<Cmd>wincmd h<CR>]], "move to left window", { buffer = 0 } },
+		["<C-j>"] = { [[<Cmd>wincmd j<CR>]], "move to bottom window", { buffer = 0 } },
+		["<C-k>"] = { [[<Cmd>wincmd k<CR>]], "move to top window", { buffer = 0 } },
+		["<C-l>"] = { [[<Cmd>wincmd l<CR>]], "move to right window", { buffer = 0 } },
+	},
+}
 M.window = {
 	n = {
 		["<C-S-Up>"] = { "<cmd> resize -2 <CR>", " increase size up" },
@@ -167,36 +185,10 @@ M.window = {
 	},
 }
 
-M.nvterm = {
-	plugin = true,
+M.toggles = {
 	n = {
-		["<C-`>"] = {
-			function()
-				require("nvterm.terminal").toggle("horizontal")
-			end,
-			"   toggle horizontal term",
-		},
-		["<C-~>"] = {
-			function()
-				require("nvterm.terminal").toggle("vertical")
-			end,
-			"   toggle vertical term",
-		},
-	},
-
-	t = {
-		["<C-`>"] = {
-			function()
-				require("nvterm.terminal").toggle("horizontal")
-			end,
-			"   toggle horizontal term",
-		},
-		["<C-~>"] = {
-			function()
-				require("nvterm.terminal").toggle("vertical")
-			end,
-			"   toggle vertical term",
-		},
+		["<leader>zl"] = { "<cmd> set rnu! <CR>", "toggle relative line numbers" },
+		["<leader>zs"] = { "<cmd> Gitsigns toggle_current_line_blame <CR>", "current git line blame" },
 	},
 }
 

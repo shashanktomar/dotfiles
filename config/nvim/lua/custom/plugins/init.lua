@@ -43,16 +43,16 @@
 local M = {}
 
 M.user = {
-  -- local plugins
-  -- ["~/Documents/projects/nvim/nvchad/base46"] = {
-  --   config = function()
-  --     local ok, base46 = pcall(require, "base46")
-  --
-  --     if ok then
-  --       base46.load_theme()
-  --     end
-  --   end,
-  -- },
+	-- local plugins
+	-- ["~/Documents/projects/nvim/nvchad/base46"] = {
+	--   config = function()
+	--     local ok, base46 = pcall(require, "base46")
+	--
+	--     if ok then
+	--       base46.load_theme()
+	--     end
+	--   end,
+	-- },
 
 	-- plugins used by other plugins
 	["kkharji/sqlite.lua"] = {
@@ -109,13 +109,13 @@ M.user = {
 	},
 	["RRethy/nvim-treesitter-endwise"] = {
 		after = "nvim-treesitter",
-  },
+	},
 	["nvim-treesitter/nvim-treesitter-textobjects"] = {
 		after = "nvim-treesitter",
-  },
+	},
 	["nvim-treesitter/nvim-treesitter-refactor"] = {
 		after = "nvim-treesitter",
-  },
+	},
 
 	-- cmp related plugins
 	["hrsh7th/cmp-cmdline"] = {
@@ -144,14 +144,22 @@ M.user = {
 		disable = false,
 		config = function()
 			require("plugins.configs.whichkey")
-			require("custom.plugins.whichkey").register()
+			require("custom.plugins.whichkey").setup()
 		end,
+	},
+
+	["akinsho/toggleterm.nvim"] = {
+		tag = "v2.*",
+    config = function ()
+      require("custom.plugins.toggleterm")
+    end
 	},
 }
 
 M.remove = {
 	"goolord/alpha-nvim",
-  -- "NvChad/base46"
+  "NvChad/nvterm"
+	-- "NvChad/base46"
 }
 
 M.override = {
@@ -161,7 +169,8 @@ M.override = {
 	["nvim-telescope/telescope.nvim"] = require("custom.plugins.telescope"),
 	["folke/which-key.nvim"] = require("custom.plugins.whichkey").options(),
 	["windwp/nvim-autopairs"] = require("custom.plugins.other").autopairs(),
-  ["lukas-reineke/indent-blankline.nvim"] = require("custom.plugins.other").blankline(),
+	["lukas-reineke/indent-blankline.nvim"] = require("custom.plugins.other").blankline(),
+	["lewis6991/gitsigns.nvim"] = require("custom.plugins.gitsigns"),
 
 	["hrsh7th/nvim-cmp"] = function()
 		local cmp = require("cmp")
