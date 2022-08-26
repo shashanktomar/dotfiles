@@ -1,17 +1,16 @@
 local M = {}
 
-M.hl_add = {
-	-- illuminate
-	IlluminatedWordText = {
+M.hl_override = {
+	-- treesitter
+	TSDefinition = {
 		link = "Visual",
 	},
-	IlluminatedWordRead = {
+	TSDefinitionUsage = {
 		link = "Visual",
 	},
-	IlluminatedWordWrite = {
-		link = "Visual",
-	},
+}
 
+M.hl_add = {
 	-- lspsaga
 	LspSagaCodeActionTitle = {
 		link = "Title",

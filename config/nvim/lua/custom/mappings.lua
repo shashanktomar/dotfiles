@@ -17,7 +17,13 @@ M.disabled = {
 		["<leader>D"] = "", -- unmap lsp type-definition mapped by nvchad
 		["<leader>f"] = "", -- unmap floating diagnostic mapped by nvchad
 		["<leader>q"] = "", -- unmap diagnostic setloclist mapped by nvchad
+		["<leader>n"] = "", -- unmap toggle line numbers mapped by nvchad
+		["<leader>h"] = "", -- unmap new horizontal term mapped by nvchad
+		["<leader>v"] = "", -- unmap new vertical term mapped by nvchad
 		["<leader>ca"] = "", -- unmap lsp code action mapped by nvchad
+		["<leader>th"] = "", -- unmap change theme mapped by nvchad
+		["<leader>tt"] = "", -- unmap toggle theme mapped by nvchad
+		["<leader>uu"] = "", -- unmap update nvchad mapped by nvchad
 		["[d"] = "", -- unmap lsp goto previous diagnostic mapped by nvchad
 		["]d"] = "", -- unmap lsp goto next diagnostic mapped by nvchad
 		["d]"] = "", -- unmap lsp goto buggy next diagnostic mapped by nvchad
@@ -43,6 +49,18 @@ M.editing = {
 		-- Use space only as leader key
 		["<Space>"] = { "<Nop>" },
 
+		["<leader>s"] = { "<cmd> w <CR>", "save buffer" },
+		["<leader>S"] = { "<cmd> wa <CR>", "save all buffers" },
+
+		["<A-p>"] = { '"0p', "p from yank register" },
+		["<A-P>"] = { '"0P', "P from yank register" },
+	},
+}
+
+M.movement = {
+	n = {
+		-- also check treesitter config
+
 		-- remember that swap lines is `ddp`
 		["<M-Down>"] = { "<Esc>:m .+1<CR>", " move line down" },
 		["<M-S-Down>"] = { "yyp", " copy line down" },
@@ -50,16 +68,13 @@ M.editing = {
 		["<M-S-Up>"] = { "yyP", " copy line up" },
 		["<M-o>"] = { "o<Esc>", "↵ insert a new line" },
 		["<M-l>"] = { "<cmd> set rnu! <CR>", "toggle relative line numbers" },
-
-		["<leader>s"] = { "<cmd> w <CR>", "save buffer" },
-		["<leader>S"] = { "<cmd> wa <CR>", "save all buffers" },
 	},
 }
 
 M.lsp = {
 	n = {
-    ["gh"] = { "<cmd> Lspsaga lsp_finder <CR>", "lsp finder [lsp-saga]"},
-    ["<leader>ca"] = { "<cmd> Lspsaga code_action <CR>", "code action [lsp-saga]"},
+		["gh"] = { "<cmd> Lspsaga lsp_finder <CR>", "lsp finder [lsp-saga]" },
+		["<leader>ca"] = { "<cmd> Lspsaga code_action <CR>", "code action [lsp-saga]" },
 		["<leader>r"] = {
 			function()
 				require("nvchad_ui.renamer").open()
@@ -74,8 +89,8 @@ M.lsp = {
 			"floating diagnostic [LSP]",
 		},
 
-		["[d"] = { "<cmd> Lspsaga diagnostic_jump_prev <CR>", "previous diagnostic [lsp-saga]"},
-		["]d"] = { "<cmd> Lspsaga diagnostic_jump_next <CR>", "next diagnostic [lsp-saga]"},
+		["[d"] = { "<cmd> Lspsaga diagnostic_jump_prev <CR>", "previous diagnostic [lsp-saga]" },
+		["]d"] = { "<cmd> Lspsaga diagnostic_jump_next <CR>", "next diagnostic [lsp-saga]" },
 
 		["<leader>cf"] = {
 			function()
@@ -182,6 +197,19 @@ M.nvterm = {
 			end,
 			"   toggle vertical term",
 		},
+	},
+}
+
+M.other = {
+	n = {
+		["<leader>]t"] = {
+			function()
+				require("base46").toggle_theme()
+			end,
+			"toggle theme",
+		},
+		["<leader>]c"] = { "<cmd> Telescope themes <CR>", "change nvchad themes" },
+		["<leader>]u"] = { "<cmd> :NvChadUpdate <CR>", "update nvchad" },
 	},
 }
 
