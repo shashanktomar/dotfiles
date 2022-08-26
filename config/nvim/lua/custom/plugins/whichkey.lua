@@ -16,15 +16,12 @@ M.register = function()
 		["<C-K>"] = { "which_key_ignore" },
 		["<C-L>"] = { "which_key_ignore" },
 
-		["<M-n>"] = { "next usage of word under cursor" }, -- powered by illuminate
-		["<M-p>"] = { "previous usage of word under cursor" }, -- powered by illuminate
-
 		["["] = { "previous" },
 		["]"] = { "next" },
 
-    K = { "hover [LSP]" },
+		K = { "hover [LSP]" },
 
-    ["Bslash"] = { "select buffer by number" },
+		["Bslash"] = { "select buffer by number" },
 
 		["<leader>"] = {
 			name = "|____|",
@@ -44,6 +41,9 @@ M.register = function()
 			g = {
 				name = "git",
 			},
+      m = {
+        name = "move"
+      },
 			w = {
 				name = "workspace",
 			},
@@ -53,17 +53,20 @@ M.register = function()
 				end,
 				"show all keymaps",
 			},
+      ["]"] = {
+        name = "other"
+      }
 		},
-    g = {
-      D = { "declaration [LSP]" },
-      d = { "definition [LSP]" },
-      i = { "implementation [LSP]" },
-      r = { "references [LSP]" },
-    }
+		g = {
+			D = { "declaration [LSP]" },
+			d = { "definition [LSP]" },
+			i = { "implementation [LSP]" },
+			r = { "references [LSP]" },
+		},
 	})
 end
 
-M .options = function()
+M.options = function()
 	local opt = {}
 	opt.icons = {
 		group = "",

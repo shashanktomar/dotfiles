@@ -86,23 +86,25 @@ M.user = {
 		end,
 	},
 
-	["RRethy/vim-illuminate"] = {
-		after = "nvim-lspconfig",
+	["glepnir/lspsaga.nvim"] = {
 		config = function()
-			require("custom.plugins.illuminate")
+			require("custom.plugins.lspsaga")
 		end,
 	},
-
-  ["glepnir/lspsaga.nvim"]= {
-    config = function ()
-      require("custom.plugins.lspsaga")
-    end
-  },
 
 	-- treesitter related plugins
 	["nvim-treesitter/playground"] = {
 		after = "nvim-treesitter",
 	},
+	["RRethy/nvim-treesitter-endwise"] = {
+		after = "nvim-treesitter",
+  },
+	["nvim-treesitter/nvim-treesitter-textobjects"] = {
+		after = "nvim-treesitter",
+  },
+	["nvim-treesitter/nvim-treesitter-refactor"] = {
+		after = "nvim-treesitter",
+  },
 
 	-- cmp related plugins
 	["hrsh7th/cmp-cmdline"] = {
@@ -116,14 +118,14 @@ M.user = {
 	-- Other
 	["shashanktomar/vim-myhelp"] = {},
 	["mhinz/vim-startify"] = {
-    config = function ()
-      require("custom.plugins.startify")
-    end
-  },
+		config = function()
+			require("custom.plugins.startify")
+		end,
+	},
 	["editorconfig/editorconfig-vim"] = {},
 	["rcarriga/nvim-notify"] = {
 		config = function()
-			require("custom.plugins.notify")
+			require("custom.plugins.notify-config")
 		end,
 	},
 
@@ -146,6 +148,7 @@ M.override = {
 	["williamboman/mason.nvim"] = require("custom.plugins.mason"),
 	["nvim-telescope/telescope.nvim"] = require("custom.plugins.telescope"),
 	["folke/which-key.nvim"] = require("custom.plugins.whichkey").options(),
+	["windwp/nvim-autopairs"] = require("custom.plugins.autopairs"),
 
 	["hrsh7th/nvim-cmp"] = function()
 		local cmp = require("cmp")

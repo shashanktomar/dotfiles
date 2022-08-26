@@ -7,6 +7,7 @@ g.startify_fortune_use_unicode = 1
 
 g.startify_bookmarks = {
 	{ pd = "~/.dotfiles" },
+	{ ph = "~/Documents/personal/vim-myhelp" },
 	{ pn = "~/.config/nvim" },
 	{ po = "~/Documents/projects/data-migration-monorepo" },
 }

@@ -9,20 +9,36 @@ M.ignore_ft_on_setup = {
 }
 
 M.git = {
-  enable = config.enable_git_icons
+	enable = config.enable_git_icons,
+	ignore = true,
+	timeout = 400,
 }
 
 M.renderer = {
-  icons = {
-    show = {
-      git = config.enable_git_icons
-    },
-    glyphs = {
-      git = {
-        unstaged = ""
-      }
-    }
-  }
+	icons = {
+		show = {
+			git = config.enable_git_icons,
+		},
+		glyphs = {
+			git = {
+				unstaged = "",
+			},
+		},
+	},
+}
+
+M.update_focused_file = {
+	enable = true,
+	update_cwd = true,
+	ignore_list = { ".git", "node_modules", ".cache" },
+}
+
+M.trash = { cmd = "trash-put", require_confirm = true }
+
+M.diagnostics = {
+	enable = true,
+	show_on_dirs = false,
+	icons = { hint = "", info = "", warning = "", error = "" },
 }
 
 M.view = {
