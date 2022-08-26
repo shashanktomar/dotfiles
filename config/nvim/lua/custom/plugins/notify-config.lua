@@ -1,4 +1,10 @@
-local notify = require("notify")
+local ok, notify = pcall(require, "notify")
+
+if not ok then
+ return
+end
+
+-- require("base46").load_highlight "notify"
 
 local options = {
 	stages = "fade_in_slide_out",

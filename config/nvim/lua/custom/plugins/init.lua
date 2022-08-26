@@ -43,6 +43,17 @@
 local M = {}
 
 M.user = {
+  -- local plugins
+  -- ["~/Documents/projects/nvim/nvchad/base46"] = {
+  --   config = function()
+  --     local ok, base46 = pcall(require, "base46")
+  --
+  --     if ok then
+  --       base46.load_theme()
+  --     end
+  --   end,
+  -- },
+
 	-- plugins used by other plugins
 	["kkharji/sqlite.lua"] = {
 		config = function()
@@ -140,6 +151,7 @@ M.user = {
 
 M.remove = {
 	"goolord/alpha-nvim",
+  -- "NvChad/base46"
 }
 
 M.override = {
