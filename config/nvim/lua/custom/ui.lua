@@ -34,7 +34,7 @@ M.hl_add = {
 		fg = "grey",
 	},
 	FinderVirtText = {
-		fg = "light_grey",
+		fg = "line",
 	},
 	FinderParam = {
 		fg = "black",
@@ -45,6 +45,53 @@ M.hl_add = {
 	},
 	LspSagaDiagnosticSource = {
 		fg = "white",
+	},
+
+	-- notify
+	NotifyERRORBorder = {
+		fg = "red",
+	},
+	NotifyERRORIcon = {
+		fg = "red",
+	},
+	NotifyERRORTitle = {
+		fg = "red",
+	},
+	NotifyWARNBorder = {
+		fg = "orange",
+	},
+	NotifyWARNIcon = {
+		fg = "orange",
+	},
+	NotifyWARNTitle = {
+		fg = "orange",
+	},
+	NotifyINFOBorder = {
+		fg = "green",
+	},
+	NotifyINFOIcon = {
+		fg = "green",
+	},
+	NotifyINFOTitle = {
+		fg = "green",
+	},
+	NotifyDEBUGBorder = {
+		fg = "grey",
+	},
+	NotifyDEBUGIcon = {
+		fg = "grey",
+	},
+	NotifyDEBUGTitle = {
+		fg = "grey",
+	},
+	NotifyTRACEBorder = {
+		fg = "purple",
+	},
+	NotifyTRACEIcon = {
+		fg = "purple",
+	},
+	NotifyTRACETitle = {
+		fg = "purple",
 	},
 }
 

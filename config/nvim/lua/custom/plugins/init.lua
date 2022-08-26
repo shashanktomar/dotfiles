@@ -148,7 +148,8 @@ M.override = {
 	["williamboman/mason.nvim"] = require("custom.plugins.mason"),
 	["nvim-telescope/telescope.nvim"] = require("custom.plugins.telescope"),
 	["folke/which-key.nvim"] = require("custom.plugins.whichkey").options(),
-	["windwp/nvim-autopairs"] = require("custom.plugins.autopairs"),
+	["windwp/nvim-autopairs"] = require("custom.plugins.other").autopairs(),
+  ["lukas-reineke/indent-blankline.nvim"] = require("custom.plugins.other").blankline(),
 
 	["hrsh7th/nvim-cmp"] = function()
 		local cmp = require("cmp")
