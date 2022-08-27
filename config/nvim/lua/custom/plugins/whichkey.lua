@@ -22,7 +22,7 @@ M.setup = function()
 
 		["["] = { "previous" },
 		["]"] = { "next" },
-    ["<CR>"] = { "start selection" },
+		["<CR>"] = { "start selection" },
 
 		K = { "hover [LSP]" },
 
@@ -46,7 +46,7 @@ M.setup = function()
 			g = {
 				name = "git",
 				h = {
-					name = "hunk",
+					name = "hunk"
 				},
 			},
 			m = {
@@ -64,9 +64,9 @@ M.setup = function()
 				end,
 				"show all keymaps",
 			},
-      z = {
-        name = "toggles",
-      },
+			z = {
+				name = "toggles",
+			},
 			["]"] = {
 				name = "other",
 			},
@@ -83,7 +83,7 @@ end
 M.options = function()
 	local opt = {}
 	opt.icons = {
-		group = "",
+		group = " ",
 	}
 	return opt
 end

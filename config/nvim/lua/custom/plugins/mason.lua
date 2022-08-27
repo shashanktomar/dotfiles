@@ -19,13 +19,18 @@ M.ensure_installed = {
 	"prettierd",
 	"typescript-language-server",
 
+	-- yaml
+	"yaml-language-server",
+	"yamlfmt",
+	"yamllint",
+
 	--other
 	"codespell",
 	"dockerfile-language-server",
 	"jq",
 	"json-lsp",
 	"markdownlint",
-  "marksman",
+	"marksman",
 	"vale",
 }
 
