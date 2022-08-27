@@ -166,7 +166,7 @@ M.terminal = {
 		["<leader>to"] = { require("custom.plugins.toggleterm").htop_toggle, "htop" },
 	},
 	t = {
-		["<esc>"] = { [[<C-\><C-n>]], "quit terminal", { buffer = 0 } },
+		["<C-c>"] = { [[<C-\><C-n>]], "quit terminal", { buffer = 0 } },
 		["<C-h>"] = { [[<Cmd>wincmd h<CR>]], "move to left window", { buffer = 0 } },
 		["<C-j>"] = { [[<Cmd>wincmd j<CR>]], "move to bottom window", { buffer = 0 } },
 		["<C-k>"] = { [[<Cmd>wincmd k<CR>]], "move to top window", { buffer = 0 } },
