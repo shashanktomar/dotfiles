@@ -187,6 +187,9 @@ M.window = {
 
 M.toggles = {
 	n = {
+		["<leader>zc"] = { require("custom.flags").toggle_list_chars, "toggle list chars" },
+		["<leader>zd"] = { require("custom.flags").toggle_diagnostic, "toggle list chars" },
+		["<leader>zf"] = { require("custom.flags").toggle_format_on_save, "toggle relative line numbers" },
 		["<leader>zl"] = { "<cmd> set rnu! <CR>", "toggle relative line numbers" },
 		["<leader>zs"] = { "<cmd> Gitsigns toggle_current_line_blame <CR>", "current git line blame" },
 	},

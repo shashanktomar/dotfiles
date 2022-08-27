@@ -1,4 +1,5 @@
-require "custom.options"
-require "custom.utils"
-require "custom.autocmd"
-require "custom.ui"
+require("custom.options")
+require("custom.utils")
+require("custom.autocmd")
+require("custom.ui")
+require("custom.flags").setup_flags()
