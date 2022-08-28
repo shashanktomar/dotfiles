@@ -36,7 +36,7 @@ brew "httpie" # curl alternative
 brew "jesseduffield/lazygit/lazygit"
 brew "jless" # JSON viewer
 brew "jq"
-brew "neovim"
+brew "neovim", args: ["HEAD"]
 brew "peco" # Simplistic interactive filtering tool
 brew "ripgrep" # grep alternative
 brew "svn"
