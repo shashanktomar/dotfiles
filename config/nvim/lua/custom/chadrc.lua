@@ -9,7 +9,7 @@ M.plugins = {
 }
 
 M.ui = {
-	theme = "chadracula",
+	theme = "catppuccin",
   hl_override = require("custom.ui").hl_override,
 	hl_add = require("custom.ui").hl_add,
 }

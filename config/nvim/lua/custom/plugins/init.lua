@@ -150,15 +150,22 @@ M.user = {
 
 	["akinsho/toggleterm.nvim"] = {
 		tag = "v2.*",
-    config = function ()
-      require("custom.plugins.toggleterm")
-    end
+		config = function()
+			require("custom.plugins.toggleterm")
+		end,
+	},
+
+	["echasnovski/mini.nvim"] = {
+		branch = "stable",
+		config = function()
+			require("custom.plugins.mini")
+		end,
 	},
 }
 
 M.remove = {
 	"goolord/alpha-nvim",
-  "NvChad/nvterm"
+	"NvChad/nvterm",
 	-- "NvChad/base46"
 }
 
