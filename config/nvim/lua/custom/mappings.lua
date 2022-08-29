@@ -1,5 +1,7 @@
 local M = {}
 
+local utils = require('custom.utils')
+
 M.disabled = {
   n = {
     ['<leader>wK'] = '', -- unmap which-key mapped by nvchad
@@ -24,10 +26,15 @@ M.disabled = {
     ['<leader>th'] = '', -- unmap change theme mapped by nvchad
     ['<leader>tt'] = '', -- unmap toggle theme mapped by nvchad
     ['<leader>uu'] = '', -- unmap update nvchad mapped by nvchad
+    ['<leader>/'] = '', -- unmap comment mapped by nvchad
     ['[d'] = '', -- unmap lsp goto previous diagnostic mapped by nvchad
     [']d'] = '', -- unmap lsp goto next diagnostic mapped by nvchad
     ['d]'] = '', -- unmap lsp goto buggy next diagnostic mapped by nvchad
     ['<C-s>'] = '', -- unmap save file mapped by nvchad
+  },
+
+  v = {
+    ['<leader>/'] = '', -- unmap comment mapped by nvchad
   },
 }
 
@@ -75,12 +82,16 @@ M.lsp = {
     ['gh'] = { '<cmd> Lspsaga lsp_finder <CR>', 'lsp finder [lsp-saga]' },
     ['<leader>ca'] = { '<cmd> Lspsaga code_action <CR>', 'code action [lsp-saga]' },
     ['<leader>r'] = {
-      function() require('nvchad_ui.renamer').open() end,
+      function()
+        require('nvchad_ui.renamer').open()
+      end,
       'rename [LSP]',
     },
 
     ['<leader>d'] = {
-      function() vim.diagnostic.open_float() end,
+      function()
+        vim.diagnostic.open_float()
+      end,
       'floating diagnostic [LSP]',
     },
 
@@ -88,27 +99,49 @@ M.lsp = {
     [']d'] = { '<cmd> Lspsaga diagnostic_jump_next <CR>', 'next diagnostic [lsp-saga]' },
 
     ['<leader>cf'] = {
-      function() vim.lsp.buf.formatting({}) end,
+      function()
+        vim.lsp.buf.format({ async = true })
+      end,
       'format [LSP]',
     },
 
+    ['<leader>ci'] = {
+      function()
+        local ts = utils.is_ts_lsp_attached()
+        if not ts then
+          utils.notify('Command Unavailable', 'error', 'No tsserver attached')
+          return
+        end
+        vim.lsp.buf.execute_command({ command = '_typescript.organizeImports', arguments = { vim.fn.expand('%:p') } })
+      end,
+      'organize imports [LSP]',
+    },
+
     ['<leader>cs'] = {
-      function() vim.lsp.buf.signature_help() end,
+      function()
+        vim.lsp.buf.signature_help()
+      end,
       'signature help [LSP]',
     },
 
     ['gt'] = {
-      function() vim.lsp.buf.type_definition() end,
+      function()
+        vim.lsp.buf.type_definition()
+      end,
       'type definition [LSP]',
     },
 
     ['go'] = {
-      function() vim.lsp.buf.outgoing_calls() end,
+      function()
+        vim.lsp.buf.outgoing_calls()
+      end,
       'outgoing calls [LSP]',
     },
 
     ['gp'] = {
-      function() vim.lsp.buf.incoming_calls() end,
+      function()
+        vim.lsp.buf.incoming_calls()
+      end,
       'incoming calls [LSP]',
     },
   },
@@ -172,8 +205,8 @@ M.window = {
 M.toggles = {
   n = {
     ['<leader>zc'] = { require('custom.flags').toggle_list_chars, 'toggle list chars' },
-    ['<leader>zd'] = { require('custom.flags').toggle_diagnostic, 'toggle list chars' },
-    ['<leader>zf'] = { require('custom.flags').toggle_format_on_save, 'toggle relative line numbers' },
+    ['<leader>zd'] = { require('custom.flags').toggle_diagnostic, 'toggle diagnostic' },
+    ['<leader>zf'] = { require('custom.flags').toggle_format_on_save, 'toggle format on save' },
     ['<leader>zl'] = { '<cmd> set rnu! <CR>', 'toggle relative line numbers' },
     ['<leader>zs'] = { '<cmd> Gitsigns toggle_current_line_blame <CR>', 'current git line blame' },
   },
@@ -182,7 +215,9 @@ M.toggles = {
 M.other = {
   n = {
     ['<leader>]t'] = {
-      function() require('base46').toggle_theme() end,
+      function()
+        require('base46').toggle_theme()
+      end,
       'toggle theme',
     },
     ['<leader>]c'] = { '<cmd> Telescope themes <CR>', 'change nvchad themes' },

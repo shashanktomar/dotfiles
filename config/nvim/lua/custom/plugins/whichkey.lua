@@ -68,6 +68,12 @@ M.setup = function()
       },
     },
     g = {
+      c = {
+        name = 'comment',
+      },
+      b = {
+        name = 'block comment',
+      },
       D = { 'declaration [LSP]' },
       d = { 'definition [LSP]' },
       i = { 'implementation [LSP]' },

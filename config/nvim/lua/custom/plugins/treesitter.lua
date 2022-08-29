@@ -64,19 +64,7 @@ M.endwise = {
 
 M.textobjects = {
   select = {
-    enable = true, -- selection is handled by mini.ai plugin
-    keymaps = {
-      ['iu'] = '@class.outer', -- for some reason this does not seem to work with mini.ai
-      ['au'] = '@class.outer', -- for some reason this does not seem to work with mini.ai
-    },
-
-    -- TODO: Understand what is this
-    -- You can choose the select mode (default is charwise 'v')
-    -- selection_modes = {
-    -- 	["@parameter.outer"] = "v", -- charwise
-    -- 	["@function.outer"] = "V", -- linewise
-    -- 	["@class.outer"] = "<c-v>", -- blockwise
-    -- },
+    enable = false, -- selection is handled by mini.ai plugin
   },
 
   swap = {

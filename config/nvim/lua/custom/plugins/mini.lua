@@ -1,18 +1,19 @@
-local ok, mini_ai = pcall(require, 'mini.ai')
-if not ok then return end
+-- --------------- mini.ai -------------------------
+local mini_ai = require('mini.ai')
 
 local spec_treesitter = mini_ai.gen_spec.treesitter
 mini_ai.setup({
+  n_lines = 500,
   custom_textobjects = {
     -- a = mapped to args by mini.ai
     f = spec_treesitter({
       a = '@function.outer',
       i = '@function.inner',
     }),
-    -- u = spec_treesitter({
-    --   a = '@class.outer',
-    --   i = '@class.outer', -- only outer is available
-    -- }),
+    u = spec_treesitter({
+      a = '@class.outer',
+      i = '@class.outer', -- only outer is available
+    }),
     j = spec_treesitter({
       a = '@loop.outer',
       i = '@loop.inner',
@@ -46,3 +47,5 @@ mini_ai.setup({
     -- attribute
   },
 })
+
+-- ---------------------------------------------
