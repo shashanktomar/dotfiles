@@ -18,8 +18,21 @@ M.setup = function()
 
     ['<C-\\>'] = { 'toggle terminal' },
 
-    ['['] = { 'previous' },
-    [']'] = { 'next' },
+    ['['] = {
+      name = 'previous',
+      f = { 'function start' },
+      F = { 'function end' },
+      u = { 'class start' },
+      U = { 'class end' },
+    },
+    [']'] = {
+      name = 'next',
+      f = { 'function start' },
+      F = { 'function end' },
+      u = { 'class start' },
+      U = { 'class end' },
+    },
+
     ['<CR>'] = { 'start selection' },
 
     K = { 'hover [LSP]' },
@@ -57,7 +70,9 @@ M.setup = function()
         name = 'workspace',
       },
       ['?'] = {
-        function() vim.cmd('WhichKey') end,
+        function()
+          vim.cmd('WhichKey')
+        end,
         'show all keymaps',
       },
       z = {
@@ -78,6 +93,18 @@ M.setup = function()
       d = { 'definition [LSP]' },
       i = { 'implementation [LSP]' },
       r = { 'references [LSP]' },
+      s = { 'cross window lightspeed forward' },
+      S = { 'cross window lightspeed backward' },
+    },
+    s = {
+      name = 'lightspeed forward',
+      ['<CR>'] = 'make end of line searchable',
+    },
+    S = {
+      name = 'lightspeed backward',
+      ['<CR>'] = 'make end of line searchable',
+      ['<Tab>'] = 'switch search direction',
+      ['<Backspace>'] = 'Repeat previous input',
     },
     y = {
       -- this applies to all actions like d, c, etc but only put here for documentation purpose
@@ -95,6 +122,8 @@ M.setup = function()
         r = { 'params' },
         t = { 'tag' },
         u = { 'class' },
+        x = { 'lightspeed selection inclusive' },
+        z = { 'lightspeed selection exclusive' },
         ['?'] = { 'user prompt' },
       },
     },

@@ -1,9 +1,8 @@
 -- --------------- mini.ai -------------------------
 local mini_ai = require('mini.ai')
-
 local spec_treesitter = mini_ai.gen_spec.treesitter
 mini_ai.setup({
-  n_lines = 500,
+  _lines = 500,
   custom_textobjects = {
     -- a = mapped to args by mini.ai
     f = spec_treesitter({
@@ -48,4 +47,17 @@ mini_ai.setup({
   },
 })
 
--- ---------------------------------------------
+-----------------mini.surround---------------------
+
+local mini_surround = require('mini.surround')
+mini_surround.setup({
+  mappings = {
+    add = 'ys', -- Add surrounding in Normal and Visual modes
+    delete = 'ds', -- Delete surrounding
+    find_left = '[s', -- Find surrounding (to the left)
+    find = ']s', -- Find surrounding (to the right)
+    highlight = '', -- Highlight surrounding
+    replace = 'cs', -- Replace surrounding
+    update_n_lines = '', -- Update `n_lines`
+  },
+})

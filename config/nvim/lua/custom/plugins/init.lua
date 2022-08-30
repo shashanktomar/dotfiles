@@ -85,16 +85,22 @@ M.user = {
 
   ['jose-elias-alvarez/null-ls.nvim'] = {
     after = 'nvim-lspconfig',
-    config = function() require('custom.plugins.null_ls') end,
+    config = function()
+      require('custom.plugins.null_ls')
+    end,
   },
 
   ['simrat39/symbols-outline.nvim'] = {
     after = 'nvim-lspconfig',
-    config = function() require('custom.plugins.symbols-outline') end,
+    config = function()
+      require('custom.plugins.symbols-outline')
+    end,
   },
 
   ['glepnir/lspsaga.nvim'] = {
-    config = function() require('custom.plugins.lspsaga') end,
+    config = function()
+      require('custom.plugins.lspsaga')
+    end,
   },
 
   -- treesitter related plugins
@@ -123,11 +129,15 @@ M.user = {
   -- Other
   ['shashanktomar/vim-myhelp'] = {},
   ['mhinz/vim-startify'] = {
-    config = function() require('custom.plugins.startify') end,
+    config = function()
+      require('custom.plugins.startify')
+    end,
   },
   ['editorconfig/editorconfig-vim'] = {},
   ['rcarriga/nvim-notify'] = {
-    config = function() require('custom.plugins.notify-config') end,
+    config = function()
+      require('custom.plugins.notify-config')
+    end,
   },
 
   ['folke/which-key.nvim'] = {
@@ -140,13 +150,19 @@ M.user = {
 
   ['akinsho/toggleterm.nvim'] = {
     tag = 'v2.*',
-    config = function() require('custom.plugins.toggleterm') end,
+    config = function()
+      require('custom.plugins.toggleterm')
+    end,
   },
 
   ['echasnovski/mini.nvim'] = {
     branch = 'stable',
-    config = function() require('custom.plugins.mini') end,
+    config = function()
+      require('custom.plugins.mini')
+    end,
   },
+
+  ['ggandor/lightspeed.nvim'] = {},
 }
 
 M.remove = {

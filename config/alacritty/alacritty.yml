@@ -1,3 +1,6 @@
+import:
+  - ~/.config/alacritty/dracula.yml
+
 font:
   normal:
     family: MesloLGL Nerd Font Mono
