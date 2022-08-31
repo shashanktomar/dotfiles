@@ -143,6 +143,9 @@ fi
 # Make utilities available
 PATH="$DOTFILES_DIR/bin:$PATH"
 
+# Default configs to .config dir
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # Clean up
 unset READLINK CURRENT_SCRIPT SCRIPT_PATH DOTFILE
 
