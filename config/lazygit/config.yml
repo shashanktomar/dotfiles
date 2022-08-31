@@ -1,0 +1,13 @@
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never --syntax-theme=Dracula
+os:
+  editCommand: 'nvim'
+customCommands:
+  - key: 'p'
+    command: 'echo hello-world'
+    description: 'Show pull requests'
+    context: 'remotes'
+    loadingText: 'Fetching pull requests'
+    showOutput: yes
