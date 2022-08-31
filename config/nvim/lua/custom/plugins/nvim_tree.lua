@@ -1,48 +1,48 @@
-local config = require("custom.config").nvim_tree
+local config = require('custom.config').nvim_tree
 
 local M = {}
 
 M.ignore_ft_on_setup = {
-	"startify",
-	"dashboard",
-	"alpha",
+  'startify',
+  'dashboard',
+  'alpha',
 }
 
 M.git = {
-	enable = config.enable_git_icons,
-	ignore = true,
-	timeout = 400,
+  enable = true,
+  ignore = false,
+  timeout = 400,
 }
 
 M.renderer = {
-	icons = {
-		show = {
-			git = config.enable_git_icons,
-		},
-		glyphs = {
-			git = {
-				unstaged = "",
-			},
-		},
-	},
+  icons = {
+    show = {
+      git = config.enable_git_icons,
+    },
+    glyphs = {
+      git = {
+        unstaged = '',
+      },
+    },
+  },
 }
 
 M.update_focused_file = {
-	enable = true,
-	update_cwd = false,
-	ignore_list = { ".git", "node_modules", ".cache" },
+  enable = true,
+  update_root = true,
+  ignore_list = { '.git', 'node_modules', '.cache', 'help' },
 }
 
-M.trash = { cmd = "trash-put", require_confirm = true }
+M.trash = { cmd = 'trash-put', require_confirm = true }
 
 M.diagnostics = {
-	enable = true,
-	show_on_dirs = false,
-	icons = { hint = "", info = "", warning = "", error = "" },
+  enable = true,
+  show_on_dirs = false,
+  icons = { hint = '', info = '', warning = '', error = '' },
 }
 
 M.view = {
-	preserve_window_proportions = true,
+  preserve_window_proportions = true,
 }
 
 return M
