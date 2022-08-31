@@ -90,7 +90,6 @@ M.setup = function()
         name = 'block comment',
       },
       D = { 'declaration [LSP]' },
-      d = { 'definition [LSP]' },
       i = { 'implementation [LSP]' },
       r = { 'references [LSP]' },
       s = { 'cross window lightspeed forward' },

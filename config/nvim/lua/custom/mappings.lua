@@ -27,6 +27,7 @@ M.disabled = {
     ['<leader>tt'] = '', -- unmap toggle theme mapped by nvchad
     ['<leader>uu'] = '', -- unmap update nvchad mapped by nvchad
     ['<leader>/'] = '', -- unmap comment mapped by nvchad
+    ['gd'] = '', -- unmap go to definition mapped by nvchad
     ['[d'] = '', -- unmap lsp goto previous diagnostic mapped by nvchad
     [']d'] = '', -- unmap lsp goto next diagnostic mapped by nvchad
     ['d]'] = '', -- unmap lsp goto buggy next diagnostic mapped by nvchad
@@ -79,6 +80,7 @@ M.movement = {
 
 M.lsp = {
   n = {
+    ['gd'] = { '<cmd> Telescope lsp_definitions <CR>', 'definition [lsp]' },
     ['gh'] = { '<cmd> Lspsaga lsp_finder <CR>', 'lsp finder [lsp-saga]' },
     ['<leader>ca'] = { '<cmd> Lspsaga code_action <CR>', 'code action [lsp-saga]' },
     ['<leader>r'] = {
@@ -88,12 +90,8 @@ M.lsp = {
       'rename [LSP]',
     },
 
-    ['<leader>d'] = {
-      function()
-        vim.diagnostic.open_float()
-      end,
-      'floating diagnostic [LSP]',
-    },
+    ['<leader>D'] = { '<cmd> Telescope diagnostics <CR>', 'workspace diagnostic' },
+    ['<leader>d'] = { '<cmd> Telescope diagnostics bufnr=0 heme=ivy height=30 <CR>', 'workspace diagnostic' },
 
     ['[d'] = { '<cmd> Lspsaga diagnostic_jump_prev <CR>', 'previous diagnostic [lsp-saga]' },
     [']d'] = { '<cmd> Lspsaga diagnostic_jump_next <CR>', 'next diagnostic [lsp-saga]' },
@@ -147,7 +145,7 @@ M.lsp = {
   },
 }
 
-M.find = {
+M.telescope = {
   n = {
     ['<leader>fc'] = { '<cmd> Telescope command_history <CR>', 'command history' },
     ['<leader>fe'] = { '<cmd> Telescope file_browser <CR>', 'explore file system' },
@@ -158,9 +156,11 @@ M.find = {
     ['<leader>fxa'] = { '<cmd> Telescope autocommands <CR>', 'vim autocommands' },
     ['<leader>fxc'] = { '<cmd> Telescope commands <CR>', 'vim commands' },
     ['<leader>fxe'] = { '<cmd> Telescope env <CR>', 'environment vars' },
-    ['<leader>fxh'] = { '<cmd> Telescope highlights <CR>', 'environment vars' },
+    ['<leader>fxh'] = { '<cmd> Telescope highlights <CR>', 'highlights' },
     ['<leader>fxk'] = { '<cmd> Telescope keymaps <CR>', 'normal mode keymaps' },
     ['<leader>fxo'] = { '<cmd> Telescope vim_options <CR>', 'vim options' },
+    ['<leader>fxq'] = { '<cmd> Telescope quickfix <CR>', 'quickfix' },
+    ['<leader>fxs'] = { '<cmd> Telescope quickfixhistory<CR>', 'quickfix history' },
 
     ['<leader>p'] = { '<cmd> Telescope buffers <CR>', 'find buffers', { nowait = true } },
   },

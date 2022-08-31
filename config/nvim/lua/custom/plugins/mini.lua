@@ -1,6 +1,7 @@
 -- --------------- mini.ai -------------------------
 local mini_ai = require('mini.ai')
 local spec_treesitter = mini_ai.gen_spec.treesitter
+
 mini_ai.setup({
   _lines = 500,
   custom_textobjects = {

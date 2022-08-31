@@ -2,6 +2,18 @@ local present, lsp = pcall(require, 'lspconfig')
 
 if not present then return end
 
+-- diagnostic options
+vim.diagnostic.config({
+  virtual_text = {
+    format = function()
+      -- this is different from virtual_text = false. Setting virtual text to false
+      -- disable all the diagnostic messages. This way we just disable the messages
+      -- but boxes are still printed
+      return ''
+    end,
+  },
+})
+
 local on_attach = require('plugins.configs.lspconfig').on_attach
 local capabilities = require('plugins.configs.lspconfig').capabilities
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
@@ -37,15 +49,6 @@ local servers = {
   'yamlls',
 }
 
-local function organize_imports()
-  local params = {
-    command = '_typescript.organizeImports',
-    arguments = { vim.fn.expand('%:p') },
-    title = '',
-  }
-  vim.lsp.buf.execute_command(params)
-end
-
 for _, plugin in ipairs(servers) do
   lsp[plugin].setup({
     on_attach = on_attach,
@@ -55,6 +58,18 @@ for _, plugin in ipairs(servers) do
     capabilities = capabilities,
     root_dir = lsp.util.root_pattern('.git'),
     settings = {
+      Lua = {
+        diagnostics = {
+          globals = { 'vim' },
+        },
+        workspace = {
+          library = {
+            [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+          },
+          maxPreload = 100000,
+          preloadFileSize = 10000,
+        },
+      },
       json = {
         format = {
           enable = false, -- let null-ls handle the formatting

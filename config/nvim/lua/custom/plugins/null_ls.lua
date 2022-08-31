@@ -18,11 +18,9 @@ local sources = {
   formatting.shfmt,
   formatting.prettierd,
   formatting.stylua,
-  formatting.codespell,
 
   -- diagnostics.eslint_d,
   diagnostics.shellcheck,
-  diagnostics.codespell,
   diagnostics.vale,
 
   completion.spell.with({
@@ -34,4 +32,4 @@ local on_attach = function(client, bufnr)
   require('custom.autocmd').format_on_save(client, bufnr)
 end
 
-null_ls.setup({ sources = sources, on_attach = on_attach })
+null_ls.setup({ sources = sources, on_attach = on_attach, debug = true })

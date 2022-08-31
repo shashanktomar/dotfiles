@@ -163,6 +163,13 @@ M.user = {
   },
 
   ['ggandor/lightspeed.nvim'] = {},
+
+  ['L3MON4D3/LuaSnip'] = {
+    config = function()
+      require('plugins.configs.others').luasnip()
+      require('custom.plugins.snip')
+    end,
+  },
 }
 
 M.remove = {
@@ -183,7 +190,7 @@ M.override = {
 
   ['hrsh7th/nvim-cmp'] = function()
     local cmp = require('cmp')
-    return require('custom.plugins.cmp')(cmp)
+    return require('custom.plugins.cmp-config')(cmp)
   end,
 }
 

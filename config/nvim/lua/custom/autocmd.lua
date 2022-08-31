@@ -1,6 +1,7 @@
 local autocmd = vim.api.nvim_create_autocmd
 local createGroup = vim.api.nvim_create_augroup
 
+local utils = require('custom.utils')
 local flags = require('custom.flags')
 local acgroup = createGroup('LspFormatting', {})
 
@@ -39,7 +40,7 @@ local M = {
     -- )
   end,
 
-  format_on_save =       function(lsp_client, bufnr)
+  format_on_save = function(lsp_client, bufnr)
     if not lsp_client.supports_method('textDocument/formatting') then return end
 
     vim.api.nvim_clear_autocmds({ group = acgroup, buffer = bufnr })
@@ -48,7 +49,8 @@ local M = {
       buffer = bufnr,
       callback = function()
         if not flags.format_on_save then return end
-        vim.lsp.buf.format({ async = true })
+        utils.async_formatting(bufnr)
+        -- vim.lsp.buf.format({ bufnr = bufnr, async = true })
       end,
     })
   end,
