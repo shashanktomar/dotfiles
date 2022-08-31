@@ -16,7 +16,7 @@ local sources = {
 
   formatting.eslint_d,
   formatting.shfmt,
-  formatting.prettierd,
+  formatting.prettier,
   formatting.stylua,
 
   -- diagnostics.eslint_d,

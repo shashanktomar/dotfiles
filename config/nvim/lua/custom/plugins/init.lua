@@ -84,7 +84,6 @@ M.user = {
   ['b0o/schemastore.nvim'] = {},
 
   ['jose-elias-alvarez/null-ls.nvim'] = {
-    after = 'nvim-lspconfig',
     config = function()
       require('custom.plugins.null_ls')
     end,

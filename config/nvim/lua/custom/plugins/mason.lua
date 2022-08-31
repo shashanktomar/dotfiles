@@ -16,7 +16,7 @@ M.ensure_installed = {
   --web dev
   'eslint-lsp',
   'eslint_d',
-  'prettierd',
+  'prettier',
   'typescript-language-server',
 
   -- yaml
