@@ -10,7 +10,7 @@ M.ignore_ft_on_setup = {
 
 M.git = {
   enable = true,
-  ignore = false,
+  ignore = true,
   timeout = 400,
 }
 
@@ -30,7 +30,7 @@ M.renderer = {
 M.update_focused_file = {
   enable = true,
   update_root = true,
-  ignore_list = { '.git', 'node_modules', '.cache', 'help' },
+  ignore_list = { '.git', '.cache', 'help' },
 }
 
 M.trash = { cmd = 'trash-put', require_confirm = true }
