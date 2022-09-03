@@ -29,7 +29,7 @@ local sources = {
   formatting.goimports,
   formatting.golines,
   diagnostics.golangci_lint,
-  diagnostics.revive,
+  -- diagnostics.revive,
   diagnostics.staticcheck,
 
   ----------- other -------------

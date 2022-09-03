@@ -74,6 +74,9 @@ for _, plugin in ipairs(servers) do
           preloadFileSize = 10000,
         },
       },
+      gopls = {
+        experimentalWorkspaceModule = true,
+      },
       json = {
         format = {
           enable = false, -- let null-ls handle the formatting
