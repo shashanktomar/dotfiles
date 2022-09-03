@@ -2,10 +2,13 @@ local present, lsp = pcall(require, 'lspconfig')
 
 if not present then return end
 
+local flags = require('custom.flags')
+
 -- diagnostic options
 vim.diagnostic.config({
   virtual_text = {
-    format = function()
+    format = function(diagnostic)
+      if flags.enable_diagnostic then return diagnostic.message end
       -- this is different from virtual_text = false. Setting virtual text to false
       -- disable all the diagnostic messages. This way we just disable the messages
       -- but boxes are still printed
@@ -41,6 +44,7 @@ local servers = {
   'dagger',
   'dockerls',
   'eslint',
+  'gopls',
   'html',
   'jsonls',
   'kotlin_language_server',

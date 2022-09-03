@@ -121,8 +121,6 @@ M.setup = function()
         r = { 'params' },
         t = { 'tag' },
         u = { 'class' },
-        x = { 'lightspeed selection inclusive' },
-        z = { 'lightspeed selection exclusive' },
         ['?'] = { 'user prompt' },
       },
     },

@@ -9,7 +9,7 @@ return function()
         case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
       },
       ['ui-select'] = {
-        require('telescope.themes').get_cursor({}),
+        require('telescope.themes').get_dropdown({}),
       },
     },
     pickers = {

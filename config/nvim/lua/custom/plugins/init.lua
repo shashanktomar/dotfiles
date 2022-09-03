@@ -115,6 +115,12 @@ M.user = {
   ['nvim-treesitter/nvim-treesitter-refactor'] = {
     after = 'nvim-treesitter',
   },
+  ['nvim-treesitter/nvim-treesitter-context'] = {
+    after = 'nvim-treesitter',
+    config = function()
+      require('treesitter-context').setup({})
+    end,
+  },
 
   -- cmp related plugins
   ['hrsh7th/cmp-cmdline'] = {

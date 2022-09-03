@@ -108,6 +108,13 @@ M.refactor = {
     clear_on_cursor_move = true,
   },
   highlight_current_scope = { enable = false },
+  navigate = {
+    enable = true,
+    keymaps = {
+      goto_next_usage = ']*',
+      goto_previous_usage = '[#',
+    },
+  },
 }
 
 return M

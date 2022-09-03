@@ -23,11 +23,9 @@ end
 M.toggle_diagnostic = function()
   M.enable_diagnostic = not M.enable_diagnostic
   notify_toggle('Toggled enable_diagnostic to ' .. tostring(M.enable_diagnostic))
-  if M.enable_diagnostic then
-    vim.diagnostic.show()
-  else
-    vim.diagnostic.hide()
-  end
+  -- hide and show to rerender text
+  vim.diagnostic.hide()
+  vim.diagnostic.show()
 end
 
 return M

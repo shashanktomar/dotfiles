@@ -133,14 +133,14 @@ M.lsp = {
       function()
         vim.lsp.buf.outgoing_calls()
       end,
-      'outgoing calls [LSP]',
+      'outgoing clls [LSP]',
     },
 
     ['gp'] = {
       function()
         vim.lsp.buf.incoming_calls()
       end,
-      'incoming calls [LSP]',
+      'incoming clls [LSP]',
     },
   },
 }

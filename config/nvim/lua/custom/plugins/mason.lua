@@ -8,6 +8,15 @@ M.ensure_installed = {
   'lua-language-server',
   'stylua',
 
+  -- go
+  'gopls',
+  'golangci-lint',
+  'gofumpt',
+  'goimports',
+  'golines',
+  'revive',
+  'staticcheck',
+
   --shell
   'bash-language-server',
   'shfmt',

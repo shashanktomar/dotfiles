@@ -9,20 +9,32 @@ local completion = null_ls.builtins.completion
 -- local hover = null_ls.builtins.hover
 
 local sources = {
-  code_actions.eslint_d,
-  -- code_actions.prettierd,
-  -- code_actions.gitsigns,
-  code_actions.shellcheck,
-
-  formatting.eslint_d,
-  formatting.shfmt,
-  formatting.prettier,
+  ----------- lua --------------
   formatting.stylua,
 
+  ----------- js/ts --------------
+  code_actions.eslint_d,
+  -- code_actions.prettierd,
+  -- formatting.prettier,
+  formatting.eslint_d,
   -- diagnostics.eslint_d,
-  diagnostics.shellcheck,
-  diagnostics.vale,
 
+  ----------- bash --------------
+  code_actions.shellcheck,
+  formatting.shfmt,
+  diagnostics.shellcheck,
+
+  ----------- golang -------------
+  formatting.gofumpt,
+  formatting.goimports,
+  formatting.golines,
+  diagnostics.golangci_lint,
+  diagnostics.revive,
+  diagnostics.staticcheck,
+
+  ----------- other -------------
+  -- code_actions.gitsigns,
+  diagnostics.vale,
   completion.spell.with({
     filetypes = { 'markdown', 'text' },
   }),
@@ -32,4 +44,4 @@ local on_attach = function(client, bufnr)
   require('custom.autocmd').format_on_save(client, bufnr)
 end
 
-null_ls.setup({ sources = sources, on_attach = on_attach, debug = true })
+null_ls.setup({ sources = sources, on_attach = on_attach })
