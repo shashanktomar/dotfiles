@@ -173,7 +173,12 @@ M.git = {
     ['<leader>ghS'] = { '<cmd> Gitsigns undo_stage_hunk <CR>', 'unstage hunk' },
     ['<leader>ghr'] = { '<cmd> Gitsigns reset_hunk <CR>', 'reset hunk' },
     ['<leader>gx'] = { '<cmd> Gitsigns reset_buffer <CR>', 'reset buffer' },
-    ['<leader>gt'] = { require('custom.plugins.toggleterm').lazygit_toggle, 'open lazygit' },
+    ['<leader>gt'] = {
+      function()
+        require('custom.plugins.toggleterm').lazygit_toggle()
+      end,
+      'open lazygit',
+    },
   },
 }
 
@@ -181,7 +186,12 @@ M.terminal = {
   n = {
     ['<leader>ta'] = { '<cmd> ToggleTermToggleAll <CR>', 'toggle all' },
     ['<leader>tt'] = { '<cmd> ToggleTerm direction=tab <CR>', 'tab' },
-    ['<leader>to'] = { require('custom.plugins.toggleterm').htop_toggle, 'htop' },
+    ['<leader>to'] = {
+      function()
+        require('custom.plugins.toggleterm').htop_toggle()
+      end,
+      'htop',
+    },
   },
   t = {
     ['<C-c>'] = { [[<C-\><C-n>]], 'quit terminal', { buffer = 0 } },
