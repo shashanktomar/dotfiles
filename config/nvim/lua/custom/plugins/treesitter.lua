@@ -23,6 +23,7 @@ M.ensure_installed = {
   'markdown',
   'pug',
   'python',
+  'query',
   'r',
   'regex',
   'rego',
@@ -56,6 +57,12 @@ M.incremental_selection = {
 
 M.playground = {
   enable = true,
+}
+
+M.query_linter = {
+  enable = true,
+  use_virtual_text = true,
+  lint_events = { 'BufWrite', 'CursorHold' },
 }
 
 M.endwise = {
