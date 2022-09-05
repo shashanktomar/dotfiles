@@ -20,6 +20,9 @@ fi
 # NvChad for nvim
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
 
+# Tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 # Install dockutil. Brew does not have the latest version
 DLURL=$(curl --silent "https://api.github.com/repos/kcrawford/dockutil/releases/latest" | jq -r .assets[].browser_download_url | grep pkg)
 curl -sL ${DLURL} -o /tmp/dockutil.pkg

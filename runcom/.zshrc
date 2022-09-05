@@ -150,3 +150,6 @@ export XDG_CONFIG_HOME="$HOME/.config"
 unset READLINK CURRENT_SCRIPT SCRIPT_PATH DOTFILE
 
 # zprof
+
+# To customize prompt, run `p10k configure` or edit ~/.dotfiles/runcom/.p10k.zsh.
+[[ ! -f ~/.dotfiles/runcom/.p10k.zsh ]] || source ~/.dotfiles/runcom/.p10k.zsh
