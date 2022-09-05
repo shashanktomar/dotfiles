@@ -45,6 +45,7 @@ brew "stow" # symlink farm manager
 brew "tmux"
 brew "tree"
 brew "vale" # Editorial style guide for writing
+brew "wtfutil" # a personal tui dashboard 
 brew "wget"
 brew "zsh"
 brew "z"
