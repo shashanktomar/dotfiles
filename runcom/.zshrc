@@ -77,20 +77,28 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 export NVM_LAZY_LOAD=true
 plugins=(
-  git
-  zsh-autosuggestions
-  yarn 
-  jsontools
-  node
-  macos 
-  sudo
-  docker
   aws
+  docker
+  git
+  jsontools
+  macos 
+  node
+  sudo
+  vi-mode
+  yarn 
   z
+  zsh-autosuggestions
   zsh-nvm
 )
 
 source $ZSH/oh-my-zsh.sh
+
+# Keybindings and settings
+bindkey -v # Enable vim bindings
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+VI_MODE_SET_CURSOR=true
+
+bindkey "^[s" autosuggest-toggle # use ALT-s to toggle suggestions
 
 ###############################################################################
 ######################### Custom Setup ########################################
@@ -145,6 +153,9 @@ PATH="$DOTFILES_DIR/bin:$PATH"
 
 # Default configs to .config dir
 export XDG_CONFIG_HOME="$HOME/.config"
+
+# fzf stuff
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Clean up
 unset READLINK CURRENT_SCRIPT SCRIPT_PATH DOTFILE

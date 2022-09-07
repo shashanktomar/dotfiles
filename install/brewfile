@@ -10,6 +10,8 @@ tap "TylerBrock/saw"
 tap "cooklang/tap"
 
 # dev-utils
+brew "asciinema"
+brew "bash" # latest bash
 brew "bat" # cat aternative
 brew "cmake"
 brew "coreutils"
@@ -37,6 +39,7 @@ brew "jesseduffield/lazygit/lazygit"
 brew "jless" # JSON viewer
 brew "jq"
 brew "neovim", args: ["HEAD"]
+brew "neofetch" # display system information
 brew "peco" # Simplistic interactive filtering tool
 brew "ripgrep" # grep alternative
 brew "svn"

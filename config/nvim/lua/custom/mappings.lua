@@ -196,6 +196,12 @@ M.terminal = {
       end,
       'htop',
     },
+    ['<leader>tn'] = {
+      function()
+        require('custom.plugins.toggleterm').neofetch_toggle()
+      end,
+      'neofetch',
+    },
   },
   t = {
     ['<C-c>'] = { [[<C-\><C-n>]], 'quit terminal', { buffer = 0 } },

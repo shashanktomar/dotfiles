@@ -1,26 +1,29 @@
-local ok, tt = pcall(require, "toggleterm")
+local ok, tt = pcall(require, 'toggleterm')
 
-if not ok then
-	return
-end
+if not ok then return end
 
 tt.setup({
-	open_mapping = [[<c-\>]],
+  open_mapping = [[<c-\>]],
 })
 
+local Terminal = require('toggleterm.terminal').Terminal
 
-local Terminal = require("toggleterm.terminal").Terminal
-
-local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float", dir = "git_dir" })
-local htop = Terminal:new({ cmd = "htop", hidden = true, direction = "float", close_on_exit = true })
+local lazygit = Terminal:new({ cmd = 'lazygit', hidden = true, direction = 'float', dir = 'git_dir' })
+local htop = Terminal:new({ cmd = 'htop', hidden = true, direction = 'float' })
+local neofetch = Terminal:new({ cmd = 'neofetch', hidden = true, direction = 'float', close_on_exit = false })
 
 local M = {}
+
 M.lazygit_toggle = function()
-	lazygit:toggle()
+  lazygit:toggle()
 end
 
 M.htop_toggle = function()
-	htop:toggle()
+  htop:toggle()
+end
+
+M.neofetch_toggle = function()
+  neofetch:toggle()
 end
 
 return M
