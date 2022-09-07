@@ -18,7 +18,7 @@ font:
     family: MesloLGL Nerd Font Mono
     style: Bold Italic
 
-  size: 14
+  size: 15
 
 # Alt key support on mac :(
 key_bindings:
