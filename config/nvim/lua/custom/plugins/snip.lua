@@ -2,6 +2,8 @@ local ok, ls = pcall(require, 'luasnip')
 
 if not ok then return end
 
+ls.filetype_extend('typescript', { 'javascript' })
+
 -- local snip = ls.snippet
 -- local node = ls.snippet_node
 -- local text = ls.text_node

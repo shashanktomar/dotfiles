@@ -11,6 +11,7 @@ tap "cooklang/tap"
 
 # dev-utils
 brew "asciinema"
+brew "agg" # asciinema to gif converter
 brew "bash" # latest bash
 brew "bat" # cat aternative
 brew "cmake"

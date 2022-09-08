@@ -84,21 +84,14 @@ plugins=(
   macos 
   node
   sudo
-  vi-mode
   yarn 
   z
   zsh-autosuggestions
   zsh-nvm
+  zsh-vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
-
-# Keybindings and settings
-bindkey -v # Enable vim bindings
-VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
-VI_MODE_SET_CURSOR=true
-
-bindkey "^[s" autosuggest-toggle # use ALT-s to toggle suggestions
 
 ###############################################################################
 ######################### Custom Setup ########################################
@@ -114,7 +107,7 @@ export MANPATH="/usr/local/man:$MANPATH"
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='code'
+  export EDITOR='nvim'
 fi
 
 # Tell fzf to use rgrep
