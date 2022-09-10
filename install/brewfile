@@ -47,6 +47,7 @@ brew "svn"
 brew "ssh-copy-id" # Add a public key to a remote machine's authorized_keys file
 brew "stow" # symlink farm manager
 brew "tmux"
+brew "tmuxp" # templatize tmux sessions
 brew "tree"
 brew "vale" # Editorial style guide for writing
 brew "wtfutil" # a personal tui dashboard 

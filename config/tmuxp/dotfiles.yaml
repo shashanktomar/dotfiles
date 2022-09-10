@@ -1,0 +1,19 @@
+session_name: dotfiles
+windows:
+  - window_name: dotfiles
+    start_directory: ~/.dotfiles
+    focus: true
+    panes:
+      - nvim
+  - window_name: nvchad
+    start_directory: ~/.config/nvim
+    panes:
+      - nvim
+  - window_name: my-help
+    start_directory: ~/projects/personal/vim-myhelp
+    panes:
+      - nvim
+  - window_name: term
+    start_directory: ~/.dotfiles
+    panes: []
+

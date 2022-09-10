@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Oh My Zsh
 ZSH_PATH=${ZSH:-~/.oh-my-zsh}

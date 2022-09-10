@@ -175,6 +175,12 @@ M.user = {
       require('custom.plugins.snip')
     end,
   },
+
+  ['aserowy/tmux.nvim'] = {
+    config = function()
+      require('custom.plugins.other').tmux()
+    end,
+  },
 }
 
 M.remove = {
