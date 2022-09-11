@@ -77,6 +77,8 @@ M.movement = {
     ['<M-K>'] = { 'yyP', ' copy line up' },
     ['<M-o>'] = { 'o<Esc>', '↵ insert a new line down' },
     ['<M-O>'] = { 'O<Esc>', '↵ insert a new line up' },
+
+    ['<leader>a'] = { '<cmd> b# <CR>', 'last buffer' },
   },
 }
 
@@ -95,7 +97,7 @@ M.lsp = {
     },
 
     ['<leader>D'] = { '<cmd> Telescope diagnostics <CR>', 'workspace diagnostic' },
-    ['<leader>d'] = { '<cmd> Telescope diagnostics bufnr=0 heme=ivy height=30 <CR>', 'workspace diagnostic' },
+    ['<leader>d'] = { '<cmd> Telescope diagnostics bufnr=0 heme=ivy height=30 <CR>', 'buffer diagnostic' },
 
     ['[d'] = { '<cmd> Lspsaga diagnostic_jump_prev <CR>', 'previous diagnostic [lsp-saga]' },
     [']d'] = { '<cmd> Lspsaga diagnostic_jump_next <CR>', 'next diagnostic [lsp-saga]' },
@@ -202,6 +204,12 @@ M.terminal = {
       end,
       'neofetch',
     },
+    ['<leader>tw'] = {
+      function()
+        require('custom.plugins.toggleterm').wtf_toggle()
+      end,
+      'neofetch',
+    },
   },
   t = {
     ['<C-c>'] = { [[<C-\><C-n>]], 'quit terminal', { buffer = 0 } },
@@ -213,11 +221,6 @@ M.terminal = {
 }
 M.window = {
   n = {
-    ['<C-S-Up>'] = { '<cmd> resize -2 <CR>', ' increase size up' },
-    ['<C-S-Down>'] = { '<cmd> resize +2 <CR>', ' increase size down' },
-    ['<C-S-Left>'] = { '<cmd> vertical resize -2 <CR>', ' increase size left' },
-    ['<C-S-Right>'] = { '<cmd> vertical resize +2 <CR>', ' increase size right' },
-
     ['<M-s>'] = { '<cmd> SymbolsOutline <CR>', 'symbols window' },
   },
 }

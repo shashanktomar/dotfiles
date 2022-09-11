@@ -16,6 +16,7 @@ brew "bash" # latest bash
 brew "bat" # cat aternative
 brew "cmake"
 brew "coreutils"
+brew "direnv" # directory based env vars
 brew "git-delta" # pager for git
 brew "dive"
 brew "dockutil" # tools for managing mac dock items
