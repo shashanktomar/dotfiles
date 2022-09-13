@@ -35,6 +35,7 @@ brew "gnu-getopt"
 brew "gnu-indent"
 brew "gnu-sed"
 brew "gnu-tar"
+brew "gum" # a picker from charm
 brew "htop" # htop alternative
 brew "httpie" # curl alternative
 brew "jesseduffield/lazygit/lazygit"

@@ -1,0 +1,11 @@
+session_name: upstream
+start_directory: ~/projects/personal/upstream
+windows:
+  - window_name: upstream
+    focus: true
+    panes:
+      - nvim
+  - window_name: term
+    start_directory: ~/.dotfiles
+    panes: []
+

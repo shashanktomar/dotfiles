@@ -31,7 +31,9 @@ return function()
       },
       lsp_definitions = {
         initial_mode = 'normal',
-        theme = 'cursor',
+      },
+      lsp_references = {
+        initial_mode = 'normal',
       },
       diagnostics = {
         initial_mode = 'normal',

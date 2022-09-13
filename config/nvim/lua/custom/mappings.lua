@@ -4,40 +4,41 @@ local utils = require('custom.utils')
 
 M.disabled = {
   n = {
-    ['<leader>wK'] = '', -- unmap which-key mapped by nvchad
-    ['<leader>wk'] = '', -- unmap which-key mapped by nvchad
-    ['<leader>fw'] = '', -- unmap find live_grep mapped by nvchad
-    ['<leader>fb'] = '', -- unmap find buffers mapped by nvchad
-    ['<leader>tk'] = '', -- unmap telescope keymaps
-    ['<leader>gt'] = '', -- unmap git status
+    ['<C-s>'] = '', -- unmap save file
+    ['<leader>/'] = '', -- unmap comment
+    ['<leader>D'] = '', -- unmap lsp type-definition
+    ['<leader>ca'] = '', -- unmap lsp code action
     ['<leader>cm'] = '', -- unmap git commits
-    ['<leader>rn'] = '', -- unmap relative line number mapped by nvchad
-    ['<leader>ra'] = '', -- unmap lsp rename mapped by nvchad
-    ['<leader>fm'] = '', -- unmap lsp formatting mapped by nvchad
-    ['<leader>pt'] = '', -- unmap hidden term mapped by nvchad
-    ['<leader>ls'] = '', -- unmap lsp signature help mapped by nvchad
-    ['<leader>D'] = '', -- unmap lsp type-definition mapped by nvchad
-    ['<leader>f'] = '', -- unmap floating diagnostic mapped by nvchad
-    ['<leader>q'] = '', -- unmap diagnostic setloclist mapped by nvchad
-    ['<leader>n'] = '', -- unmap toggle line numbers mapped by nvchad
-    ['<leader>h'] = '', -- unmap new horizontal term mapped by nvchad
-    ['<leader>v'] = '', -- unmap new vertical term mapped by nvchad
-    ['<leader>ca'] = '', -- unmap lsp code action mapped by nvchad
-    ['<leader>th'] = '', -- unmap change theme mapped by nvchad
-    ['<leader>tt'] = '', -- unmap toggle theme mapped by nvchad
-    ['<leader>uu'] = '', -- unmap update nvchad mapped by nvchad
-    ['<leader>/'] = '', -- unmap comment mapped by nvchad
-    ['gd'] = '', -- unmap go to definition mapped by nvchad
-    ['gr'] = '', -- unmap go to references mapped by nvchad
-    ['gi'] = '', -- unmap go to implementation mapped by nvchad
-    ['[d'] = '', -- unmap lsp goto previous diagnostic mapped by nvchad
-    [']d'] = '', -- unmap lsp goto next diagnostic mapped by nvchad
-    ['d]'] = '', -- unmap lsp goto buggy next diagnostic mapped by nvchad
-    ['<C-s>'] = '', -- unmap save file mapped by nvchad
+    ['<leader>f'] = '', -- unmap floating diagnostic
+    ['<leader>fb'] = '', -- unmap find buffers
+    ['<leader>fm'] = '', -- unmap lsp formatting
+    ['<leader>fo'] = '', -- unmap telescope open old files
+    ['<leader>fw'] = '', -- unmap find live_grep
+    ['<leader>gt'] = '', -- unmap git status
+    ['<leader>h'] = '', -- unmap new horizontal term
+    ['<leader>ls'] = '', -- unmap lsp signature help
+    ['<leader>n'] = '', -- unmap toggle line numbers
+    ['<leader>pt'] = '', -- unmap hidden term
+    ['<leader>q'] = '', -- unmap diagnostic setloclist
+    ['<leader>ra'] = '', -- unmap lsp rename
+    ['<leader>rn'] = '', -- unmap relative line number
+    ['<leader>th'] = '', -- unmap change theme
+    ['<leader>tk'] = '', -- unmap telescope keymaps
+    ['<leader>tt'] = '', -- unmap toggle theme
+    ['<leader>uu'] = '', -- unmap update nvchad
+    ['<leader>v'] = '', -- unmap new vertical term
+    ['<leader>wK'] = '', -- unmap which-key
+    ['<leader>wk'] = '', -- unmap which-key
+    ['[d'] = '', -- unmap lsp goto previous diagnostic
+    [']d'] = '', -- unmap lsp goto next diagnostic
+    ['d]'] = '', -- unmap lsp goto buggy next diagnostic
+    ['gd'] = '', -- unmap go to definition
+    ['gi'] = '', -- unmap go to implementation
+    ['gr'] = '', -- unmap go to references
   },
 
   v = {
-    ['<leader>/'] = '', -- unmap comment mapped by nvchad
+    ['<leader>/'] = '', -- unmap comment
   },
 }
 
@@ -71,8 +72,8 @@ M.movement = {
     -- also check treesitter config
 
     -- remember that swap lines is `ddp`
-    ['<M-j>'] = { '<Esc>:m .+1<CR>', ' move line down' },
-    ['<M-k>'] = { '<Esc>:m .-2<CR>', ' move line up' },
+    ['<C-M-j>'] = { '<Esc>:m .+1<CR>', ' move line down' },
+    ['<C-M-k>'] = { '<Esc>:m .-2<CR>', ' move line up' },
     ['<M-J>'] = { 'yyp', ' copy line down' },
     ['<M-K>'] = { 'yyP', ' copy line up' },
     ['<M-o>'] = { 'o<Esc>', '↵ insert a new line down' },
@@ -85,7 +86,7 @@ M.movement = {
 M.lsp = {
   n = {
     ['gd'] = { '<cmd> Telescope lsp_definitions <CR>', 'definition [lsp]' },
-    ['gr'] = { '<cmd> Telescope lsp_references <CR>', 'references [lsp]' },
+    ['gr'] = { '<cmd> Telescope lsp_references show_line=false <CR>', 'references [lsp]' },
     ['gi'] = { '<cmd> Telescope lsp_implementations <CR>', 'references [lsp]' },
     ['gh'] = { '<cmd> Lspsaga lsp_finder <CR>', 'lsp finder [lsp-saga]' },
     ['<leader>ca'] = { '<cmd> Lspsaga code_action <CR>', 'code action [lsp-saga]' },
@@ -156,6 +157,7 @@ M.telescope = {
     ['<leader>fc'] = { '<cmd> Telescope command_history <CR>', 'command history' },
     ['<leader>fe'] = { '<cmd> Telescope file_browser <CR>', 'explore file system' },
     ['<leader>fg'] = { '<cmd> Telescope live_grep <CR>', 'live grep' },
+    ['<leader>fo'] = { '<cmd> Telescope oldfiles cwd_only=true <CR>', 'live grep' },
     ['<leader>fp'] = { '<cmd> Telescope project <CR>', 'projects' },
     ['<leader>fs'] = { '<cmd> Telescope symbols <CR>', 'symbols' },
     ['<leader>fw'] = { '<cmd> Telescope grep_string <CR>', 'grep word under cursor' },
