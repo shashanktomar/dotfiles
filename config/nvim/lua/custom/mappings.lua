@@ -193,7 +193,6 @@ M.git = {
 M.terminal = {
   n = {
     ['<leader>ta'] = { '<cmd> ToggleTermToggleAll <CR>', 'toggle all' },
-    ['<leader>tt'] = { '<cmd> ToggleTerm direction=tab <CR>', 'tab' },
     ['<leader>to'] = {
       function()
         require('custom.plugins.toggleterm').htop_toggle()
@@ -209,6 +208,12 @@ M.terminal = {
     ['<leader>tw'] = {
       function()
         require('custom.plugins.toggleterm').wtf_toggle()
+      end,
+      'neofetch',
+    },
+    ['<leader>tt'] = {
+      function()
+        require('custom.plugins.toggleterm').tz_toggle()
       end,
       'neofetch',
     },

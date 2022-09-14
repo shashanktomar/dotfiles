@@ -51,6 +51,7 @@ brew "stow" # symlink farm manager
 brew "tmux"
 brew "tmuxp" # templatize tmux sessions
 brew "tree"
+brew "tz" # show time in different timezones
 brew "vale" # Editorial style guide for writing
 brew "wtfutil" # a personal tui dashboard 
 brew "wget"
