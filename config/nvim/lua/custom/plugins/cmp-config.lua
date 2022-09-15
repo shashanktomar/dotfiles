@@ -1,14 +1,18 @@
-return function(cmp)
+return function()
+  local cmp = require('cmp')
+
   cmp.setup.cmdline(':', {
     sources = {
       { name = 'cmdline' },
     },
   })
+
   cmp.setup.cmdline('/', {
     sources = {
       { name = 'buffer' },
     },
   })
+
   return {
     mapping = {
       ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),

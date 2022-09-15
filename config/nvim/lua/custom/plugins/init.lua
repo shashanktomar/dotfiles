@@ -40,9 +40,8 @@
 -- nvim-web-devicons
 -- indent-blankline -> the lines which apper to show indentation
 
-local M = {}
+local M = {
 
-M.user = {
   -- local plugins
   -- ["~/Documents/projects/nvim/nvchad/base46"] = {
   --   config = function()
@@ -54,17 +53,11 @@ M.user = {
   --   end,
   -- },
 
-  -- plugins used by other plugins
-  ['kkharji/sqlite.lua'] = {
-    config = function()
-      require('custom.utils').create_dir(vim.fn.stdpath('data') .. '/databases') -- create databases directory if missing
-    end,
-  },
+  -- ================ Telescope Related Plugins =================
 
-  -- telescope related plugins
-  -- see this https://github.com/NvChad/NvChad/issues/1255
   ['nvim-telescope/telescope.nvim'] = {
     module = 'telescope',
+    override_options = require('custom.plugins.telescope'),
   },
   ['nvim-telescope/telescope-file-browser.nvim'] = {},
   ['nvim-telescope/telescope-symbols.nvim'] = {},
@@ -73,7 +66,8 @@ M.user = {
   ['LinArcX/telescope-env.nvim'] = {},
   ['nvim-telescope/telescope-fzf-native.nvim'] = { run = 'make' },
 
-  -- LSP Related Plugins
+  -- ================ LSP Related Plugins =================
+
   ['neovim/nvim-lspconfig'] = {
     config = function()
       require('plugins.configs.lspconfig')
@@ -102,7 +96,16 @@ M.user = {
     end,
   },
 
-  -- treesitter related plugins
+  ['williamboman/mason.nvim'] = {
+    override_options = require('custom.plugins.mason'),
+  },
+
+  -- ================ Treesitter Related Plugins =================
+
+  ['nvim-treesitter/nvim-treesitter'] = {
+    override_options = require('custom.plugins.treesitter'),
+  },
+
   ['nvim-treesitter/playground'] = {
     after = 'nvim-treesitter',
   },
@@ -122,7 +125,8 @@ M.user = {
     end,
   },
 
-  -- cmp related plugins
+  -- ================ Cmp Plugins =================
+
   ['hrsh7th/cmp-cmdline'] = {
     after = 'cmp-buffer',
   },
@@ -131,14 +135,28 @@ M.user = {
     after = 'cmp-cmdline',
   },
 
-  -- Other
+  ['hrsh7th/nvim-cmp'] = {
+    override_options = require('custom.plugins.cmp-config'),
+  },
+
+  -- ================ Other Plugins =================
+
+  ['kkharji/sqlite.lua'] = {
+    config = function()
+      require('custom.utils').create_dir(vim.fn.stdpath('data') .. '/databases') -- create databases directory if missing
+    end,
+  },
+
   ['shashanktomar/vim-myhelp'] = {},
+
   ['mhinz/vim-startify'] = {
     config = function()
       require('custom.plugins.startify')
     end,
   },
+
   ['editorconfig/editorconfig-vim'] = {},
+
   ['rcarriga/nvim-notify'] = {
     config = function()
       require('custom.plugins.notify-config')
@@ -147,10 +165,17 @@ M.user = {
 
   ['folke/which-key.nvim'] = {
     disable = false,
+
     config = function()
       require('plugins.configs.whichkey')
       require('custom.plugins.whichkey').setup()
     end,
+
+    override_options = {
+      icons = {
+        group = ' ',
+      },
+    },
   },
 
   ['akinsho/toggleterm.nvim'] = {
@@ -181,28 +206,28 @@ M.user = {
       require('custom.plugins.other').tmux()
     end,
   },
-}
 
-M.remove = {
-  'goolord/alpha-nvim',
-  'NvChad/nvterm',
-  -- "NvChad/base46"
-}
+  ['kyazdani42/nvim-tree.lua'] = {
+    override_options = require('custom.plugins.nvim_tree'),
+  },
 
-M.override = {
-  ['kyazdani42/nvim-tree.lua'] = require('custom.plugins.nvim_tree'),
-  ['nvim-treesitter/nvim-treesitter'] = require('custom.plugins.treesitter'),
-  ['williamboman/mason.nvim'] = require('custom.plugins.mason'),
-  ['nvim-telescope/telescope.nvim'] = require('custom.plugins.telescope'),
-  ['folke/which-key.nvim'] = require('custom.plugins.whichkey').options(),
-  ['windwp/nvim-autopairs'] = require('custom.plugins.other').autopairs(),
-  ['lukas-reineke/indent-blankline.nvim'] = require('custom.plugins.other').blankline(),
-  ['lewis6991/gitsigns.nvim'] = require('custom.plugins.gitsigns'),
+  ['windwp/nvim-autopairs'] = {
+    override_options = require('custom.plugins.other').autopairs(),
+  },
 
-  ['hrsh7th/nvim-cmp'] = function()
-    local cmp = require('cmp')
-    return require('custom.plugins.cmp-config')(cmp)
-  end,
+  ['lukas-reineke/indent-blankline.nvim'] = {
+    override_options = require('custom.plugins.other').blankline(),
+  },
+
+  ['lewis6991/gitsigns.nvim'] = {
+    override_options = require('custom.plugins.gitsigns'),
+  },
+
+  -- ================ Remove Plugins =================
+
+  ['goolord/alpha-nvim'] = false,
+  ['NvChad/nvterm'] = false,
+  -- ['NvChad/base46'] = false,
 }
 
 return M

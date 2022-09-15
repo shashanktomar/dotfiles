@@ -14,7 +14,7 @@ local sources = {
 
   ----------- js/ts --------------
   code_actions.eslint_d,
-  -- code_actions.prettierd,
+  -- formatting.prettierd,
   formatting.prettier,
   formatting.eslint_d,
   -- diagnostics.eslint_d,

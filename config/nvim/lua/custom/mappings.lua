@@ -209,13 +209,13 @@ M.terminal = {
       function()
         require('custom.plugins.toggleterm').wtf_toggle()
       end,
-      'neofetch',
+      'wtf',
     },
     ['<leader>tt'] = {
       function()
         require('custom.plugins.toggleterm').tz_toggle()
       end,
-      'neofetch',
+      'tz',
     },
   },
   t = {

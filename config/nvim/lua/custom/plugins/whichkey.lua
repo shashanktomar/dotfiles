@@ -125,12 +125,4 @@ M.setup = function()
   })
 end
 
-M.options = function()
-  local opt = {}
-  opt.icons = {
-    group = ' ',
-  }
-  return opt
-end
-
 return M
