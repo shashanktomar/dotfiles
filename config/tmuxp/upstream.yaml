@@ -5,7 +5,10 @@ windows:
     focus: true
     panes:
       - nvim
+  - window_name: examples
+    focus: true
+    panes:
+      - nvim
   - window_name: term
     start_directory: ~/.dotfiles
     panes: []
-

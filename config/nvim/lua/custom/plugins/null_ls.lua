@@ -38,6 +38,7 @@ local sources = {
   completion.spell.with({
     filetypes = { 'markdown', 'text' },
   }),
+  diagnostics.misspell,
 }
 
 local on_attach = function(client, bufnr)

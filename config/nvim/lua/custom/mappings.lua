@@ -199,6 +199,12 @@ M.terminal = {
       end,
       'htop',
     },
+    ['<leader>tm'] = {
+      function()
+        require('custom.plugins.toggleterm').glow_toggle()
+      end,
+      'glow markdown preview',
+    },
     ['<leader>tn'] = {
       function()
         require('custom.plugins.toggleterm').neofetch_toggle()
@@ -234,11 +240,83 @@ M.window = {
 
 M.toggles = {
   n = {
-    ['<leader>zc'] = { require('custom.flags').toggle_list_chars, 'toggle list chars' },
+    ['<leader>zc'] = { '<cmd> ColorizerToggle <CR>', 'toggle colors' },
     ['<leader>zd'] = { require('custom.flags').toggle_diagnostic, 'toggle diagnostic' },
     ['<leader>zf'] = { require('custom.flags').toggle_format_on_save, 'toggle format on save' },
     ['<leader>zl'] = { '<cmd> set rnu! <CR>', 'toggle relative line numbers' },
     ['<leader>zs'] = { '<cmd> Gitsigns toggle_current_line_blame <CR>', 'current git line blame' },
+    ['<leader>zy'] = { require('custom.flags').toggle_list_chars, 'toggle list chars' },
+  },
+}
+
+M.dap = {
+  n = {
+    ['<F5>'] = {
+      function()
+        require('dap').continue()
+      end,
+      'start debugging',
+    },
+    ['<F10>'] = {
+      function()
+        require('dap').step_over()
+      end,
+      'debug: step over',
+    },
+    ['<F11>'] = {
+      function()
+        require('dap').step_into()
+      end,
+      'debug: step into',
+    },
+    ['<F12>'] = {
+      function()
+        require('dap').step_out()
+      end,
+      'debug: step out',
+    },
+    ['<leader>ub'] = {
+      function()
+        require('dap').toggle_breakpoint()
+      end,
+      'debug: toggle breakpoint',
+    },
+    ['<leader>uB'] = {
+      function()
+        require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))
+      end,
+      'debug: conditional breakpoint',
+    },
+    ['<leader>ue'] = {
+      function()
+        require('dapui').eval()
+      end,
+      'debug: eval expression',
+    },
+    ['<leader>ul'] = {
+      function()
+        require('dap').run_last()
+      end,
+      'debug: run last',
+    },
+    ['<leader>up'] = {
+      function()
+        require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))
+      end,
+      'debug: log breakpoint',
+    },
+    ['<leader>ur'] = {
+      function()
+        require('dap').repl.open()
+      end,
+      'debug: repl open',
+    },
+    ['<leader>ut'] = {
+      function()
+        require('dapui').toggle()
+      end,
+      'debug: toggle ui',
+    },
   },
 }
 

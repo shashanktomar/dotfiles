@@ -42,9 +42,12 @@ return function()
         initial_mode = 'normal',
         theme = 'ivy',
       },
+      dap = {
+        initial_mode = 'normal',
+      },
     },
     defaults = {
-      prompt_prefix = ' ',
+      prompt_prefix = '  ',
       selection_caret = ' ',
       file_ignore_patterns = { 'node_modules', '.git', '.terraform', '%.jpg', '%.png' },
       mappings = {
@@ -53,6 +56,6 @@ return function()
         },
       },
     },
-    extensions_list = { 'themes', 'terms', 'project', 'file_browser', 'ui-select', 'fzf', 'env' },
+    extensions_list = { 'dap', 'themes', 'terms', 'project', 'file_browser', 'ui-select', 'fzf', 'env' },
   }
 end

@@ -63,6 +63,7 @@ local M = {
   ['nvim-telescope/telescope-symbols.nvim'] = {},
   ['nvim-telescope/telescope-ui-select.nvim'] = {},
   ['nvim-telescope/telescope-project.nvim'] = {},
+  ['nvim-telescope/telescope-dap.nvim'] = {},
   ['LinArcX/telescope-env.nvim'] = {},
   ['nvim-telescope/telescope-fzf-native.nvim'] = { run = 'make' },
 
@@ -137,6 +138,27 @@ local M = {
 
   ['hrsh7th/nvim-cmp'] = {
     override_options = require('custom.plugins.cmp-config'),
+  },
+
+  -- ================ DAP Plugins =================
+
+  ['mfussenegger/nvim-dap'] = {
+    config = function() end,
+  },
+
+  ['leoluz/nvim-dap-go'] = {
+    config = function()
+      require('dap-go').setup()
+    end,
+  },
+  ['rcarriga/nvim-dap-ui'] = {
+    requires = { 'mfussenegger/nvim-dap' },
+    config = require('custom.plugins.nvim-dap').setup_dap_ui,
+  },
+  ['theHamsta/nvim-dap-virtual-text'] = {
+    config = function()
+      require('nvim-dap-virtual-text').setup()
+    end,
   },
 
   -- ================ Other Plugins =================

@@ -1,4 +1,5 @@
 local ok, tt = pcall(require, 'toggleterm')
+local utils = require('custom.utils')
 
 if not ok then return end
 
@@ -18,6 +19,14 @@ local tz = Terminal:new({
   direction = 'float',
   env = { TZ_LIST = 'Asia/Kolkata,India ; Canada/Pacific, Canada Pacific' },
 })
+local glow = function(filePath)
+  return Terminal:new({
+    cmd = 'glow -p ' .. filePath,
+    hidden = true,
+    direction = 'float',
+    close_on_exit = true,
+  })
+end
 
 local M = {}
 
@@ -39,6 +48,15 @@ end
 
 M.tz_toggle = function()
   tz:toggle()
+end
+
+M.glow_toggle = function()
+  if vim.bo.filetype ~= 'markdown' then
+    utils.notify('ToggleTerm', 'warn', 'Current buffer is not markdown')
+    return
+  end
+  local currentFilePath = vim.api.nvim_buf_get_name(0)
+  glow(currentFilePath):toggle()
 end
 
 return M

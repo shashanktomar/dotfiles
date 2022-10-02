@@ -10,14 +10,13 @@ tap "TylerBrock/saw"
 tap "cooklang/tap"
 
 # dev-utils
-brew "asciinema"
 brew "agg" # asciinema to gif converter
+brew "asciinema"
 brew "bash" # latest bash
 brew "bat" # cat aternative
 brew "cmake"
 brew "coreutils"
 brew "direnv" # directory based env vars
-brew "git-delta" # pager for git
 brew "dive"
 brew "dockutil" # tools for managing mac dock items
 brew "dua-cli" # Disk Usage Analyzer
@@ -28,35 +27,39 @@ brew "fzf"
 brew "gawk"
 brew "gh"
 brew "git"
+brew "git-delta" # pager for git
 brew "git-extras"
-brew "grep"
-brew "gnutls"
 brew "gnu-getopt"
 brew "gnu-indent"
 brew "gnu-sed"
 brew "gnu-tar"
+brew "gnutls"
+brew "grep"
 brew "gum" # a picker from charm
 brew "htop" # htop alternative
 brew "httpie" # curl alternative
 brew "jesseduffield/lazygit/lazygit"
+brew "jid"
 brew "jless" # JSON viewer
 brew "jq"
-brew "neovim", args: ["HEAD"]
 brew "neofetch" # display system information
+brew "neovim", args: ["HEAD"]
 brew "peco" # Simplistic interactive filtering tool
 brew "ripgrep" # grep alternative
-brew "svn"
+brew "slides"
 brew "ssh-copy-id" # Add a public key to a remote machine's authorized_keys file
 brew "stow" # symlink farm manager
+brew "svn"
 brew "tmux"
 brew "tmuxp" # templatize tmux sessions
 brew "tree"
 brew "tz" # show time in different timezones
+brew "urlview" # fetch urls from text documents
 brew "vale" # Editorial style guide for writing
-brew "wtfutil" # a personal tui dashboard 
 brew "wget"
-brew "zsh"
+brew "wtfutil" # a personal tui dashboard 
 brew "z"
+brew "zsh"
 
 # other-utils
 brew "cooklang/tap/cook" # well, it is a recipe cli

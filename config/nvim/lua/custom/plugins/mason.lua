@@ -9,6 +9,7 @@ M.ensure_installed = {
   'stylua',
 
   -- go
+  'delve',
   'gopls',
   'golangci-lint',
   'gofumpt',
@@ -39,6 +40,7 @@ M.ensure_installed = {
   'json-lsp',
   'markdownlint',
   'marksman',
+  'misspell',
   'vale',
 }
 
