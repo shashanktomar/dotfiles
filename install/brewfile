@@ -84,6 +84,7 @@ brew "pipenv"
 ## rust
 brew "rust-analyzer"
 ## other
+brew "act" # run github actions locally
 brew "cue-lang/tap/cue"
 brew "jenv"
 brew "mono" # Cross platform, open source .NET framework

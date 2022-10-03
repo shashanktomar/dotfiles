@@ -59,17 +59,20 @@ return function()
           buffer = '[Buffer]',
           path = '[Path]',
           rg = '[RG]',
+          nvim_lua = '[Lua]',
+          -- cmdline = '[CommandLine]',
         })[entry.source.name]
         return vim_item
       end,
     },
+
     sources = {
       { name = 'luasnip' },
       { name = 'nvim_lsp' },
       { name = 'buffer', keyword_length = 5 },
       { name = 'nvim_lua' },
-      { name = 'path' },
-      { name = 'cmdline' },
+      { name = 'path', keyword_length = 3 },
+      -- { name = 'cmdline' },
       { name = 'rg', keyword_length = 5 },
     },
   }

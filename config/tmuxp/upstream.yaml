@@ -10,5 +10,5 @@ windows:
     panes:
       - nvim
   - window_name: term
-    start_directory: ~/.dotfiles
+    start_directory: ~/projects/personal/upstream
     panes: []

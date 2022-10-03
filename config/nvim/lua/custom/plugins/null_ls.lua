@@ -35,6 +35,8 @@ local sources = {
   ----------- other -------------
   -- code_actions.gitsigns,
   diagnostics.vale,
+  -- diagnostics.markdownlint,
+  -- formatting.markdownlint,
   completion.spell.with({
     filetypes = { 'markdown', 'text' },
   }),
