@@ -8,6 +8,7 @@ tap "jesseduffield/lazygit"
 tap "pulumi/tap"
 tap "TylerBrock/saw"
 tap "cooklang/tap"
+tap "turbot/tap"
 
 # dev-utils
 brew "agg" # asciinema to gif converter
@@ -94,6 +95,7 @@ brew "awscli"
 brew "aws-sam-cli"
 brew "azure-cli"
 brew "saw" # multi-purpose tool for AWS CloudWatch Logs
+brew "steampipe"
 
 # IAC tools
 brew "dagger/tap/dagger"
