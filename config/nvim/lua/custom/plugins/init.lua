@@ -146,11 +146,6 @@ local M = {
     config = function() end,
   },
 
-  ['leoluz/nvim-dap-go'] = {
-    config = function()
-      require('dap-go').setup()
-    end,
-  },
   ['rcarriga/nvim-dap-ui'] = {
     requires = { 'mfussenegger/nvim-dap' },
     config = require('custom.plugins.nvim-dap').setup_dap_ui,
@@ -160,6 +155,23 @@ local M = {
       require('nvim-dap-virtual-text').setup()
     end,
   },
+
+  -- ================ Language Specific Plugins =================
+
+  -- Golang
+  ['leoluz/nvim-dap-go'] = {
+    config = function()
+      require('dap-go').setup()
+    end,
+  },
+
+  ['ray-x/go.nvim'] = {
+    config = function()
+      require('go').setup()
+    end,
+  },
+
+  ['ray-x/guihua.lua'] = {},
 
   -- ================ Other Plugins =================
 

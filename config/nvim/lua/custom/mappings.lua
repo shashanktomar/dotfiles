@@ -74,8 +74,6 @@ M.movement = {
     -- remember that swap lines is `ddp`
     ['<C-M-j>'] = { '<Esc>:m .+1<CR>', ' move line down' },
     ['<C-M-k>'] = { '<Esc>:m .-2<CR>', ' move line up' },
-    ['<M-J>'] = { 'yyp', ' copy line down' },
-    ['<M-K>'] = { 'yyP', ' copy line up' },
     ['<M-o>'] = { 'o<Esc>', '↵ insert a new line down' },
     ['<M-O>'] = { 'O<Esc>', '↵ insert a new line up' },
 
