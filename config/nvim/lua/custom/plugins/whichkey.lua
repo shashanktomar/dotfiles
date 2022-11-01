@@ -49,7 +49,6 @@ M.setup = function()
         a = { 'all files in project' },
         f = { 'files in project' },
         h = { 'help pages' },
-        o = { 'old files' },
         x = {
           name = 'other',
         },
@@ -65,6 +64,12 @@ M.setup = function()
       },
       t = {
         name = 'terminals',
+      },
+      u = {
+        name = 'debug',
+      },
+      v = {
+        name = 'test',
       },
       w = {
         name = 'workspace',

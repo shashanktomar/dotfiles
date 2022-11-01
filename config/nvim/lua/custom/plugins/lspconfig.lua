@@ -19,7 +19,7 @@ vim.diagnostic.config({
 
 local on_attach = require('plugins.configs.lspconfig').on_attach
 local capabilities = require('plugins.configs.lspconfig').capabilities
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- detect python venv
 -- https://github.com/neovim/nvim-lspconfig/issues/500#issuecomment-851247107

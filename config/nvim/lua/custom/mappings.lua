@@ -45,6 +45,7 @@ M.disabled = {
 M.global = {
   n = {
     ['<C-M-q>'] = { '<cmd> quitall <CR>', 'quit all' },
+    [';'] = { ':', 'command mode' },
   },
 }
 
@@ -76,6 +77,8 @@ M.movement = {
     ['<C-M-k>'] = { '<Esc>:m .-2<CR>', ' move line up' },
     ['<M-o>'] = { 'o<Esc>', '↵ insert a new line down' },
     ['<M-O>'] = { 'O<Esc>', '↵ insert a new line up' },
+    ['H'] = { '^', 'goto beginning of line' },
+    ['L'] = { '$', 'goto end of line' },
 
     ['<leader>a'] = { '<cmd> b# <CR>', 'last buffer' },
   },
@@ -155,18 +158,28 @@ M.telescope = {
     ['<leader>fc'] = { '<cmd> Telescope command_history <CR>', 'command history' },
     ['<leader>fe'] = { '<cmd> Telescope file_browser <CR>', 'explore file system' },
     ['<leader>fg'] = { '<cmd> Telescope live_grep <CR>', 'live grep' },
-    ['<leader>fo'] = { '<cmd> Telescope oldfiles cwd_only=true <CR>', 'live grep' },
-    ['<leader>fp'] = { '<cmd> Telescope project <CR>', 'projects' },
-    ['<leader>fs'] = { '<cmd> Telescope symbols <CR>', 'symbols' },
+    ['<leader>fm'] = { '<cmd> Telescope marks <CR>', 'marks' },
+    ['<leader>fo'] = { '<cmd> Telescope oldfiles cwd_only=true <CR>', 'old files' },
+    ['<leader>fp'] = { '<cmd> Telescope resume <CR>', 'resume previous' },
+    ['<leader>fr'] = { '<cmd> Telescope registers <CR>', 'registers' },
+    ['<leader>fs'] = { '<cmd> Telescope search_history <CR>', 'search history' },
+    ['<leader>fu'] = { '<cmd> Telescope current_buffer_fuzzy_find <CR>', 'fuzzy search in current buffer' },
     ['<leader>fw'] = { '<cmd> Telescope grep_string <CR>', 'grep word under cursor' },
     ['<leader>fxa'] = { '<cmd> Telescope autocommands <CR>', 'vim autocommands' },
     ['<leader>fxc'] = { '<cmd> Telescope commands <CR>', 'vim commands' },
     ['<leader>fxe'] = { '<cmd> Telescope env <CR>', 'environment vars' },
+    ['<leader>fxf'] = { '<cmd> Telescope filetypes <CR>', 'available filetypes' },
     ['<leader>fxh'] = { '<cmd> Telescope highlights <CR>', 'highlights' },
     ['<leader>fxk'] = { '<cmd> Telescope keymaps <CR>', 'normal mode keymaps' },
+    ['<leader>fxj'] = { '<cmd> Telescope jumplist <CR>', 'jumplist' },
+    ['<leader>fxl'] = { '<cmd> Telescope loclist <CR>', 'current window loclist' },
+    ['<leader>fxm'] = { '<cmd> Telescope man_pages <CR>', 'man pages' },
     ['<leader>fxo'] = { '<cmd> Telescope vim_options <CR>', 'vim options' },
+    ['<leader>fxp'] = { '<cmd> Telescope project <CR>', 'projects' },
     ['<leader>fxq'] = { '<cmd> Telescope quickfix <CR>', 'quickfix' },
-    ['<leader>fxs'] = { '<cmd> Telescope quickfixhistory<CR>', 'quickfix history' },
+    ['<leader>fxs'] = { '<cmd> Telescope quickfixhistory <CR>', 'quickfix history' },
+    ['<leader>fxw'] = { '<cmd> Telescope spell_suggest <CR>', 'spell suggest for word under cursor' },
+    ['<leader>fxx'] = { '<cmd> Telescope symbols <CR>', 'emojis' },
 
     ['<leader>p'] = { '<cmd> Telescope buffers <CR>', 'find buffers', { nowait = true } },
   },
@@ -247,13 +260,78 @@ M.toggles = {
   },
 }
 
+M.test = {
+  n = {
+    ['<leader>vn'] = {
+      function()
+        require('neotest').run.run()
+      end,
+      'run test: neartest',
+    },
+    ['<leader>vs'] = {
+      function()
+        require('neotest').run.stop()
+      end,
+      'stop test: nearest',
+    },
+    ['<leader>va'] = {
+      function()
+        require('neotest').run.attach()
+      end,
+      'attach to test: nearest',
+    },
+    ['<leader>vf'] = {
+      function()
+        require('neotest').run.run(vim.fn.expand('%'))
+      end,
+      'run test: in current file',
+    },
+    ['<leader>vl'] = {
+      function()
+        require('neotest').run.run_last()
+      end,
+      'run test: last',
+    },
+    ['<leader>vd'] = {
+      function()
+        require('neotest').run.run({ strategy = 'dap' })
+      end,
+      'debug test: nearest with dap',
+    },
+    ['<leader>vo'] = {
+      function()
+        require('neotest').output.open()
+      end,
+      'open test output',
+    },
+    ['<leader>vu'] = {
+      function()
+        require('neotest').summary.toggle()
+      end,
+      'toggle summary window',
+    },
+    ['<leader>v]'] = {
+      function()
+        require('neotest').jump.next({ status = 'failed' })
+      end,
+      'jump to next failed test',
+    },
+    ['<leader>v['] = {
+      function()
+        require('neotest').jump.prev({ status = 'failed' })
+      end,
+      'jump to previous failed test',
+    },
+  },
+}
+
 M.dap = {
   n = {
     ['<F5>'] = {
       function()
         require('dap').continue()
       end,
-      'start debugging',
+      'debug: start',
     },
     ['<F10>'] = {
       function()

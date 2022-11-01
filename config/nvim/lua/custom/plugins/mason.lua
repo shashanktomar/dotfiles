@@ -18,6 +18,10 @@ M.ensure_installed = {
   'revive',
   'staticcheck',
 
+  -- rust
+  'rust-analyzer',
+  'codelldb',
+
   --shell
   'bash-language-server',
   'shfmt',

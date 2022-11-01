@@ -147,13 +147,27 @@ local M = {
   },
 
   ['rcarriga/nvim-dap-ui'] = {
+    after = 'nvim-dap',
     requires = { 'mfussenegger/nvim-dap' },
     config = require('custom.plugins.nvim-dap').setup_dap_ui,
   },
   ['theHamsta/nvim-dap-virtual-text'] = {
+    after = 'nvim-dap',
     config = function()
       require('nvim-dap-virtual-text').setup()
     end,
+  },
+  ['mxsdev/nvim-dap-vscode-js'] = {
+    after = 'nvim-dap',
+    requires = { 'mfussenegger/nvim-dap' },
+    config = function()
+      require('custom.plugins.nvim-dap-js')
+    end,
+  },
+  ['microsoft/vscode-js-debug'] = {
+    after = 'nvim-dap',
+    opt = true,
+    run = 'npm install --legacy-peer-deps && npm run compile',
   },
 
   -- ================ Language Specific Plugins =================
@@ -172,6 +186,13 @@ local M = {
   },
 
   ['ray-x/guihua.lua'] = {},
+
+  -- Rust
+  -- ['simrat39/rust-tools.nvim'] = {
+  --   config = function()
+  --     require('custom.plugins.rust_tools')
+  --   end,
+  -- },
 
   -- ================ Other Plugins =================
 
@@ -255,6 +276,18 @@ local M = {
 
   ['lewis6991/gitsigns.nvim'] = {
     override_options = require('custom.plugins.gitsigns'),
+  },
+
+  ['nvim-neotest/neotest'] = {
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-neotest/neotest-go',
+      'haydenmeade/neotest-jest',
+    },
+    config = function()
+      require('custom.plugins.neotest')
+    end,
   },
 
   -- ================ Remove Plugins =================
