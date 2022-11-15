@@ -42,3 +42,4 @@ vim.cmd('set rnu!') -- set relative line numbers by default
 -- treesitter based experimental folding
 vim.cmd('set foldmethod=expr')
 vim.cmd('set foldexpr=nvim_treesitter#foldexpr()')
+vim.g.luasnippets_path = './lua/custom/snippets'
