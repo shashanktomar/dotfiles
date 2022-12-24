@@ -36,7 +36,7 @@ focus-follows-mouse: false
 mouse-swaps-windows: true
 mouse-resizes-windows: true
 
-# Add 10px margin between windows
+# Add 8px margin between windows
 window-margins: true
 window-margin-size: 8 
 smart-window-margins: true

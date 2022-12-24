@@ -48,7 +48,7 @@ go-packages: ## Install go packages from /install/gofile
 	for EXT in $$(cat install/gofile); do go install $$EXT; done
 
 node-packages: npm ## Install npm packages from /install/npmfile
-	. $(NVM_DIR)/nvm.sh; npm install -g $(shell cat install/npmfile)
+	npm install -g $(shell cat install/npmfile)
 
 raw-installs: ## Install raw packages using /install/raw-install.sh
 	$(DOTFILES_DIR)/install/raw-installs.sh

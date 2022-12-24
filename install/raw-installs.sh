@@ -11,8 +11,6 @@ if [[ ! -d $ZSH_PATH ]]; then
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_THEME_PATH/powerlevel10k"
   # install zsh-autosuggestions
   git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_PLUGIN_PATH/zsh-autosuggestions"
-  # install zsh-nvm plugin
-  git clone https://github.com/lukechilds/zsh-nvm "$ZSH_PLUGIN_PATH/zsh-nvm"
   # install zsh-vi-mode plugin
   git clone https://github.com/jeffreytse/zsh-vi-mode "$ZSH_PLUGIN_PATH/zsh-vi-mode"
 else

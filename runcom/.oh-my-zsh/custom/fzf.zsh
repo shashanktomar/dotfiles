@@ -6,8 +6,32 @@
 export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
 
 ###############################################################################
+######################### Reusable Functions ##################################
+###############################################################################
+
+# Default `fold` to screen width and break at spaces
+function fold {
+  if [ $# -eq 0 ]; then
+    /usr/bin/fold -w $COLUMNS -s
+  else
+    /usr/bin/fold $*
+  fi
+}
+
+# Use `fzf` against system dictionary
+function spell {
+  cat /usr/share/dict/words | fzf --preview 'wn {} -over | fold' --preview-window=up:60%
+}
+
+
+###############################################################################
 ################################# Utils #######################################
 ###############################################################################
+
+# FZF preview
+alias fzfp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}' \
+  --preview-window right:'60%' \
+  --bind ctrl-u:preview-up,ctrl-d:preview-down"
 
 # fh - repeat history
 fh() {
@@ -25,6 +49,20 @@ fkill() {
   fi
 }
 
+# Lookup definition of word using `wn $1 -over`.
+# If $1 is not provided, we'll use the `spell` command to pick a word.
+#
+# Requires:
+#   brew install wordnet
+#   brew install fzf
+function dic {
+  if [ $# -eq 0 ]; then
+    wn `spell` -over | fold
+  else
+    wn $1 -over | fold
+  fi
+}
+
 ###############################################################################
 ################################# Tmux ########################################
 ###############################################################################
@@ -39,6 +77,26 @@ tm() {
     tmux $change -t "$1" 2>/dev/null || (tmux new-session -d -s $1 && tmux $change -t "$1"); return
   fi
   session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."
+}
+
+# ftpane - switch pane 
+ftpane() {
+  local panes current_window current_pane target target_window target_pane
+  panes=$(tmux list-panes -s -F '#I:#P - #{pane_current_path} #{pane_current_command}')
+  current_pane=$(tmux display-message -p '#I:#P')
+  current_window=$(tmux display-message -p '#I')
+
+  target=$(echo "$panes" | grep -v "$current_pane" | fzf +m --reverse) || return
+
+  target_window=$(echo $target | awk 'BEGIN{FS=":|-"} {print$1}')
+  target_pane=$(echo $target | awk 'BEGIN{FS=":|-"} {print$2}' | cut -c 1)
+
+  if [[ $current_window -eq $target_window ]]; then
+    tmux select-pane -t ${target_window}.${target_pane}
+  else
+    tmux select-pane -t ${target_window}.${target_pane} &&
+    tmux select-window -t $target_window
+  fi
 }
 
 ###############################################################################

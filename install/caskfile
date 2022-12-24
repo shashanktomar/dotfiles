@@ -28,6 +28,7 @@ cask "spotify"
 cask "tweeten"
 cask "visual-studio-code"
 cask "xbar"
+cask "xquartz"
 
 # Dev Tools
 cask "adoptopenjdk/openjdk/adoptopenjdk8"

@@ -43,6 +43,7 @@ brew "jesseduffield/lazygit/lazygit"
 brew "jid"
 brew "jless" # JSON viewer
 brew "jq"
+brew "jrnl"
 brew "neofetch" # display system information
 brew "neovim", args: ["HEAD"]
 brew "peco" # Simplistic interactive filtering tool
@@ -58,6 +59,7 @@ brew "tz" # show time in different timezones
 brew "urlview" # fetch urls from text documents
 brew "vale" # Editorial style guide for writing
 brew "wget"
+brew "wordnet"
 brew "wtfutil" # a personal tui dashboard 
 brew "z"
 brew "zsh"
@@ -84,6 +86,8 @@ brew "python@3"
 brew "pipenv"
 ## rust
 brew "rust-analyzer"
+## node
+brew "fnm"
 ## other
 brew "act" # run github actions locally
 brew "cue-lang/tap/cue"

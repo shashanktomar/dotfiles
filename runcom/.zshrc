@@ -75,7 +75,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-export NVM_LAZY_LOAD=true
 plugins=(
   aws
   docker
@@ -87,7 +86,6 @@ plugins=(
   yarn 
   z
   zsh-autosuggestions
-  zsh-nvm
   zsh-vi-mode
 )
 
@@ -153,9 +151,10 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # Clean up
 unset READLINK CURRENT_SCRIPT SCRIPT_PATH DOTFILE
 
-# zprof
 
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/runcom/.p10k.zsh.
 [[ ! -f ~/.dotfiles/runcom/.p10k.zsh ]] || source ~/.dotfiles/runcom/.p10k.zsh
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+ # zprof
