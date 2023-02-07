@@ -212,11 +212,11 @@ local M = {
 
   ['editorconfig/editorconfig-vim'] = {},
 
-  ['rcarriga/nvim-notify'] = {
-    config = function()
-      require('custom.plugins.notify-config')
-    end,
-  },
+  -- ['rcarriga/nvim-notify'] = {
+  --   config = function()
+  --     require('custom.plugins.notify-config')
+  --   end,
+  -- },
 
   ['folke/which-key.nvim'] = {
     disable = false,
@@ -262,7 +262,7 @@ local M = {
     end,
   },
 
-  ['kyazdani42/nvim-tree.lua'] = {
+  ['nvim-tree/nvim-tree.lua'] = {
     override_options = require('custom.plugins.nvim_tree'),
   },
 

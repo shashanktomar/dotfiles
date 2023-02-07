@@ -1,0 +1,10 @@
+session_name: personal-infra
+windows:
+  - window_name: code
+    start_directory: ~/personal/personal-infra
+    focus: true
+    panes:
+      - nvim
+  - window_name: term
+    start_directory: ~/personal/personal-infra
+

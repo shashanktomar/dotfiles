@@ -4,5 +4,6 @@ bindkey "^[s" autosuggest-toggle # use ALT-s to toggle suggestions
 # tmuxp related settings
 export DISABLE_AUTO_TITLE='true'
 
-# fnm
-eval "$(fnm env --use-on-cd)"
+# pnpm tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true

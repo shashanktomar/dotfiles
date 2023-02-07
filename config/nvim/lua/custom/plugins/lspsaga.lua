@@ -2,7 +2,7 @@ local ok, saga = pcall(require, 'lspsaga')
 
 if not ok then return end
 
-saga.init_lsp_saga({
+saga.setup({
   finder_request_timeout = 20000, -- long timeout for big projects
   code_action_icon = ' ',
   code_action_lightbulb = {

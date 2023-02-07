@@ -22,6 +22,9 @@ M.ensure_installed = {
   'rust-analyzer',
   'codelldb',
 
+  -- python
+  'pyright',
+
   --shell
   'bash-language-server',
   'shfmt',
