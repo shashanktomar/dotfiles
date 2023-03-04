@@ -241,7 +241,7 @@ local M = {
   },
 
   ['echasnovski/mini.nvim'] = {
-    branch = 'stable',
+    eranch = 'stable',
     config = function()
       require('custom.plugins.mini')
     end,

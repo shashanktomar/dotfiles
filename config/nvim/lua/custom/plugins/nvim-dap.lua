@@ -4,14 +4,17 @@ M.setup_dap_ui = function()
   local dap, dapui = require('dap'), require('dapui')
 
   dap.listeners.after.event_initialized['dapui_config'] = function()
-    dapui.open()
+    print('event_initialized')
+    dapui.open('sidebar')
   end
 
   dap.listeners.before.event_terminated['dapui_config'] = function()
+    print('event_terminated')
     dapui.close()
   end
 
   dap.listeners.before.event_exited['dapui_config'] = function()
+    print('event_terminated')
     dapui.close()
   end
 

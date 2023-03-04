@@ -84,6 +84,7 @@ brew "protobuf"
 brew "python"
 brew "python@3"
 brew "pipenv"
+# brew "pantsbuild/tap/pants" #This is working directly with brew but not in brewfile
 ## rust
 brew "rust-analyzer"
 ## node

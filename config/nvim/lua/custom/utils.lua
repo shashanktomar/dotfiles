@@ -19,7 +19,10 @@ M.notify = function(title, level, message)
     title = title,
     timeout = 2000,
   }
-  require('notify')(message, level, notify_options)
+
+  local present, notify = pcall(require, 'notify')
+  if not present then return end
+  notify(message, level, notify_options)
 end
 
 M.create_notify = function(title, level)

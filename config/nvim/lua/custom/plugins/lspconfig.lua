@@ -49,6 +49,7 @@ local servers = {
   'jsonls',
   'kotlin_language_server',
   'marksman',
+  'pyright',
   'tsserver',
   'yamlls',
 }

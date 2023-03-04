@@ -32,6 +32,8 @@ local sources = {
   -- diagnostics.revive,
   diagnostics.staticcheck,
 
+  ----------- golang -------------
+
   ----------- other -------------
   -- code_actions.gitsigns,
   diagnostics.vale,
