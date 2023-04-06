@@ -16,6 +16,7 @@ brew "asciinema"
 brew "bash" # latest bash
 brew "bat" # cat aternative
 brew "cmake"
+brew "commitizen"
 brew "coreutils"
 brew "direnv" # directory based env vars
 brew "dive"
@@ -79,6 +80,7 @@ brew "golangci-lint"
 ## lua
 brew "lua"
 brew "luarocks"
+brew "stylua"
 ## python
 brew "protobuf"
 brew "python"

@@ -52,7 +52,7 @@ M.global = {
 M.editing = {
   i = {
     -- Press jj fast to exit insert mode
-    ['jk'] = { '<Esc>', ' exit insert mode', { nowait = true } },
+    ['jj'] = { '<Esc>', ' exit insert mode', { nowait = true } },
     ['<Esc>'] = { '<Nop>' },
   },
 
@@ -60,8 +60,8 @@ M.editing = {
     -- Use space only as leader key
     ['<Space>'] = { '<Nop>' },
 
-    ['<leader>s'] = { '<cmd> w <CR>', 'save buffer' },
-    ['<leader>S'] = { '<cmd> wa <CR>', 'save all buffers' },
+    ['<C-s>'] = { '<cmd> w <CR>', 'save buffer' },
+    ['<C-S>'] = { '<cmd> wa <CR>', 'save all buffers' },
 
     ['<A-p>'] = { '"0p', 'p from yank register' },
     ['<A-P>'] = { '"0P', 'P from yank register' },
@@ -88,7 +88,7 @@ M.lsp = {
   n = {
     ['gd'] = { '<cmd> Telescope lsp_definitions <CR>', 'definition [lsp]' },
     ['gr'] = { '<cmd> Telescope lsp_references show_line=false <CR>', 'references [lsp]' },
-    ['gi'] = { '<cmd> Telescope lsp_implementations <CR>', 'references [lsp]' },
+    ['gi'] = { '<cmd> Telescope lsp_implementations <CR>', 'implementations [lsp]' },
     ['gh'] = { '<cmd> Lspsaga lsp_finder <CR>', 'lsp finder [lsp-saga]' },
     ['<leader>ca'] = { '<cmd> Lspsaga code_action <CR>', 'code action [lsp-saga]' },
     ['<leader>r'] = {
@@ -99,7 +99,7 @@ M.lsp = {
     },
 
     ['<leader>D'] = { '<cmd> Telescope diagnostics <CR>', 'workspace diagnostic' },
-    ['<leader>d'] = { '<cmd> Telescope diagnostics bufnr=0 heme=ivy height=30 <CR>', 'buffer diagnostic' },
+    ['<leader>d'] = { '<cmd> Telescope diagnostics bufnr=0 theme=ivy height=30 <CR>', 'buffer diagnostic' },
 
     ['[d'] = { '<cmd> Lspsaga diagnostic_jump_prev <CR>', 'previous diagnostic [lsp-saga]' },
     [']d'] = { '<cmd> Lspsaga diagnostic_jump_next <CR>', 'next diagnostic [lsp-saga]' },

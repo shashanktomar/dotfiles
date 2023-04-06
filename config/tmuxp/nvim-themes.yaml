@@ -1,0 +1,17 @@
+session_name: nvim-themes
+windows:
+  - window_name: code
+    start_directory: ~/projects/personal/nvim-plugins/themes.nvim
+    focus: true
+    panes:
+      - nvim
+  - window_name: NvChad
+    start_directory: ~/.config/NvChad
+    panes:
+      - nvim
+  - window_name: base46
+    start_directory: ~/projects/forks/nvchad/base46
+    panes:
+      - nvim
+  - window_name: term
+    start_directory: ~/projects/personal/nvim-plugins/themes.nvim

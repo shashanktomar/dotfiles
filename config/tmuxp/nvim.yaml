@@ -1,0 +1,14 @@
+session_name: nvim
+windows:
+  - window_name: code
+    start_directory: ~/projects/personal/nvim
+    focus: true
+    panes:
+      - nvim
+  - window_name: alt
+    start_directory: ~/projects/personal/nvim
+    panes:
+      - make alt
+  - window_name: term
+    start_directory: ~/projects/personal/nvim
+
