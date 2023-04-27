@@ -47,6 +47,7 @@ brew "jq"
 brew "jrnl"
 brew "neofetch" # display system information
 brew "neovim", args: ["HEAD"]
+brew "pandoc" 
 brew "peco" # Simplistic interactive filtering tool
 brew "ripgrep" # grep alternative
 brew "slides"
@@ -86,6 +87,7 @@ brew "protobuf"
 brew "python"
 brew "python@3"
 brew "pipenv"
+brew "poetry"
 # brew "pantsbuild/tap/pants" #This is working directly with brew but not in brewfile
 ## rust
 brew "rust-analyzer"

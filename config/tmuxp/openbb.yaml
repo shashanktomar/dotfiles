@@ -1,0 +1,7 @@
+session_name: openbb 
+windows:
+  - window_name: term
+    start_directory: ~/projects/learning/python/OpenBBTerminal
+    focus: true
+    panes:
+      - conda activate obb && python terminal.py

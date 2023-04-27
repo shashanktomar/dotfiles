@@ -1,14 +1,25 @@
 session_name: nvim
 windows:
   - window_name: code
-    start_directory: ~/projects/personal/nvim
+    start_directory: ~/.config/LazyVim
     focus: true
     panes:
-      - nvim
-  - window_name: alt
-    start_directory: ~/projects/personal/nvim
+      - nvim-lazy
+  - window_name: dotfiles
+    start_directory: ~/.dotfiles
     panes:
-      - make alt
+      - nvim
+  - window_name: LazyVim
+    start_directory: ~/projects/learning/nvim/LazyVim
+    panes:
+      - nvim
+  - window_name: NvChad
+    start_directory: ~/.config/NvChad
+    panes:
+      - nvim
+  - window_name: folke-dot
+    start_directory: ~/projects/learning/dotfiles/folke-dot
+    panes:
+      - nvim
   - window_name: term
-    start_directory: ~/projects/personal/nvim
-
+    start_directory: ~/.config

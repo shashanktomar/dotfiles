@@ -1,0 +1,25 @@
+session_name: wingman
+windows:
+  - window_name: code
+    start_directory: ~/projects/personal/wingman
+    focus: true
+    panes:
+      - nvim
+  - window_name: langchain
+    start_directory: ~/projects/learning/ai/langchain
+    panes:
+      - nvim
+  - window_name: langchain-notebooks
+    start_directory: ~/projects/learning/ai/langchain-notebooks
+    panes:
+      - nvim
+  - window_name: langchain-hub
+    start_directory: ~/projects/learning/ai/langchain-hub
+    panes:
+      - nvim
+  - window_name: auto-gpt
+    start_directory: ~/projects/learning/ai/Auto-GPT
+    panes:
+      - nvim
+  - window_name: term
+    start_directory: ~/projects/personal/wingman
