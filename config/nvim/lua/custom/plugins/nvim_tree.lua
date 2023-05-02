@@ -3,11 +3,11 @@ return function()
 
   local opt = {}
 
-  opt.ignore_ft_on_setup = {
-    'startify',
-    'dashboard',
-    'alpha',
-  }
+  -- opt.ignore_ft_on_setup = {
+  --   'startify',
+  --   'dashboard',
+  --   'alpha',
+  -- }
 
   opt.git = {
     enable = true,
@@ -44,6 +44,10 @@ return function()
 
   opt.view = {
     preserve_window_proportions = true,
+  }
+
+  opt.filters = {
+    custom = { '\\.null-ls.*' },
   }
 
   return opt

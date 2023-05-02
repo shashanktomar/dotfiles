@@ -1,0 +1,17 @@
+session_name: petals
+windows:
+  - window_name: code
+    start_directory: ~/projects/personal/petals
+    focus: true
+    panes:
+      - nvim
+  - window_name: bubbles
+    start_directory: ~/projects/learning/go/charm/bubbles
+    panes:
+      - nvim
+  - window_name: textual
+    start_directory: ~/projects/learning/python/textual
+    panes:
+      - nvim
+  - window_name: term
+    start_directory: ~/projects/personal/petals

@@ -32,11 +32,15 @@ local sources = {
   -- diagnostics.revive,
   diagnostics.staticcheck,
 
+  ----------- python -------------
+  formatting.black,
+  diagnostics.mypy,
+
   ----------- other -------------
   -- code_actions.gitsigns,
-  diagnostics.vale,
-  -- diagnostics.markdownlint,
-  -- formatting.markdownlint,
+  -- diagnostics.vale,
+  diagnostics.markdownlint,
+  formatting.markdownlint,
   completion.spell.with({
     filetypes = { 'markdown', 'text' },
   }),

@@ -24,6 +24,7 @@ M.ensure_installed = {
 
   -- python
   'pyright',
+  'ruff-lsp',
 
   --shell
   'bash-language-server',

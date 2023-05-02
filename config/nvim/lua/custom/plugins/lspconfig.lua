@@ -50,6 +50,7 @@ local servers = {
   'kotlin_language_server',
   'marksman',
   'pyright',
+  'ruff_lsp',
   'tsserver',
   'yamlls',
 }
