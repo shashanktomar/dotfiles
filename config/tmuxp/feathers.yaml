@@ -1,7 +1,7 @@
-session_name: petals
+session_name: feathers
 windows:
-  - window_name: code
-    start_directory: ~/projects/personal/petals
+  - window_name: feathers
+    start_directory: ~/projects/personal/feathers
     focus: true
     panes:
       - nvim
@@ -14,4 +14,4 @@ windows:
     panes:
       - nvim
   - window_name: term
-    start_directory: ~/projects/personal/petals
+    start_directory: ~/projects/personal/feathers

@@ -2,7 +2,7 @@ local M = {}
 
 M.ensure_installed = {
   'bash',
-  'comment',
+  -- 'comment', -- this make files with comments really really slow
   'css',
   'dockerfile',
   'go',
@@ -14,7 +14,7 @@ M.ensure_installed = {
   'http',
   'java',
   'javascript',
-  'jsdoc',
+  -- 'jsdoc', -- this make files with comments really really slow
   'json',
   'json5',
   'kotlin',
