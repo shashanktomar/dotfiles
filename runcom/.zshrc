@@ -209,7 +209,6 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 # JINA_CLI_END
 
-
 # pnpm
 export PNPM_HOME="/Users/stomar/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"

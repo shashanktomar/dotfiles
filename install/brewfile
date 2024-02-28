@@ -22,7 +22,7 @@ brew "direnv" # directory based env vars
 brew "dive"
 brew "dockutil" # tools for managing mac dock items
 brew "dua-cli" # Disk Usage Analyzer
-brew "exa" # ls alternative
+brew "eza" # ls alternative
 brew "fd" # Simple, fast and user-friendly alternative to find
 brew "findutils"
 brew "fzf"
