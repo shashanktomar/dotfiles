@@ -1,9 +1,9 @@
 session_name: fastai
 windows:
-  - window_name: term
-    start_directory: ~/projects/learning/ai/fastai/fastbook/
   - window_name: fastai
     start_directory: ~/projects/learning/ai/fastai/fastai/
     focus: true
     panes:
       - nvim
+  - window_name: term
+    start_directory: ~/projects/learning/ai/fastai/fastbook/

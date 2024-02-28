@@ -4,7 +4,7 @@ local M = {}
 M.plugins = require('custom.plugins')
 
 M.ui = {
-  theme = "monekai",
+  theme = "catppuccin",
   hl_override = require('custom.ui').hl_override,
   hl_add = require('custom.ui').hl_add,
 }

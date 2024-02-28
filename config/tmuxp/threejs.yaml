@@ -1,0 +1,10 @@
+session_name: threejs
+windows:
+  - window_name: threejs
+    start_directory: ~/projects/learning/webgl/threejs-learnings
+    focus: true
+    panes:
+      - nvim
+  - window_name: term
+    start_directory: ~/projects/learning/webgl/threejs-learnings
+
