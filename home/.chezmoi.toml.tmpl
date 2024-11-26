@@ -1,0 +1,38 @@
+# sourceDir = "~/.dotfiles"
+sourceDir = "~/.dotfiles-chezmoi"
+# uncomment this for testing
+destDir = "~/.cezmoi-test-dest"
+
+#######################################################
+###################### Data ###########################
+#######################################################
+
+{{ $hostName := promptStringOnce . "hostName" "What is the hostName" -}}
+
+{{- $hostTypeChoices := list "client" "work" "personal" -}}
+{{- $hostType := promptChoiceOnce . "hostType" "What type of host are you on" $hostTypeChoices -}}
+{{- $installUtils := promptBoolOnce . "installUtils" "Install utilities" true }}
+
+[data]
+hostName = {{ $hostName | quote }}
+hostType = {{ $hostType | quote }}
+installUtils = {{ $installUtils }}
+
+#######################################################
+################### Other Config ######################
+#######################################################
+
+[edit]
+command = "nvim"
+
+[merge]
+command = "nvim"
+args = ["-d", "{{ "{{" }} .Destination {{ "}}" }}", "{{ "{{" }} .Source {{ "}}" }}", "{{ "{{" }} .Target {{ "}}" }}"]
+
+[diff]
+command = "delta"
+pager = "delta"
+
+# [git]
+# autoCommit = true
+# autoPush = true

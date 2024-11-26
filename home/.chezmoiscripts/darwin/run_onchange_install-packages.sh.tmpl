@@ -1,0 +1,26 @@
+#!/bin/bash
+
+set -eufo pipefail
+
+{{- /* ==================================== */ -}}
+{{- /* Define the reusable brew block */ -}}
+{{ define "brewPackages"}}
+{{ range . -}}
+{{- if contains "args" . -}}
+brew {{ . }}
+{{- else -}}
+brew {{ . | quote }}
+{{- end }}
+{{ end -}}
+{{ end -}}
+{{- /* ==================================== */ -}}
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+
+{{- /* ==============Core Packages============== */ -}}
+{{ template "brewPackages" .packages.brews.core -}}
+
+{{- /* ==============Util Packages============== */ -}}
+{{ if .installUtils -}}
+{{ template "brewPackages" .packages.brews.utils -}}
+{{ end -}}
