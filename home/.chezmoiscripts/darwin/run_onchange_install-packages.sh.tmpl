@@ -1,8 +1,8 @@
 #!/bin/bash
 
-set -eufo pipefail
+set -euo pipefail
 
-{{- /* ==================================== */ -}}
+{{/* ==================================== */ -}}
 {{- /* Define the reusable brew block */ -}}
 {{ define "brewPackages"}}
 {{ range . -}}
@@ -15,12 +15,18 @@ brew {{ . | quote }}
 {{ end -}}
 {{- /* ==================================== */ -}}
 
+echo '🍺  Installing brew packages'
 brew bundle --no-lock --file=/dev/stdin <<EOF
 
 {{- /* ==============Core Packages============== */ -}}
 {{ template "brewPackages" .packages.brews.core -}}
 
-{{- /* ==============Util Packages============== */ -}}
+{{/* ==============Util Packages============== */ -}}
 {{ if .installUtils -}}
 {{ template "brewPackages" .packages.brews.utils -}}
+{{ end -}}
+
+{{/* ==============Extra Packages============== */ -}}
+{{ if .installExtras -}}
+{{ template "brewPackages" .packages.brews.extras -}}
 {{ end -}}

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eufo pipefail
+set -euo pipefail
 
 # Install brew
 command -v brew >/dev/null 2>&1 ||

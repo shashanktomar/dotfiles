@@ -7,16 +7,19 @@ destDir = "~/.cezmoi-test-dest"
 ###################### Data ###########################
 #######################################################
 
-{{ $hostName := promptStringOnce . "hostName" "What is the hostName" -}}
+{{ $computerName := output "scutil" "--get" "ComputerName" | trim -}}
+{{ $hostName := promptStringOnce . "hostName" "What is the hostName" $computerName -}}
 
 {{- $hostTypeChoices := list "client" "work" "personal" -}}
 {{- $hostType := promptChoiceOnce . "hostType" "What type of host are you on" $hostTypeChoices -}}
-{{- $installUtils := promptBoolOnce . "installUtils" "Install utilities" true }}
+{{- $installUtils := promptBoolOnce . "installUtils" "Install utilities" true -}}
+{{- $installExtras := promptBoolOnce . "installExtras" "Install extras" false -}}
 
 [data]
 hostName = {{ $hostName | quote }}
 hostType = {{ $hostType | quote }}
 installUtils = {{ $installUtils }}
+installExtras = {{ $installExtras }}
 
 #######################################################
 ################### Other Config ######################
