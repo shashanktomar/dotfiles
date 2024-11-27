@@ -18,15 +18,53 @@ brew {{ . | quote }}
 echo '🍺  Installing brew packages'
 brew bundle --no-lock --file=/dev/stdin <<EOF
 
-{{- /* ==============Core Packages============== */ -}}
-{{ template "brewPackages" .packages.brews.core -}}
+{{- /* ==============brew taps============== */ -}}
+{{ range .packages.brew_taps }}
+tap {{ . | quote }}
+{{- end }}
 
-{{/* ==============Util Packages============== */ -}}
-{{ if .installUtils -}}
-{{ template "brewPackages" .packages.brews.utils -}}
-{{ end -}}
+{{- /* ========= Core and Util Packages ========= */ -}}
+{{ template "brewPackages" .packages.core.brews -}}
+{{ template "brewPackages" .packages.utils.brews -}}
 
 {{/* ==============Extra Packages============== */ -}}
-{{ if .installExtras -}}
-{{ template "brewPackages" .packages.brews.extras -}}
+{{ if ne .hostType "client" -}}
+{{ template "brewPackages" .packages.extras.brews -}}
+{{ end -}}
+
+{{/* ==============Language Packages============== */ -}}
+{{ if .langJson -}}
+{{ template "brewPackages" .packages.lang_json.brews -}}
+{{ end -}}
+
+{{ if .langBash -}}
+{{ template "brewPackages" .packages.lang_bash.brews -}}
+{{ end -}}
+
+{{ if .langLua -}}
+{{ template "brewPackages" .packages.lang_lua.brews -}}
+{{ end -}}
+
+{{ if .langPython -}}
+{{ template "brewPackages" .packages.lang_python.brews -}}
+{{ end -}}
+
+{{ if .langGo -}}
+{{ template "brewPackages" .packages.lang_go.brews -}}
+{{ end -}}
+
+{{ if .langNode -}}
+{{ template "brewPackages" .packages.lang_node.brews -}}
+{{ end -}}
+
+{{ if .langAws -}}
+{{ template "brewPackages" .packages.lang_aws.brews -}}
+{{ end -}}
+
+{{ if .langTerraform -}}
+{{ template "brewPackages" .packages.lang_terraform.brews -}}
+{{ end -}}
+
+{{ if .langK8s -}}
+{{ template "brewPackages" .packages.lang_k8s.brews -}}
 {{ end -}}

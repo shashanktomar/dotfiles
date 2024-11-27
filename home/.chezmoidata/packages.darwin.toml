@@ -1,0 +1,102 @@
+[packages]
+brew_taps = ["aws/tap", "hashicorp/tap", "homebrew/bundle", "TylerBrock/saw"]
+
+[packages.core]
+brews = [
+  "age",
+  "bash",
+  "bat",
+  "cmake",
+  "coreutils",
+  "direnv",
+  "dockutil",
+  "eza",
+  "fd",
+  "findutils",
+  "fzf",
+  "gawk",
+  "gh",
+  "git",
+  "git-delta",
+  "git-extras",
+  "gnu-getopt",
+  "gnu-indent",
+  "gnu-sed",
+  "gnu-tar",
+  "gnutls",
+  "grep",
+  "jesseduffield/lazygit/lazygit",
+  "mackup",
+  "neovim",
+  "ripgrep",
+  "stow",
+  "tmux",
+  "tmuxp",
+  "tree",
+  "wget",
+  "z",
+]
+casks = []
+
+[packages.utils]
+brews = [
+  "act",
+  "commitizen",
+  "dive",
+  "dua-cli",
+  "glow",
+  "gum",
+  "homeassistant-cli",
+  "htop",
+  "httpie",
+  "mods",
+  "neofetch",
+  "slides",
+  "ssh-copy-id",
+  "tz",
+  "urlview",
+  "wordnet",
+  "wtfutil",
+]
+casks = []
+
+[packages.extras]
+brews = ["agg", "asciinema", "imagemagick", "pandoc", "svn"]
+casks = []
+
+[packages.lang_json]
+brews = ["jid", "jless", "jq"]
+
+[packages.lang_bash]
+brews = ["bats-core", "shellcheck"]
+
+[packages.lang_lua]
+brews = ["lua", "luajit", "luarocks", "stylua"]
+
+[packages.lang_python]
+brews = ["python", "pipenv", "poetry", "pyenv"]
+
+[packages.lang_go]
+brews = ["go", "golangci-lint"]
+
+[packages.lang_node]
+brews = ["fnm"]
+
+[packages.lang_aws]
+brews = ["awscli", "aws-sam-cli", "saw", "steampipe"]
+
+[packages.lang_terraform]
+brews = ["hashicorp/tap/terraform"]
+
+[packages.lang_k8s]
+brews = [
+  "helm",
+  "krew",
+  "kubebuilder",
+  "kubectl",
+  "kubevela",
+  "kustomize",
+  "k9s",
+  "minikube",
+  "tilt",
+]
