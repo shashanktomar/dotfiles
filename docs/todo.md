@@ -6,7 +6,6 @@
 - add lazyvim chezmoi plugin
 - add post install script to clone my nvim repo
 - configure secrets zsh file
-- git config
 - mac settings
 - health-check script
 - final check

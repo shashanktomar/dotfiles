@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -eufo pipefail
+
+echo "🏁 Performing Some Checks"
+echo ""
+
+EMAIL={{.personalEmail}}
+
+#===============================================
+#============== Reusable Functions =============
+#===============================================
+setup_onepass_cli_and_app_integration() {
+  # shellcheck disable=SC2016
+  retry-until-success-or-decline \
+    '[[ "$(op account list --format json | jq -r ".[].email")" == '"$EMAIL"' ]]' \
+    "1password cli is configured and can identify the account" \
+    "Integrate 1password cli with app and press done, or skip it" \
+    "Skipped 1password cli login" || true
+}
+
+# Attempt for 1password cli and app integration
+setup_onepass_cli_and_app_integration

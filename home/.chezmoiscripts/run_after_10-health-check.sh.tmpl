@@ -35,15 +35,6 @@ check_github_ssh() {
   fi
 }
 
-# Check if 1password cli is logged in
-check_onepass_login() {
-  if op whomai &>/dev/null; then
-    print-status "OK" "1password cli login successful"
-  else
-    print-status "ERROR" "1password cli is not logged in"
-  fi
-}
-
 #===============================================
 #================ Health Checks ================
 #===============================================
@@ -61,10 +52,6 @@ check_directory "$HOME/work"
 
 # Check if ~/personal directory exists
 check_directory "$HOME/personal"
-echo ""
-
-echo "🔒 1Password Checks" | gum style --background "249" --foreground "232"
-check_onepass_login
 echo ""
 
 echo "🐱 Git Checks" | gum style --background "249" --foreground "232"

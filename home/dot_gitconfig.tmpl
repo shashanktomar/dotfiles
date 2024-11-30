@@ -33,7 +33,7 @@
   [core]
     sshCommand = "ssh -i ~/.ssh/id_work"
 
-[includeIf "gitdir:~/personal/"]
+[includeIf "gitdir:~/personal/,gitdir:~/.dotfiles/,gitdir:~/.config/nvim/"]
   [user]
     name = Shashank Tomar
     email = {{ .personalEmail }}

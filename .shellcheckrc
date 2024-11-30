@@ -1,0 +1,2 @@
+# Disable errors caused by golang templates
+disable=SC1083,SC1054,SC1127,SC1072,SC1056,SC1009,SC1073

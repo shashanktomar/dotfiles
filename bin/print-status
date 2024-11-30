@@ -2,7 +2,18 @@
 
 STATUS=$1
 MESSAGE=$2
+
+# color values can be found https://github.com/muesli/termenv#template-helpers
+
 case $STATUS in
+ACTION)
+  echo -e '{{ Foreground "#ff87ff" (Bold "👉 ACTION") }}' "${MESSAGE}\n" |
+    gum format -t template
+  ;;
+INFO)
+  echo -e '{{ Foreground "#00d7ff" (Bold "ℹ️ INFO") }}' "${MESSAGE}\n" |
+    gum format -t template
+  ;;
 OK)
   echo -e '{{ Foreground "#5fd787" (Bold "✅ OK") }}' "${MESSAGE}\n" |
     gum format -t template
