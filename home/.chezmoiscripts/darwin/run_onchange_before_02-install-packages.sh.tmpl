@@ -1,16 +1,25 @@
 #!/bin/bash
 
-set -euo pipefail
+set -eufo pipefail
 
 {{/* ==================================== */ -}}
 {{- /* Define the reusable brew block */ -}}
 {{ define "brewPackages"}}
-{{ range . -}}
+{{ range (. | sortAlpha | uniq) -}}
 {{- if contains "args" . -}}
 brew {{ . }}
 {{- else -}}
 brew {{ . | quote }}
 {{- end }}
+{{ end -}}
+{{ end -}}
+{{- /* ==================================== */ -}}
+
+{{- /* ==================================== */ -}}
+{{- /* Define the reusable cask block */ -}}
+{{ define "caskPackages"}}
+{{ range (. | sortAlpha | uniq) -}}
+cask {{ . | quote }}
 {{ end -}}
 {{ end -}}
 {{- /* ==================================== */ -}}
@@ -25,6 +34,7 @@ tap {{ . | quote }}
 
 {{- /* ========= Core and Util Packages ========= */ -}}
 {{ template "brewPackages" .packages.core.brews -}}
+{{ template "caskPackages" .packages.core.casks -}}
 {{ template "brewPackages" .packages.utils.brews -}}
 
 {{/* ==============Extra Packages============== */ -}}
@@ -67,4 +77,5 @@ tap {{ . | quote }}
 
 {{ if .langK8s -}}
 {{ template "brewPackages" .packages.lang_k8s.brews -}}
+{{ template "caskPackages" .packages.lang_k8s.casks -}}
 {{ end -}}

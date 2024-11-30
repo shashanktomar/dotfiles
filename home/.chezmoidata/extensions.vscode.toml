@@ -1,0 +1,41 @@
+[extensions]
+
+core = [
+  "asvetliakov.vscode-neovim",
+  "eamodio.gitlens",
+  "GitHub.copilot",
+  "GitHub.copilot-chat",
+  "Gruntfuggly.todo-tree",
+  "anseki.vscode-color",
+  "dracula-theme.theme-dracula",
+  "golf1052.base16-generator",
+  "keesschollaart.vscode-home-assistant",
+  "mads-hartmann.bash-ide-vscode",
+  "ms-azuretools.vscode-docker",
+  "ms-vscode.makefile-tools",
+  "naumovs.color-highlight",
+  "redhat.vscode-yaml",
+  "streetsidesoftware.code-spell-checker",
+  "tamasfe.even-better-toml",
+  "yzhang.markdown-all-in-one",
+]
+
+lang_node = ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
+
+lang_python = [
+  "charliermarsh.ruff",
+  "ms-python.debugpy",
+  "ms-python.python",
+  "ms-python.vscode-pylance",
+  "ms-toolsai.jupyter",
+  "ms-toolsai.jupyter-keymap",
+  "ms-toolsai.jupyter-renderers",
+  "ms-toolsai.vscode-jupyter-cell-tags",
+  "ms-toolsai.vscode-jupyter-slideshow",
+]
+
+lang_go = ["golang.go", "jinliming2.vscode-go-template"]
+
+lang_terraform = ["hashicorp.terraform", "HashiCorp.HCL"]
+
+lang_lua = ["yinfei.luahelper"]

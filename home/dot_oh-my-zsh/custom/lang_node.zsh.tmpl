@@ -1,0 +1,6 @@
+{{ if .langNode -}}
+
+eval "$(fnm env --use-on-cd --version-file-strategy=recursive --corepack-enabled --resolve-engines --shell zsh)"
+alias pn=pnpm
+
+{{- end }}

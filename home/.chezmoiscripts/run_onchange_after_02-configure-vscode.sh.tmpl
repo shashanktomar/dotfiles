@@ -1,0 +1,36 @@
+#!/bin/bash
+
+set -eufo pipefail
+
+{{/* ==================================== */ -}}
+{{- /* Define the reusable block */ -}}
+{{ define "installVscodeExtensions"}}
+{{ range . -}}
+code --force --install-extension {{ . }}
+{{ end -}}
+{{ end -}}
+{{- /* ==================================== */ -}}
+
+echo '⚙️ Installing vscode extensions'
+
+{{ template "installVscodeExtensions" .extensions.core -}}
+
+{{ if .langLua -}}
+{{ template "installVscodeExtensions" .extensions.lang_lua -}}
+{{ end -}}
+
+{{ if .langPython -}}
+{{ template "installVscodeExtensions" .extensions.lang_python -}}
+{{ end -}}
+
+{{ if .langGo -}}
+{{ template "installVscodeExtensions" .extensions.lang_go -}}
+{{ end -}}
+
+{{ if .langTerraform -}}
+{{ template "installVscodeExtensions" .extensions.lang_terraform -}}
+{{ end -}}
+
+{{ if .langNode -}}
+{{ template "installVscodeExtensions" .extensions.lang_node -}}
+{{ end -}}

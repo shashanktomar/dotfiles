@@ -1,0 +1,13 @@
+session_name: personal-infra
+windows:
+  - window_name: code
+    start_directory: ~/personal/code/projects/personal-infra
+    focus: true
+    panes:
+      - nvim
+  - window_name: home-assistant
+    start_directory: ~/personal/code/projects/home-assistant-dotfiles
+    panes:
+      - nvim
+  - window_name: term
+    start_directory: ~/personal/code/projects/personal-infra

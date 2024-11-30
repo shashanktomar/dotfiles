@@ -1,7 +1,7 @@
 # sourceDir = "~/.dotfiles"
 sourceDir = "~/.dotfiles-chezmoi"
 # uncomment this for testing
-destDir = "~/.cezmoi-test-dest"
+destDir = "~/.chezmoi-test-dest"
 
 #######################################################
 ###################### Data ###########################
@@ -22,9 +22,18 @@ destDir = "~/.cezmoi-test-dest"
 {{- $langTerraform := promptBoolOnce . "langTerraform" "Add terraform packages" false -}}
 {{- $langK8s := promptBoolOnce . "langK8s" "Add k8s packages" false -}}
 
+
+{{- $personalEmail := "shashank004@gmail.com" -}}
+{{- $workEmail := "" -}}
+{{- if (or (eq $hostType "work") (eq $hostType "client")) -}}
+  {{- $workEmail = promptStringOnce . "workEmail" "Work email" -}}
+{{- end -}}
+
 [data]
 hostName = {{ $hostName | quote }}
 hostType = {{ $hostType | quote }}
+personalEmail = {{ $personalEmail | quote }}
+workEmail = {{ $workEmail | quote }}
 langJson = {{ $langJson }}
 langBash = {{ $langBash }}
 langLua = {{ $langLua }}

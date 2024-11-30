@@ -1,0 +1,11 @@
+[record]
+
+; Limit recorded terminal inactivity to max n seconds, default: off
+idle_time_limit = 2
+
+[notifications]
+; Desktop notifications are displayed on certain occasions, e.g. when
+; pausing/resuming the capture of terminal with C-\ keyboard shortcut.
+
+; Should desktop notifications be enabled, default: yes
+enabled = no

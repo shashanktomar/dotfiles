@@ -14,9 +14,24 @@
 help: ## Display this help.
 	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n"} /^[a-zA-Z_0-9-]+:.*?##/ { printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2 } /^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
 
+##@ Build Commands
+
+test:
+	bats home/test/*.bats
+
 ##@ Utilities
 
 config: ## Display config
 	chezmoi cat-config | bat -l toml
 render-packages: ## Render the packages script
-	bat home/.chezmoiscripts/darwin/run_onchange_install-packages.sh.tmpl | chezmoi execute-template
+	bat home/.chezmoiscripts/darwin/run_onchange_before_02-install-packages.sh.tmpl | chezmoi execute-template | bat
+render-external: ## Render .chezmoiexternal
+	bat home/.chezmoiexternal.toml.tmpl | chezmoi execute-template | bat -l toml
+render-vscode-ext: ## Render the vscode extensions script
+	bat home/.chezmoiscripts/run_onchange_after_02-configure-vscode.sh.tmpl | chezmoi execute-template | bat
+render-git-config: ## Render .gitconfig
+	bat home/dot_gitconfig.tmpl | chezmoi execute-template | bat
+render-ssh-configs: ## Render ssh configs
+	bat home/private_dot_ssh/authorized_keys.tmpl | chezmoi execute-template | bat
+render-health-check: ## Render health-check
+	bat home/.chezmoiscripts/run_after_10-health-check.sh.tmpl | chezmoi execute-template | bat

@@ -1,0 +1,21 @@
+session_name: dotfiles
+windows:
+  - window_name: dotfiles
+    start_directory: ~/.dotfiles
+    focus: true
+    panes:
+      - nvim
+  - window_name: nvim
+    start_directory: ~/.config/nvim
+    panes:
+      - nvim
+  - window_name: second-brain
+    start_directory: ~/personal/second-brain
+    panes:
+      - nvim
+  - window_name: second-brain-logseq
+    start_directory: ~/personal/second-brain-logseq
+    panes:
+      - nvim
+  - window_name: term
+    start_directory: ~/.dotfiles

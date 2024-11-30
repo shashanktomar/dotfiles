@@ -1,0 +1,18 @@
+{{ if .langK8s -}}
+
+export PATH="${PATH}:${HOME}/.krew/bin"
+
+alias ks=kubectl
+
+source <(kubectl completion zsh)
+
+# fzf set kubectl contexts
+fksc() {
+  local contexts context
+  contexts=$(kubectl config get-contexts -o name) &&
+  context=$(echo "$contexts" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$contexts") )) +m) &&
+  kubectl config use-context "$context"
+}
+
+{{- end }}

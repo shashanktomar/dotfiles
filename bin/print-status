@@ -1,0 +1,21 @@
+#!/bin/bash
+
+STATUS=$1
+MESSAGE=$2
+case $STATUS in
+OK)
+  echo -e '{{ Foreground "#5fd787" (Bold "✅ OK") }}' "${MESSAGE}\n" |
+    gum format -t template
+  ;;
+WARN | WARNING)
+  echo -e '{{ Foreground "#ffaf00" (Bold "⚠️ Warning") }}' "${MESSAGE}\n" |
+    gum format -t template
+  ;;
+ERROR | ERR)
+  echo -e '{{ Foreground "#ff005f" (Bold "❌ Error") }}' "${MESSAGE}\n" |
+    gum format -t template
+  ;;
+*)
+  echo -e "${MESSAGE}\n"
+  ;;
+esac

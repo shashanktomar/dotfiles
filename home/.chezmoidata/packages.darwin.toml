@@ -22,13 +22,14 @@ brews = [
   "gnu-getopt",
   "gnu-indent",
   "gnu-sed",
+  "gnu-units",
   "gnu-tar",
   "gnutls",
   "grep",
   "jesseduffield/lazygit/lazygit",
-  "mackup",
   "neovim",
   "ripgrep",
+  "ruby",
   "stow",
   "tmux",
   "tmuxp",
@@ -36,7 +37,14 @@ brews = [
   "wget",
   "z",
 ]
-casks = []
+casks = [
+  "1password",
+  "1password-cli",
+  "firefox",
+  "hammerspoon",
+  "kitty",
+  "visual-studio-code",
+]
 
 [packages.utils]
 brews = [
@@ -58,11 +66,46 @@ brews = [
   "wordnet",
   "wtfutil",
 ]
-casks = []
+casks = [
+  "docker",
+  "google-chrome",
+  "logseq",
+  "notion",
+  "obsidian",
+  "spotify",
+  "font-consolas-for-powerline",
+  "font-fira-code",
+  "font-fira-code-nerd-font",
+  "font-fira-mono-nerd-font",
+  "font-ia-writer-duo",
+  "font-ia-writer-mono",
+  "font-ia-writer-quattro",
+  "font-inter",
+  "font-meslo-lg-nerd-font",
+  "font-menlo-for-powerline",
+  "font-open-sans",
+  "font-patrick-hand",
+  "font-patrick-hand-sc",
+  "font-roboto-mono",
+  "font-roboto-mono-nerd-font",
+  "font-roboto",
+  "font-sf-mono",
+  "font-hack-nerd-font",
+  "font-ubuntu-mono-nerd-font",
+  "font-jetbrains-mono-nerd-font",
+]
 
 [packages.extras]
 brews = ["agg", "asciinema", "imagemagick", "pandoc", "svn"]
-casks = []
+casks = [
+  "discord",
+  "dropbox",
+  "expressvpn",
+  "google-drive",
+  "kindle",
+  "sourcetree",
+  "tailscale",
+]
 
 [packages.lang_json]
 brews = ["jid", "jless", "jq"]
@@ -100,3 +143,4 @@ brews = [
   "minikube",
   "tilt",
 ]
+casks = ["kui"]

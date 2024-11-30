@@ -1,0 +1,7 @@
+{{ if .langAws -}}
+
+# source '/opt/homebrew/opt/aws-sso-tools/bin/aws-sso.sh'
+complete -C '/opt/homebrew/bin/aws_completer' aws
+export AWS_PAGER=""
+
+{{ end -}}

@@ -1,0 +1,5 @@
+{{ if .langGo -}}
+
+export PATH="$PATH:$(go env GOPATH)/bin"
+
+{{- end }}

@@ -1,0 +1,35 @@
+local function toggleApplication(name)
+	local app = hs.application.find(name)
+	if not app or app:isHidden() then
+		hs.application.launchOrFocus(name)
+	elseif hs.application.frontmostApplication() ~= app then
+		app:activate()
+	else
+		app:hide()
+	end
+end
+
+-- hs.hotkey.bind(mash, "t", function()
+-- 	toggleApplication("kitty")
+-- end)
+-- hs.hotkey.bind(mash, "c", function()
+-- 	toggleApplication("Google Chrome")
+-- end)
+-- hs.hotkey.bind(mash, "f", function()
+-- 	toggleApplication("Firefox")
+-- end)
+-- hs.hotkey.bind(mash, "v", function()
+-- 	toggleApplication("Visual Studio Code")
+-- end)
+-- hs.hotkey.bind(mash, "s", function()
+-- 	toggleApplication("Slack")
+-- end)
+-- hs.hotkey.bind(mash, "l", function()
+-- 	toggleApplication("logseq")
+-- end)
+-- hs.hotkey.bind(mash, "n", function()
+-- 	toggleApplication("Notion")
+-- end)
+-- hs.hotkey.bind(mash, "o", function()
+-- 	toggleApplication("Obsidian")
+-- end)

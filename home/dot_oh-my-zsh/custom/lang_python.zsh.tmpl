@@ -1,0 +1,18 @@
+{{ if .langPython -}}
+
+# Poetry
+export POETRY_CONFIG_DIR=$XDG_CONFIG_HOME/pypoetry
+export POETRY_DATA_DIR=$XDG_DATA_HOME/pypoetry
+export POETRY_CACHE_DIR=$XDG_CACHE_HOME/pypoetry
+
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# Aliases
+alias python='python3'
+alias pip='pip3'
+alias jupyter-lab-deamon="jupyter-lab --no-browser --NotebookApp.allow_origin='*'."
+
+{{- end }}

@@ -1,0 +1,4 @@
+[packages.versions]
+zsh_vi_mode = "v0.11.0"
+powerlevel10k = "v1.20.0"
+tpm = "v3.1.0"
