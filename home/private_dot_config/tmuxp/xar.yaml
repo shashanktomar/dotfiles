@@ -1,8 +1,0 @@
-session_name: xar
-windows:
-  - window_name: notes
-    start_directory: ~/work/notes
-    panes:
-      - nvim
-  - window_name: term
-    start_directory: ~/work

@@ -47,11 +47,18 @@ echo "❤️ Performing Health Checks"
 echo ""
 
 echo "📁 Directory Checks" | gum style --background "249" --foreground "232"
-# Check if ~/work directory exists
-check_directory "$HOME/work"
+# Check if ~/work directories exists
+check_directory "$HOME/work/code"
+check_directory "$HOME/work/notes"
 
-# Check if ~/personal directory exists
-check_directory "$HOME/personal"
+# Check if ~/personal directories exist
+check_directory "$HOME/personal/code/junkyard"
+check_directory "$HOME/personal/code/learning"
+check_directory "$HOME/personal/second-brain"
+check_directory "$HOME/personal/second-brain-logseq"
+check_directory "$HOME/personal/code/projects/personal-infra"
+check_directory "$HOME/personal/code/projects/home-assistant-dotfiles"
+echo ""
 
 echo "🐱 Git Checks" | gum style --background "249" --foreground "232"
 check_file "$HOME/.gitconfig"

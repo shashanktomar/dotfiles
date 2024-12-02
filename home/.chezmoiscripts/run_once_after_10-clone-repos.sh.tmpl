@@ -1,0 +1,31 @@
+#!/bin/bash
+
+NVIM_DIR="{{.chezmoi.config.destDir}}/.config/nvim"
+SECOND_BRAIN_DIR="$HOME/personal/second-brain"
+SECOND_BRAIN_LOGSEQ_DIR="$HOME/personal/second-brain-logseq"
+HOME_ASSISTANT_SOURCE_DIR="$HOME/personal/code/projects/home-assistant-dotfiles"
+PERSONAL_INFRA_DIR="$HOME/personal/code/projects/personal-infra"
+
+if [ ! -d "$NVIM_DIR" ]; then
+  git clone git@github.com:shashanktomar/nvim.git "$NVIM_DIR"
+fi
+
+if [ ! -d "$SECOND_BRAIN_DIR" ]; then
+  git clone git@github.com:shashanktomar/second-brain.git "$SECOND_BRAIN_DIR"
+fi
+
+if [ ! -d "$SECOND_BRAIN_LOGSEQ_DIR" ]; then
+  git clone git@github.com:shashanktomar/second-brain-logseq.git "$SECOND_BRAIN_LOGSEQ_DIR"
+fi
+
+if [ ! -d "$HOME_ASSISTANT_SOURCE_DIR" ]; then
+  git clone git@github.com:shashanktomar/home-assistant-dotfiles.git "$SECOND_BRAIN_LOGSEQ_DIR"
+fi
+
+if [ ! -d "$HOME_ASSISTANT_SOURCE_DIR" ]; then
+  git clone git@github.com:shashanktomar/home-assistant-dotfiles.git "$SECOND_BRAIN_LOGSEQ_DIR"
+fi
+
+if [ ! -d "$PERSONAL_INFRA_DIR" ]; then
+  git clone git@github.com:shashanktomar/personal-infra.git "$PERSONAL_INFRA_DIR"
+fi
