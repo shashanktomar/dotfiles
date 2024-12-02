@@ -1,0 +1,26 @@
+#!/bin/bash
+
+set -eufo pipefail
+
+HOSTNAME={{.hostName | quote}}
+
+CURRENT_COMPUTER_NAME=$(scutil --get ComputerName)
+CURRENT_HOST_NAME=$(scutil --get HostName)
+CURRENT_LOCAL_HOST_NAME=$(scutil --get LocalHostName)
+CURRENT_NETBIOS_NAME=$(defaults read /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName 2>/dev/null)
+
+if [ "$CURRENT_COMPUTER_NAME" != "$HOSTNAME" ]; then
+  sudo scutil --set ComputerName "$HOSTNAME"
+fi
+
+if [ "$CURRENT_HOST_NAME" != "$HOSTNAME" ]; then
+  sudo scutil --set HostName "$HOSTNAME"
+fi
+
+if [ "$CURRENT_LOCAL_HOST_NAME" != "$HOSTNAME" ]; then
+  sudo scutil --set LocalHostName "$HOSTNAME"
+fi
+
+if [ "$CURRENT_NETBIOS_NAME" != "$HOSTNAME" ]; then
+  sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$HOSTNAME"
+fi
