@@ -1,5 +1,11 @@
 [packages]
-brew_taps = ["aws/tap", "hashicorp/tap", "homebrew/bundle", "TylerBrock/saw"]
+brew_taps = [
+  "aws/tap",
+  "bats-core/bats-core",
+  "hashicorp/tap",
+  "homebrew/bundle",
+  "TylerBrock/saw",
+]
 
 [packages.core]
 brews = [
@@ -112,7 +118,7 @@ casks = [
 brews = ["jid", "jless", "jq"]
 
 [packages.lang_bash]
-brews = ["bats-core", "shellcheck"]
+brews = ["bats-core", "bats-file", "bats-assert", "shellcheck"]
 
 [packages.lang_lua]
 brews = ["lua", "luajit", "luarocks", "stylua"]

@@ -21,9 +21,6 @@ help: ## Display this help.
 install:
 	./install.sh
 
-test:
-	bats home/test/*.bats
-
 ##@ Utilities
 
 config: ## Display config
