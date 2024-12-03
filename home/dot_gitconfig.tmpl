@@ -1,43 +1,18 @@
-[core]
-  pager = delta
-
-[interactive]
-  diffFilter = delta --color-only
-
-[delta]
-  navigate = true    # use n and N to move between diff sections
-
-[merge]
-  conflictstyle = diff3
-
-[diff]
-  colorMoved = default
-
 {{ if eq .hostType "personal" -}}
-
-[user]
-  name = Shashank Tomar
-  email = {{ .personalEmail }}
-
-[core]
-   sshCommand = "ssh -i ~/.ssh/id_personal"
-
+path = ~/.gitconfig.personal
 {{ end -}}
-
 {{- if (or (eq .hostType "work") (eq .hostType "client")) -}}
 
 [includeIf "gitdir:~/work/"]
-  [user]
-    name = Shashank Tomar
-    email = {{ .workEmail }}
-  [core]
-    sshCommand = "ssh -i ~/.ssh/id_work"
+path = ~/.gitconfig.work
 
-[includeIf "gitdir:~/personal/,gitdir:~/.dotfiles/,gitdir:~/.config/nvim/"]
-  [user]
-    name = Shashank Tomar
-    email = {{ .personalEmail }}
-  [core]
-  sshCommand = "ssh -i ~/.ssh/id_personal"
+[includeIf "gitdir:~/personal/"]
+path = ~/.gitconfig.personal
+
+[includeIf "gitdir:~/.dotfiles/"]
+path = ~/.gitconfig.personal
+
+[includeIf "gitdir:~/.config/nvim/"]
+path = ~/.gitconfig.personal
 
 {{ end -}}

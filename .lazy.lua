@@ -8,7 +8,7 @@ local patterns = {
 	["dot_zshrc"] = "zsh",
 	["dot_zprofile*"] = "zsh",
 	["dot_tmux.conf"] = "tmux",
-	["dot_gitconfig.tmpl"] = "gitconfig",
+	["*gitconfig*.tmpl"] = "gitconfig",
 }
 
 for pattern, filetype in pairs(patterns) do
