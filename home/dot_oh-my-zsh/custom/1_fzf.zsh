@@ -114,3 +114,29 @@ tm() {
   fi
   session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."
 }
+
+###############################################################################
+################################### node ######################################
+###############################################################################
+
+fnode() {
+  if [ ! -f package.json ]; then
+    echo "No package.json found in current directory"
+    return 1
+  fi
+  
+  if [ -f pnpm-lock.yaml ]; then
+    manager="pnpm"
+  elif [ -f yarn.lock ]; then
+    manager="yarn"
+  else
+    echo "No yarn or pnpm lock file found. Defaulting to yarn."
+    manager="yarn"
+  fi
+
+  local commands cmd
+  commands=$(jq -r '.scripts | keys[]' package.json) &&
+  cmd=$(echo "$commands" | fzf --exit-0) &&
+  [ -n "$cmd" ] && $manager "$cmd"
+}
+
