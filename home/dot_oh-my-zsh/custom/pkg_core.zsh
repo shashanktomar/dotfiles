@@ -1,5 +1,5 @@
-# direnv
-eval "$(direnv hook zsh)"
+# mise
+eval "$(mise activate zsh)"
 
 # tmux
 export DISABLE_AUTO_TITLE='true'

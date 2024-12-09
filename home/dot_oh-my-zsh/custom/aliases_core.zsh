@@ -20,3 +20,9 @@ alias mw="fzf_dir ~/work"
 alias ml="fzf_dir ~/personal/code/learning"
 alias mi="cd ~/personal" 
 
+# edit
+alias es="nvim ~/.oh-my-zsh/custom/secrets.zsh"
+alias el="nvim ~/.oh-my-zsh/custom/local.zsh"
+
+# cat
+alias cl="cat ~/.oh-my-zsh/custom/local.zsh"

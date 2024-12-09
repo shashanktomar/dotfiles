@@ -15,7 +15,6 @@ brews = [
   "chezmoi",
   "cmake",
   "coreutils",
-  "direnv",
   "dockutil",
   "eza",
   "fd",
@@ -32,8 +31,10 @@ brews = [
   "gnu-units",
   "gnu-tar",
   "gnutls",
+  "gpg",
   "grep",
   "jesseduffield/lazygit/lazygit",
+  "mise",                          # universal language tooling manager
   "neovim",
   "ripgrep",
   "ruby",
@@ -124,13 +125,13 @@ brews = ["bats-core", "bats-file", "bats-assert", "shellcheck"]
 brews = ["lua", "luajit", "luarocks", "stylua"]
 
 [packages.lang_python]
-brews = ["python", "pipenv", "poetry", "pyenv"]
+brews = ["python", "pipenv", "poetry"]
 
 [packages.lang_go]
 brews = ["go", "golangci-lint"]
 
 [packages.lang_node]
-brews = ["fnm"]
+brews = []
 
 [packages.lang_aws]
 brews = ["awscli", "aws-sam-cli", "saw", "steampipe"]

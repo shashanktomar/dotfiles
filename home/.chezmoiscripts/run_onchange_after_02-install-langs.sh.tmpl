@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -eufo pipefail
+
+{{ if .langNode -}}
+mise use -g node@lts
+{{- end }}
+
+{{ if .langPython -}}
+mise use -g python@latest
+{{- end }}
+
+{{ if .langGo -}}
+mise use -g go@latest
+{{- end }}
