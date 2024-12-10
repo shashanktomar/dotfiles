@@ -48,6 +48,7 @@ brews = [
 casks = [
   "1password",
   "1password-cli",
+  "nikitabobko/tap/aerospace",
   "firefox",
   "hammerspoon",
   "kitty",
@@ -151,4 +152,3 @@ brews = [
   "minikube",
   "tilt",
 ]
-casks = ["kui"]

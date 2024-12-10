@@ -77,5 +77,4 @@ tap {{ . | quote }}
 
 {{ if .langK8s -}}
 {{ template "brewPackages" .packages.lang_k8s.brews -}}
-{{ template "caskPackages" .packages.lang_k8s.casks -}}
 {{ end -}}
