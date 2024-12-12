@@ -69,6 +69,7 @@ brews = [
   "mods",
   "neofetch",
   "slides",
+  "spotify_player",
   "ssh-copy-id",
   "tz",
   "urlview",

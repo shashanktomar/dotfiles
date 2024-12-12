@@ -29,6 +29,9 @@ defaults write -g NSNavPanelExpandedStateForSaveMode2 -bool true
 defaults write -g PMPrintingExpandedStateForPrint -bool true
 defaults write -g PMPrintingExpandedStateForPrint2 -bool true
 
+# Help with aerospace window management
+defaults write com.apple.dock expose-group-apps -bool true
+
 ###############################################################################
 # Keyboard & Input                                                            #
 ###############################################################################

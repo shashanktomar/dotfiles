@@ -3,6 +3,8 @@ alias cat='bat --paging=never'
 alias words="cat /usr/share/dict/words | fzf-tmux -l 20% --multi --reverse"
 alias agg="agg --font-family 'MesloLGL Nerd Font Mono' --font-size 16 --idle-time-limit 1 --speed 1.3"
 alias lg='lazygit'
+alias ch='chezmoi'
+alias cha='chezmoi apply'
 
 # eza
 alias l='eza'
