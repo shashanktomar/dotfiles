@@ -127,7 +127,7 @@ brews = ["bats-core", "bats-file", "bats-assert", "shellcheck"]
 brews = ["lua", "luajit", "luarocks", "stylua"]
 
 [packages.lang_python]
-brews = ["python", "pipenv", "poetry"]
+brews = ["python", "pipenv", "poetry", "ruff"]
 
 [packages.lang_go]
 brews = ["go", "golangci-lint"]
