@@ -40,6 +40,7 @@ tap {{ . | quote }}
 {{/* ==============Extra Packages============== */ -}}
 {{ if ne .hostType "client" -}}
 {{ template "brewPackages" .packages.extras.brews -}}
+{{ template "caskPackages" .packages.extras.casks -}}
 {{ end -}}
 
 {{/* ==============Language Packages============== */ -}}
