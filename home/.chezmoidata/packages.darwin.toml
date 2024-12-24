@@ -110,9 +110,9 @@ brews = ["agg", "asciinema", "imagemagick", "pandoc", "svn"]
 casks = [
   "discord",
   "dropbox",
-  "expressvpn",
   "google-drive",
   "kindle",
+  "mullvadvpn",
   "sourcetree",
   "tailscale",
 ]
