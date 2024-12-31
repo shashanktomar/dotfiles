@@ -116,6 +116,71 @@ tm() {
   session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."
 }
 
+# tmswapc - swap current window with target window 
+tmswapc() {
+  # Get current window index
+  local current=$(tmux display-message -p '#I')
+  # Generate list of windows with their indices and names
+  # Format: "2: vim [layout] (active)"
+  local selected=$(tmux list-windows -F "#{window_index}: #{window_name}" |
+    grep -v "^${current}:" |
+    fzf --height 40% \
+      --reverse \
+      --prompt="Swap current window with: ")
+
+  # Exit if no selection made
+  [[ -z "$selected" ]] && return 0
+  # Extract the window index from selection
+  local target_window="${selected%%:*}"
+  # Perform the swap
+  tmux swap-window -s "$current" -t "$target_window"
+}
+
+# tmswap - Prompt for both source and target windows and swap them 
+tmswap() {
+  # Define headers using heredoc
+  read -r -d '' source_header <<'EOF'
+=== TMUX WINDOW SWAP ===
+Select the source window to swap from
+EOF
+
+  # Select source window
+  local source_selected=$(tmux list-windows -F "#{window_index}: #{window_name}" |
+    fzf --height 40% \
+      --reverse \
+      --header="${source_header}" \
+      --header-first \
+      --prompt="Source window > ")
+
+  # Exit if no selection made
+  [[ -z "$source_selected" ]] && return 0
+  # Extract the source window index
+  local source_window="${source_selected%%:*}"
+
+  read -r -d '' target_header <<EOF
+=== TMUX WINDOW SWAP ===
+Swapping from '${source_selected}'
+Select the target window to swap to
+EOF
+
+  # Select target window, excluding the source window
+  local target_selected=$(tmux list-windows -F "#{window_index}: #{window_name}" |
+    grep -v "^${source_window}:" |
+    fzf --height 40% \
+      --reverse \
+      --header="${target_header}" \
+      --header-first \
+      --prompt="Target window > ")
+
+  # Exit if no selection made
+  [[ -z "$target_selected" ]] && return 0
+  # Extract the target window index
+  local target_window="${target_selected%%:*}"
+  # Perform the swap
+  tmux swap-window -s "$source_window" -t "$target_window"
+}
+
+
 ###############################################################################
 ################################### node ######################################
 ###############################################################################

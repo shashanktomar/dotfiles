@@ -26,7 +26,7 @@ install:
 config: ## Display config
 	chezmoi cat-config | bat -l toml
 render-packages: ## Render the packages script
-	bat home/.chezmoiscripts/darwin/run_onchange_before_02-install-packages.sh.tmpl | chezmoi execute-template | bat
+	bat home/.chezmoiscripts/darwin/run_onchange_before_03-install-packages.sh.tmpl | chezmoi execute-template | bat
 render-external: ## Render .chezmoiexternal
 	bat home/.chezmoiexternal.toml.tmpl | chezmoi execute-template | bat -l toml
 render-vscode-ext: ## Render the vscode extensions script
