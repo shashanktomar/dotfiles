@@ -18,6 +18,7 @@ brews = [
   "dockutil",
   "eza",
   "fd",
+  "ffmpeg",                        # used by yazi
   "findutils",
   "fzf",
   "gawk",
@@ -36,14 +37,17 @@ brews = [
   "jesseduffield/lazygit/lazygit",
   "mise",                          # universal language tooling manager
   "neovim",
+  "poppler",                       # pdf viewer used by yazi
   "ripgrep",
   "ruby",
+  "sevenzip",                      # used by yazi
   "stow",
   "tmux",
   "tmuxp",
   "tree",
   "wget",
-  "z",
+  "yazi",
+  "zoxide",
 ]
 casks = [
   "1password",
