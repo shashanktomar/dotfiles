@@ -201,8 +201,14 @@ fnode() {
   fi
 
   local commands cmd
-  commands=$(jq -r '.scripts | keys[]' package.json) &&
-  cmd=$(echo "$commands" | fzf --exit-0) &&
-  [ -n "$cmd" ] && $manager "$cmd"
+  commands=$(jq -r '.scripts | to_entries[] | "\(.key)\t\(.value)"' package.json) &&
+  cmd=$(echo "$commands" | fzf --exit-0 --delimiter='\t' --with-nth=1 --preview='echo {2}') &&
+  if [ -n "$cmd" ]; then
+    selected=$(echo "$cmd" | cut -f1)
+    full_command="$manager $selected"
+    # This adds it to history works in both zsh and bash
+    print -s "$full_command"
+    eval "$full_command"
+  fi
 }
 
