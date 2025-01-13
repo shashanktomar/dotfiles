@@ -160,7 +160,6 @@ EOF
   read -r -d '' target_header <<EOF
 === TMUX WINDOW SWAP ===
 Swapping from '${source_selected}'
-Select the target window to swap to
 EOF
 
   # Select target window, excluding the source window
@@ -212,3 +211,81 @@ fnode() {
   fi
 }
 
+###############################################################################
+################################ aerospace ####################################
+###############################################################################
+
+# select aerospace workspace
+faw() {
+  local workspace
+  workspace=$(aerospace list-workspaces --all | fzf --exit-0)
+
+  # Exit if no selection made
+  [[ -z "$workspace" ]] && return 0
+  aerospace workspace "$workspace"
+}
+
+
+# organise windows
+_fao() {
+  # Define headers using heredoc
+  read -r -d '' source_header <<'EOF'
+=== AEROSPACE WINDOW ASSIGNMENT ===
+Select the window
+EOF
+
+  # Select window
+  local selection
+  selection=$(aerospace list-windows --workspace 1 --json |
+    jq -r '.[] | "\(.["window-id"])\t\(.["app-name"]): \(.["window-title"])"' |
+    fzf --height 40% \
+      --reverse \
+      --header="${source_header}" \
+      --header-first \
+      --prompt="Window > " \
+      --with-nth 2..)
+
+  # Exit if no selection made
+  [[ -z "$selection" ]] && return 1
+
+  local window_id window_name
+  window_id=$(echo "$selection" | cut -f1)
+  window_name=$(echo "$selection" | cut -f2)
+
+  read -r -d '' target_header <<EOF
+=== AEROSPACE WINDOW ASSIGNMENT ===
+Moving window '${window_name}'
+EOF
+
+  local workspace
+  workspace=$(aerospace list-workspaces --all |
+    fzf --height 40% \
+      --reverse \
+      --header="${target_header}" \
+      --header-first \
+      --prompt="Target workspace > ")
+
+  # Exit if no selection made
+  [[ -z "$workspace" ]] && return 1
+  aerospace move-node-to-workspace --window-id "${window_id}" "${workspace}"
+}
+
+# organise windows
+fao() {
+  while true; do
+    # Check if there are any windows in workspace 1
+    if [[ $(aerospace list-windows --workspace 1 --json | jq length 2>/dev/null) -eq 0 ]]; then
+      echo "No windows left to assign"
+      return 0
+    fi
+
+    # Run fao and capture its exit status
+    _fao
+    local exit_code=$?
+
+    # Break if fao exited non-zero (including from Ctrl-C)
+    if [[ $exit_code -ne 0 ]]; then
+      return $exit_code
+    fi
+  done
+}

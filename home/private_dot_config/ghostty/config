@@ -1,3 +1,4 @@
 font-size = 14
 theme = catppuccin-frappe
 font-family = MesloLGL Nerd Font Mono
+macos-option-as-alt = true
