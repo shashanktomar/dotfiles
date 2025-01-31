@@ -28,3 +28,6 @@ alias el="nvim ~/.oh-my-zsh/custom/local.zsh"
 
 # cat
 alias cl="cat ~/.oh-my-zsh/custom/local.zsh"
+
+#make
+alias make="gmake"

@@ -13,3 +13,7 @@ mise use -g python@latest
 {{ if .langGo -}}
 mise use -g go@latest
 {{- end }}
+
+{{ if .langRust -}}
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+{{- end }}

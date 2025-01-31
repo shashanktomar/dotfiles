@@ -15,10 +15,10 @@ sourceDir = "~/.dotfiles"
 {{- $langNode := promptBoolOnce . "langGo" "Add node packages" true -}}
 {{- $langPython := promptBoolOnce . "langPython" "Add python packages" false -}}
 {{- $langGo := promptBoolOnce . "langGo" "Add go packages" false -}}
+{{- $langRust := promptBoolOnce . "langRust" "Add rust packages" false -}}
 {{- $langAws := promptBoolOnce . "langAws" "Add AWS packages" false -}}
 {{- $langTerraform := promptBoolOnce . "langTerraform" "Add terraform packages" false -}}
 {{- $langK8s := promptBoolOnce . "langK8s" "Add k8s packages" false -}}
-
 
 {{- $personalEmail := "shashank004@gmail.com" -}}
 {{- $workEmail := "" -}}
@@ -37,6 +37,7 @@ langLua = {{ $langLua }}
 langNode = {{ $langNode }}
 langPython = {{ $langPython }}
 langGo = {{ $langGo }}
+langRust = {{ $langRust }}
 langAws = {{ $langAws }}
 langTerraform = {{ $langTerraform }}
 langK8s = {{ $langK8s }}

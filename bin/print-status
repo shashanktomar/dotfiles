@@ -7,26 +7,26 @@ MESSAGE=$2
 
 case $STATUS in
 ACTION)
-  echo -e '{{ Foreground "#ff87ff" (Bold "👉 ACTION") }}' "${MESSAGE}\n" |
+  printf '{{ Foreground "#ff87ff" (Bold "👉 ACTION") }} %s\n' "${MESSAGE}" |
     gum format -t template
   ;;
 INFO)
-  echo -e '{{ Foreground "#00d7ff" (Bold "ℹ️ INFO") }}' "${MESSAGE}\n" |
+  printf '{{ Foreground "#00d7ff" (Bold "ℹ️ INFO") }} %s\n' "${MESSAGE}" |
     gum format -t template
   ;;
 OK)
-  echo -e '{{ Foreground "#5fd787" (Bold "✅ OK") }}' "${MESSAGE}\n" |
+  printf '{{ Foreground "#5fd787" (Bold "✅ OK") }} %s\n' "${MESSAGE}" |
     gum format -t template
   ;;
 WARN | WARNING)
-  echo -e '{{ Foreground "#ffaf00" (Bold "⚠️ Warning") }}' "${MESSAGE}\n" |
+  printf '{{ Foreground "#ffaf00" (Bold "⚠️ Warning") }} %s\n' "${MESSAGE}" |
     gum format -t template
   ;;
 ERROR | ERR)
-  echo -e '{{ Foreground "#ff005f" (Bold "❌ Error") }}' "${MESSAGE}\n" |
+  printf '{{ Foreground "#ff005f" (Bold "❌ Error") }} %s\n' "${MESSAGE}" |
     gum format -t template
   ;;
 *)
-  echo -e "${MESSAGE}\n"
+  printf '%s\n' "${MESSAGE}"
   ;;
 esac

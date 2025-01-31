@@ -77,7 +77,8 @@ alt-2 = 'workspace work-two'
 alt-3 = 'workspace meeting'
 alt-4 = 'workspace comms'
 alt-5 = 'workspace personal'
-alt-6 = 'workspace chess'
+alt-6 = 'workspace llm'
+alt-7 = 'workspace chess'
 alt-9 = 'workspace scratchpad'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
@@ -86,7 +87,8 @@ alt-shift-2 = 'move-node-to-workspace work-two'
 alt-shift-3 = 'move-node-to-workspace meeting'
 alt-shift-4 = 'move-node-to-workspace comms'
 alt-shift-5 = 'move-node-to-workspace personal'
-alt-shift-6 = 'move-node-to-workspace chess'
+alt-shift-6 = 'move-node-to-workspace llm'
+alt-shift-7 = 'move-node-to-workspace chess'
 alt-shift-9 = 'move-node-to-workspace scratchpad'
 
 alt-tab = 'workspace-back-and-forth'
@@ -100,6 +102,7 @@ alt-shift-comma = 'mode setting'
 [mode.layout.binding]
 t = 'layout tiles horizontal vertical'
 a = 'layout accordion horizontal vertical'
+f = 'layout floating'
 esc = ['mode main']
 
 [mode.manage.binding]

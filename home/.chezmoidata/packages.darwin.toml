@@ -35,7 +35,9 @@ brews = [
   "gpg",
   "grep",
   "jesseduffield/lazygit/lazygit",
+  "just",
   "mise",                          # universal language tooling manager
+  "make",                          # gmake as make on mac is old 
   "neovim",
   "poppler",                       # pdf viewer used by yazi
   "ripgrep",
@@ -157,3 +159,6 @@ brews = [
   "minikube",
   "tilt",
 ]
+
+[packages.lang_rust]
+brews = ["cargo-nextest"]

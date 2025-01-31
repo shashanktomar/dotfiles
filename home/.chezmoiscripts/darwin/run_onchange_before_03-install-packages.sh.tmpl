@@ -79,3 +79,7 @@ tap {{ . | quote }}
 {{ if .langK8s -}}
 {{ template "brewPackages" .packages.lang_k8s.brews -}}
 {{ end -}}
+
+{{ if .langRust -}}
+{{ template "brewPackages" .packages.lang_rust.brews -}}
+{{ end -}}
