@@ -1,0 +1,9 @@
+session_name: biovion
+windows:
+  - window_name: project
+    start_directory: ~/personal/code/projects/biovion
+    focus: true
+    panes:
+      - nvim
+  - window_name: term
+    start_directory: ~/personal/code/projects/biovion

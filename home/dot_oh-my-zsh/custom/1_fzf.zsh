@@ -195,8 +195,8 @@ fnode() {
   elif [ -f yarn.lock ]; then
     manager="yarn"
   else
-    echo "No yarn or pnpm lock file found. Defaulting to yarn."
-    manager="yarn"
+    echo "No yarn or pnpm lock file found. Defaulting to pnpm."
+    manager="pnpm"
   fi
 
   local commands cmd

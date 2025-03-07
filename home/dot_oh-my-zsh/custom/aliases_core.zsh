@@ -31,3 +31,7 @@ alias cl="cat ~/.oh-my-zsh/custom/local.zsh"
 
 #make
 alias make="gmake"
+
+#just
+alias j="just"
+alias jc="just --choose"
