@@ -38,7 +38,7 @@ brews = [
   "just",
   "mise",                          # universal language tooling manager
   "make",                          # gmake as make on mac is old 
-  "neovim",
+  '"neovim", args: ["HEAD"]',
   "poppler",                       # pdf viewer used by yazi
   "ripgrep",
   "ruby",

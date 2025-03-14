@@ -25,7 +25,7 @@ cask {{ . | quote }}
 {{- /* ==================================== */ -}}
 
 echo '🍺  Installing brew packages'
-brew bundle --no-lock --file=/dev/stdin <<EOF
+brew bundle --file=/dev/stdin <<EOF
 
 {{- /* ==============brew taps============== */ -}}
 {{ range .packages.brew_taps }}

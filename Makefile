@@ -36,4 +36,4 @@ render-git-config: ## Render .gitconfig
 render-ssh-configs: ## Render ssh configs
 	bat home/private_dot_ssh/authorized_keys.tmpl | chezmoi execute-template | bat
 render-health-check: ## Render health-check
-	bat home/.chezmoiscripts/run_after_10-health-check.sh.tmpl | chezmoi execute-template | bat
+	bat home/.chezmoiscripts/run_after_11-health-check.sh.tmpl | chezmoi execute-template | bat
