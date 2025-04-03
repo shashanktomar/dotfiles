@@ -289,3 +289,24 @@ fao() {
     fi
   done
 }
+
+###############################################################################
+################################## docker #####################################
+###############################################################################
+
+# tail docker container logs
+fdlt() {
+  local selection container_id container_name
+
+  selection=$(docker ps --format '{{.ID}}\t{{.Names}}' |
+    fzf --height 40% --reverse --prompt="Select container: ")
+
+  # Exit if no selection is made
+  [[ -z "$selection" ]] && return 0
+
+  container_id=$(echo "$selection" | cut -f1)
+  container_name=$(echo "$selection" | cut -f2)
+
+  echo "Tailing logs for container: $container_name ($container_id)"
+  docker logs -f --tail 20 "$container_id"
+}

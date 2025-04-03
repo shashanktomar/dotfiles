@@ -35,6 +35,7 @@ brews = [
   "gpg",
   "grep",
   "jesseduffield/lazygit/lazygit",
+  "jordanbaird-ice",
   "just",
   "mise",                          # universal language tooling manager
   "make",                          # gmake as make on mac is old 

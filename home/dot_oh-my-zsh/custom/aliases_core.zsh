@@ -35,3 +35,6 @@ alias make="gmake"
 #just
 alias j="just"
 alias jc="just --choose"
+
+#fd
+alias find="fd"
