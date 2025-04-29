@@ -13,3 +13,5 @@ export OP_BIOMETRIC_UNLOCK_ENABLED=true
 # run sketchbar
 # brew services start sketchybar
 
+# Required for shell integration in vscode to work properly
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
