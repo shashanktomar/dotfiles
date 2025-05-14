@@ -1,9 +1,19 @@
-session_name: biovion
+session_name: bionvion
 windows:
   - window_name: project
     start_directory: ~/personal/code/projects/biovion
     focus: true
     panes:
       - nvim
+  - window_name: frontend
+    start_directory: ~/personal/code/projects/biovion/frontend
+    panes:
+      - nvim
+  - window_name: backend
+    start_directory: ~/personal/code/projects/biovion/backend
+    panes:
+      - nvim
+  - window_name: runtime
+    start_directory: ~/personal/code/projects/biovion
   - window_name: term
     start_directory: ~/personal/code/projects/biovion
