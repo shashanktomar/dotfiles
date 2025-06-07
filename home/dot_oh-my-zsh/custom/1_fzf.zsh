@@ -116,6 +116,21 @@ tm() {
   session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."
 }
 
+# tmi - attach to session with independent navigation
+tmi() {
+  [[ -n "$TMUX" ]] && change="switch-client" || change="attach-session"
+  if [ $1 ]; then
+    # Create grouped session for independent navigation
+    local group_session="$1-$(date +%s)"
+    tmux new-session -d -s "$group_session" -t "$1" 2>/dev/null && tmux $change -t "$group_session" || (tmux new-session -d -s $1 && tmux new-session -d -s "$group_session" -t "$1" && tmux $change -t "$group_session")
+    return
+  fi
+  session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) && {
+    local group_session="$session-$(date +%s)"
+    tmux new-session -d -s "$group_session" -t "$session" && tmux $change -t "$group_session"
+  } || echo "No sessions found."
+}
+
 # tmswapc - swap current window with target window 
 tmswapc() {
   # Get current window index

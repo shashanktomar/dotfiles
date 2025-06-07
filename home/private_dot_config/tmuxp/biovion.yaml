@@ -1,4 +1,4 @@
-session_name: bionvion
+session_name: biovion
 windows:
   - window_name: project
     start_directory: ~/personal/code/projects/biovion
@@ -13,7 +13,9 @@ windows:
     start_directory: ~/personal/code/projects/biovion/backend
     panes:
       - nvim
-  - window_name: runtime
-    start_directory: ~/personal/code/projects/biovion
+  - window_name: backend
+    start_directory: ~/personal/code/projects/biovion/infra
+    panes:
+      - nvim
   - window_name: term
-    start_directory: ~/personal/code/projects/biovion
+    start_directory: ~/personal/code/projects/bion
