@@ -1,3 +1,7 @@
+{{- if not (stat (joinPath .chezmoi.homeDir ".ssh" "authorized_keys")) -}}
 {{ range (gitHubKeys "shashanktomar") -}}
 {{   .Key }}
 {{ end -}}
+{{- else -}}
+{{- include (joinPath .chezmoi.homeDir ".ssh" "authorized_keys") -}}
+{{- end -}}

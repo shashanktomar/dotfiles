@@ -3,7 +3,7 @@ git:
     colorArg: always
     pager: delta --dark --paging=never --syntax-theme=Dracula
 os:
-  editCommand: "nvim"
+  edit: "nvim"
 
 customCommands:
   - key: "<c-g>"
