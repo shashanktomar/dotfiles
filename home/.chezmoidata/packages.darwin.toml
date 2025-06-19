@@ -5,6 +5,7 @@ brew_taps = [
   "hashicorp/tap",
   "homebrew/bundle",
   "jandedobbeleer/oh-my-posh",
+  "jbreckmckye/formulae",
   "TylerBrock/saw",
 ]
 
