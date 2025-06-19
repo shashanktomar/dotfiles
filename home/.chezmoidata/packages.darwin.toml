@@ -17,7 +17,7 @@ brews = [
   "chezmoi",
   "cmake",
   "coreutils",
-  "daylight",
+  "jbreckmckye/formulae/daylight",
   "dockutil",
   "eza",
   "fd",
