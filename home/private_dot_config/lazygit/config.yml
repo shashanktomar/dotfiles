@@ -29,3 +29,13 @@ customCommands:
     command: 'git add . && git commit -m "update" && git push'
     context: "global"
     description: 'Commit all as "update" and push'
+  - key: "t"
+    command: "git checkout --theirs {{.SelectedFile.Name | quote}} && git add {{.SelectedFile.Name | quote}}"
+    context: "files"
+    description: "Pick their changes for this file"
+    loadingText: "Resolving conflict using their changes..."
+  - key: "m"
+    command: "git checkout --ours {{.SelectedFile.Name | quote}} && git add {{.SelectedFile.Name | quote}}"
+    context: "files"
+    description: "Pick our changes for this file"
+    loadingText: "Resolving conflict using our changes..."
