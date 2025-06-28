@@ -1,0 +1,11 @@
+session_name: mcp-servers
+windows:
+  - window_name: code
+    start_directory: ~/personal/code/projects/mcp-servers
+    focus: true
+    panes:
+      - nvim
+  - window_name: agents
+    start_directory: ~/personal/code/projects/mcp-servers
+  - window_name: term
+    start_directory: ~/personal/code/projects/mcp-servers
