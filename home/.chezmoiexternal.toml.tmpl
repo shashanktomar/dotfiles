@@ -24,15 +24,18 @@ type = "archive"
 url = "https://github.com/jeffreytse/zsh-vi-mode/archive/{{- .packages.versions.zsh_vi_mode -}}.tar.gz"
 exact = true
 stripComponents = 1
+refreshPeriod = "168h"
 
 [".oh-my-zsh/custom/themes/powerlevel10k"]
 type = "archive"
 url = "https://github.com/romkatv/powerlevel10k/archive/{{- .packages.versions.powerlevel10k -}}.tar.gz"
 exact = false
 stripComponents = 1
+refreshPeriod = "168h"
 
 [".tmux/plugins/tpm"]
 type = "archive"
 url = "https://github.com/tmux-plugins/tpm/archive/{{- .packages.versions.tpm -}}.tar.gz"
 exact = true
 stripComponents = 1
+refreshPeriod = "168h"

@@ -6,6 +6,10 @@ alias lg='lazygit'
 alias ch='chezmoi'
 alias cha='chezmoi apply'
 
+# claude
+alias clc="claude --continue"
+alias clr="claude --resume"
+
 # eza
 alias l='eza'
 alias la='eza -a'

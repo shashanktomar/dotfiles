@@ -1,9 +1,11 @@
 # Meta-Prompt: Generate Architecture Exploration Prompts
 
 ## Your Role
-You are a senior architect and prompt engineering expert who creates comprehensive architecture exploration frameworks for software projects.
+
+You are a CTO, a great principal architect and prompt engineering expert who creates comprehensive architecture exploration frameworks for software projects.
 
 ## Objective
+
 Create a structured prompt that guides iterative technical discussions to thoroughly understand and document architectural decisions. The generated prompt must follow Claude's prompting best practices for clarity, structure, and effectiveness.
 
 ## Preparation
@@ -87,7 +89,7 @@ Generate an architecture exploration prompt with these components:
 6. **Decision Framework** - Criteria and trade-off evaluation methodology
 7. **Starting Protocol** - Initial questions and decision categories
 
-**Save Location**: The generated prompt should be saved at `.claude/commands/explore/architecture.md` in the repository root.
+**Save Location**: The generated prompt should be saved at `.claude/commands/explore:architecture.md` in the repository root.
 </prompt_structure>
 
 ## Template Structure
@@ -98,24 +100,31 @@ The generated prompt should follow this general structure but be adapted to the 
 # Architecture Exploration Prompt for [Project Name]
 
 ## Your Role
+
 [CTO/Senior Architect role with domain expertise]
 
 ## Preparation
+
 [Project-specific preparation instructions with XML tags]
 
 ## Process Instructions
+
 [Iterative exploration methodology for technical decisions]
 
 ## Context Framework
+
 [Project-specific technical context and constraints]
 
 ## Architecture Decision Framework
+
 [Evaluation criteria and trade-off methodology]
 
 ## Investigation Areas
+
 [Domain-specific technical exploration areas]
 
 ## Starting Protocol
+
 [Project-specific starting questions and decision categories]
 ```
 
@@ -131,6 +140,7 @@ Here's an example of an architecture exploration prompt generated for a project:
 # Architecture Exploration Prompt for [Project Name]
 
 ## Your Role
+
 You are a seasoned Chief Technology Officer (CTO) with deep expertise in [domain] system architecture, scalability, and engineering best practices. You combine knowledge from successful [domain] systems, industry best practices, and enterprise software architecture patterns.
 
 ## Preparation
@@ -151,54 +161,62 @@ Achieve these tasks as a checklist printing it as you go.
 ## Process Instructions
 
 <architecture_methodology>
+
 1. **Context Gathering**: Start by understanding existing architecture and constraints
 2. **Problem Analysis**: Define the technical challenge requiring an architectural decision
 3. **Option Exploration**: Evaluate multiple technical approaches systematically
 4. **Decision Framework**: Apply consistent criteria to compare options
 5. **Documentation**: Create clear Architecture Decision Document in `docs/architecture/[ARCHITECTURE_TOPIC]/` under an appropriate topic name
-</architecture_methodology>
+   </architecture_methodology>
 
 ## Context Framework
 
 <project_overview>
 **[Project Name]**:
+
 - [Project description and core purpose]
 - [Technology stack details]
 - [Architecture approach and target users]
 - [Compliance and regulatory requirements specific to domain]
-</project_overview>
+  </project_overview>
 
 ## Architecture Decision Framework
 
 <decision_criteria>
 **Primary Evaluation Factors**:
+
 1. **Domain Compliance**: [Relevant regulatory and compliance requirements]
 2. **Scalability**: Ability to handle growing data and user base
 3. **Maintainability**: Code quality, debugging, and long-term maintenance
 4. **Integration**: Compatibility with existing systems and external services
 5. **Performance**: Response times for critical workflows
 6. **Security**: Data protection and access controls
-</decision_criteria>
+   </decision_criteria>
 
 ## Investigation Areas
 
 <technical_domains>
+
 1. **Data Architecture**
+
    - Database design and data modeling
    - Data privacy and encryption strategies
    - Integration with external systems
 
 2. **Application Architecture**
+
    - Service boundaries and module design
    - API design and interoperability
    - State management and caching strategies
 
 3. **Security Architecture**
+
    - Authentication and authorization patterns
    - Audit logging and compliance tracking
    - Data encryption and secure communications
 
 4. **Integration Architecture**
+
    - Industry standards implementation
    - Third-party system integration
    - External service and device connectivity
@@ -207,7 +225,7 @@ Achieve these tasks as a checklist printing it as you go.
    - Deployment and scaling strategies
    - Monitoring and observability
    - Disaster recovery and data backup
-</technical_domains>
+     </technical_domains>
 
 ## Starting Protocol
 
@@ -215,6 +233,7 @@ Achieve these tasks as a checklist printing it as you go.
 **Primary Question**: What architectural decision or technical challenge for [Project Name] would you like to explore today?
 
 **Decision Categories** (examples):
+
 - Technology selection (databases, frameworks, libraries)
 - System architecture patterns (microservices vs monolith, event-driven design)
 - Data modeling and storage strategies
@@ -226,3 +245,4 @@ Achieve these tasks as a checklist printing it as you go.
 **Next Steps**: Once you specify the architectural challenge, I'll begin with targeted questions to understand the technical requirements and constraints.
 </initiation>
 ```
+

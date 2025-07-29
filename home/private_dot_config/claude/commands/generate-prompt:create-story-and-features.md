@@ -81,7 +81,7 @@ Generate a feature cards and implementation stories prompt with these components
 9. **Quality Checklist** - Comprehensive criteria for well-defined stories
 10. **Interactive Workflow** - Step-by-step execution guide
 
-**Save Location**: The generated prompt should be saved at `.claude/commands/plan/create-story-and-features.md` in the repository root.
+**Save Location**: The generated prompt should be saved at `.claude/commands/plan:create-story-and-features.md` in the repository root.
 </prompt_structure>
 
 ## Template Structure
@@ -137,6 +137,7 @@ CRITICAL: Only create stories for components explicitly described in the feature
 </analysis>
 
 ### Step 2: Create Feature Card
+
 <feature_card_creation>
 Using `docs/templates/feature-template.md`, create a comprehensive feature card following the template structure and including [domain]-specific considerations.
 </feature_card_creation>
@@ -146,74 +147,87 @@ Using `docs/templates/feature-template.md`, create a comprehensive feature card 
 
 <story_process>
 For each story, follow this interactive approach:
+
 1. **Present the story concept** using the story template structure
 2. **Ask for user feedback** on scope and priority
 3. **Refine based on input** before moving to the next story
-</story_process>
+   </story_process>
 
 <story_categories>
 Based on [Project Name]'s architecture, stories typically fall into these categories:
 
 **[Component Type 1] Stories** (if specified)
+
 - **[Story Type A]**: [Description]
 - **[Story Type B]**: [Description]
 
 **[Component Type 2] Stories** (if specified)
+
 - **[Story Type C]**: [Description]
 - **[Story Type D]**: [Description]
 
 **[Component Type 3] Stories** (if specified)
+
 - **[Story Type E]**: [Description]
 - **[Story Type F]**: [Description]
-</story_categories>
+  </story_categories>
 
 <story_specific_requirements>
+
 ## Story-Specific Requirements
 
 When creating certain types of stories, include these specific requirements:
 
 **[Story Type] Stories**
+
 - [Specific requirement 1]
 - [Specific requirement 2]
 - [Command or tool usage examples]
 
 **[Story Type] Stories**
+
 - [Specific requirement 1]
 - [Specific requirement 2]
 - [Testing and validation requirements]
-</story_specific_requirements>
+  </story_specific_requirements>
 
 <story_standards>
 Follow the story template structure with these [Project Name]-specific additions:
+
 - [Project-specific quality checks or standards]
-</story_standards>
+  </story_standards>
 
 <drafting_process>
+
 ## Local Drafting Process
 
 **Create Draft Files**
 Before finalizing, create local draft files for review:
+
 - **Feature Card**: `docs/draft/cards/to-create/[feature-name].md`
 - **Story Cards**: `docs/draft/cards/to-create/[story-number]-[story-name].md`
 
 **Review Process**
+
 1. Present the complete set of cards for review
 2. Allow user to modify, add, or remove stories
 3. Ensure all stories align with the feature specification
 4. Verify technical implementation approach
-</drafting_process>
+   </drafting_process>
 
 <quality_checklist>
+
 ## Quality Checklist
 
 Before finalizing stories, ensure:
+
 - [ ] Follows [Project Name]'s architecture patterns and boundaries
 - [ ] Aligns with [domain] workflows and requirements
 - [ ] Stories are independently deployable and appropriately sized
 - [ ] Clear acceptance criteria with testable conditions
 - [ ] Dependencies clearly identified
 - [ ] [Domain-specific quality criteria]
-</quality_checklist>
+      </quality_checklist>
 
 <workflow>
 ## Interactive Workflow
@@ -303,6 +317,7 @@ CRITICAL: Only create stories for components explicitly described in the feature
 </analysis>
 
 ### Step 2: Create Feature Card
+
 <feature_card_creation>
 Using `docs/templates/feature-template.md`, create a comprehensive feature card following the template structure and including EMR-specific considerations like regulatory compliance and healthcare workflows.
 </feature_card_creation>
@@ -312,83 +327,96 @@ Using `docs/templates/feature-template.md`, create a comprehensive feature card 
 
 <story_process>
 For each story, follow this interactive approach:
+
 1. **Present the story concept** using the story template structure
-2. **Ask for user feedback** on scope and priority  
+2. **Ask for user feedback** on scope and priority
 3. **Refine based on input** before moving to the next story
-</story_process>
+   </story_process>
 
 <story_categories>
 Based on Biovion's modular architecture, stories typically fall into these categories:
 
 **Backend Stories** (if specified)
+
 - **Domain Model Stories**: Entity and aggregate creation/modification
-- **Application Service Stories**: Command and query handlers  
+- **Application Service Stories**: Command and query handlers
 - **Repository Stories**: Data access patterns
 - **API Stories**: REST endpoint implementation
 - **Event Stories**: Domain event handling and integration
 
 **Frontend Stories** (if specified)
+
 - **Component Stories**: React component implementation
 - **Page Stories**: Route and layout implementation
 - **Hook Stories**: Custom React hooks for data fetching
 - **Integration Stories**: API integration and state management
 
-**Infrastructure Stories** (if specified)  
+**Infrastructure Stories** (if specified)
+
 - **Database Stories**: Schema migrations and seeding
 - **Deployment Stories**: CDK infrastructure changes
 - **Performance Stories**: Optimization and monitoring
-</story_categories>
+  </story_categories>
 
 <story_specific_requirements>
+
 ## Story-Specific Requirements
 
 When creating certain types of stories, include these specific requirements:
 
 **Database Schema Stories**
+
 - Use `just db-gen-mig "migration_name"` to create empty migration file
 - Create query file in `supabase/queries/` with relevant query patterns from spec
 - Create seed files for sample data using tools/ seed JS project
-- Run `just db-reset` to verify migration and seeds apply cleanly  
+- Run `just db-reset` to verify migration and seeds apply cleanly
 - Use `just db-run` to verify all queries work correctly on seeded data
 
-**API Endpoint Stories**  
+**API Endpoint Stories**
+
 - Create E2E tests for all endpoints in appropriate test directories
 - Add API testing scripts to `tools/api/` for manual testing and workflow automation
 - Update justfile commands in `tools/api/justfile` if needed for new endpoints
 - Follow existing FastAPI patterns with proper dependency injection
 - Include proper error handling and response model validation
-</story_specific_requirements>
+  </story_specific_requirements>
 
 <story_standards>
 Follow the story template structure with these Biovion-specific additions:
+
 - Ensure code quality checks (`just check`) pass before completion
-</story_standards>
+  </story_standards>
 
 <drafting_process>
+
 ## Local Drafting Process
 
 **Create Draft Files**
 Before finalizing, create local draft files for review:
+
 - **Feature Card**: `docs/draft/cards/to-create/[feature-name].md`
 - **Story Cards**: `docs/draft/cards/to-create/[story-number]-[story-name].md`
 
 **Review Process**
+
 1. Present the complete set of cards for review
 2. Allow user to modify, add, or remove stories
 3. Ensure all stories align with the feature specification
 4. Verify technical implementation approach
-</drafting_process>
+   </drafting_process>
 
 <quality_checklist>
+
 ## Quality Checklist
 
 Before finalizing stories, ensure:
+
 - [ ] Follows Biovion's modular monolithic architecture and DDD boundaries
-- [ ] Aligns with healthcare workflows and regulatory requirements  
+- [ ] Aligns with healthcare workflows and regulatory requirements
 - [ ] Stories are independently deployable and appropriately sized
 - [ ] Clear acceptance criteria with testable conditions
 - [ ] Dependencies clearly identified
-</quality_checklist>
+      </quality_checklist>
 
 <workflow>
 ## Interactive Workflow
