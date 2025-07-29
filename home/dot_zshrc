@@ -23,6 +23,12 @@ else
   export EDITOR='nvim'
 fi
 
+# zsh vi mode
+function zvm_config() {
+  ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+  ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
+}
+
 ###############################################################################
 ######################### Theme, settings and plugins #########################
 ###############################################################################
@@ -104,7 +110,6 @@ plugins=(
 
 # Avoid zsh-vi-mode conflict with fzf https://stackoverflow.com/questions/73033698/fzf-keybindings-doesnt-work-with-zsh-vi-mode
 ZVM_INIT_MODE=sourcing
-ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
