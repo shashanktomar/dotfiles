@@ -52,3 +52,12 @@ render-ssh-configs:
 [group('utilities')]
 render-health-check:
     bat home/.chezmoiscripts/run_after_11-health-check.sh.tmpl | chezmoi execute-template | bat
+
+###############################################
+############### Testing #######################
+###############################################
+
+# Run tests for Claude Code hooks
+[group('test')]
+test:
+    cd home/private_dot_config/claude/hooks && uv run test_pre_tool_use.py -v

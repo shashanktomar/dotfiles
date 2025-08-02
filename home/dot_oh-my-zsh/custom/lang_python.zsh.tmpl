@@ -5,6 +5,12 @@ export POETRY_CONFIG_DIR=$XDG_CONFIG_HOME/pypoetry
 export POETRY_DATA_DIR=$XDG_DATA_HOME/pypoetry
 export POETRY_CACHE_DIR=$XDG_CACHE_HOME/pypoetry
 
+# UV - Install if not present
+if ! command -v uv &> /dev/null; then
+  echo "Installing uv..."
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+fi
+
 # Aliases
 alias python='python3'
 alias pip='pip3'

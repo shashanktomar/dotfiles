@@ -1,0 +1,179 @@
+#!/usr/bin/env -S uv run --script
+# /// script
+# dependencies = [
+#   "rich>=13.0.0",
+# ]
+# ///
+
+import json
+import os
+import argparse
+import subprocess
+from pathlib import Path
+from datetime import datetime
+from rich.console import Console
+from rich.table import Table
+from rich.panel import Panel
+from rich.prompt import Prompt, Confirm
+
+console = Console()
+
+def find_claude_sessions_dir():
+    """Find the Claude sessions directory."""
+    # Check CLAUDE_CONFIG_DIR environment variable first
+    claude_config_dir = os.environ.get('CLAUDE_CONFIG_DIR')
+    if claude_config_dir:
+        sessions_path = Path(claude_config_dir) / "projects"
+        if sessions_path.exists():
+            return sessions_path
+    
+    # Fall back to default locations
+    possible_paths = [
+        Path.home() / ".config" / "claude" / "projects",
+        Path.home() / "Library" / "Application Support" / "claude" / "projects",
+    ]
+    
+    for path in possible_paths:
+        if path.exists():
+            return path
+    
+    return None
+
+def search_sessions(keywords, sessions_dir, current_project_only=False):
+    """Search for sessions containing keywords."""
+    if not sessions_dir or not sessions_dir.exists():
+        console.print("[red]Claude sessions directory not found[/red]")
+        return []
+    
+    sessions = []
+    search_paths = []
+    
+    if current_project_only:
+        cwd_str = str(Path.cwd())
+        # Find project directory that contains the current path
+        for project_dir in sessions_dir.iterdir():
+            if project_dir.is_dir():
+                # Convert project dir name back to path for comparison
+                # Handle the encoding: -- represents /. and - represents /
+                project_path = project_dir.name.replace('--', '/.').replace('-', '/')
+                if cwd_str == project_path:
+                    search_paths = [project_dir]
+                    break
+    else:
+        search_paths = [d for d in sessions_dir.iterdir() if d.is_dir()]
+    
+    for project_dir in search_paths:
+        for session_file in project_dir.glob("*.jsonl"):
+            try:
+                with open(session_file, 'r') as f:
+                    content = f.read().lower()
+                    if all(keyword.lower() in content for keyword in keywords):
+                        # Get first user message for preview
+                        f.seek(0)
+                        first_line = f.readline()
+                        first_msg = ""
+                        if first_line:
+                            try:
+                                data = json.loads(first_line)
+                                if data.get('role') == 'user':
+                                    first_msg = data.get('content', '')[:100]
+                            except:
+                                pass
+                        
+                        sessions.append({
+                            'session_id': session_file.stem,
+                            'project': project_dir.name,
+                            'file_path': session_file,
+                            'modified': datetime.fromtimestamp(session_file.stat().st_mtime),
+                            'size': session_file.stat().st_size,
+                            'preview': first_msg
+                        })
+            except Exception as e:
+                continue
+    
+    return sorted(sessions, key=lambda x: x['modified'], reverse=True)
+
+def display_sessions(sessions):
+    """Display sessions in a formatted table."""
+    if not sessions:
+        console.print("[yellow]No sessions found matching the criteria[/yellow]")
+        return None
+    
+    table = Table(title="Claude Sessions")
+    table.add_column("ID", style="cyan", no_wrap=True)
+    table.add_column("Session ID", style="blue")
+    table.add_column("Project", style="green")
+    table.add_column("Modified", style="yellow")
+    table.add_column("Size", style="magenta")
+    table.add_column("Preview", style="white", max_width=50)
+    
+    for i, session in enumerate(sessions, 1):
+        table.add_row(
+            str(i),
+            session['session_id'][:12] + "...",
+            session['project'],
+            session['modified'].strftime("%Y-%m-%d %H:%M"),
+            f"{session['size'] // 1024}KB",
+            session['preview']
+        )
+    
+    console.print(table)
+    return sessions
+
+def resume_session(session_info):
+    """Resume a Claude session."""
+    project_path = Path.cwd().parent / session_info['project']
+    
+    if project_path.exists():
+        change_dir = Confirm.ask(f"Change to project directory {project_path}?")
+        if change_dir:
+            os.chdir(project_path)
+            console.print(f"[green]Changed to {project_path}[/green]")
+    
+    session_id = session_info['session_id']
+    console.print(f"[green]Resuming session: {session_id}[/green]")
+    
+    try:
+        subprocess.run(['claude', '--resume', session_id], check=True)
+    except subprocess.CalledProcessError:
+        console.print(f"[red]Failed to resume session. Try: claude --resume {session_id}[/red]")
+    except FileNotFoundError:
+        console.print(f"[red]Claude command not found. Try: claude --resume {session_id}[/red]")
+
+def main():
+    parser = argparse.ArgumentParser(description="Find and resume Claude Code sessions")
+    parser.add_argument("keywords", nargs="+", help="Keywords to search for")
+    parser.add_argument("-c", "--current", action="store_true", 
+                        help="Search only in current project")
+    parser.add_argument("-n", "--no-resume", action="store_true",
+                        help="Don't resume session, just display results")
+    
+    args = parser.parse_args()
+    
+    sessions_dir = find_claude_sessions_dir()
+    if not sessions_dir:
+        console.print("[red]Claude sessions directory not found[/red]")
+        return
+    
+    console.print(f"[blue]Searching for: {' '.join(args.keywords)}[/blue]")
+    if args.current:
+        console.print(f"[blue]Searching in current project only[/blue]")
+    
+    sessions = search_sessions(args.keywords, sessions_dir, args.current)
+    displayed_sessions = display_sessions(sessions)
+    
+    if not displayed_sessions or args.no_resume:
+        return
+    
+    if len(displayed_sessions) == 1:
+        resume_session(displayed_sessions[0])
+    else:
+        try:
+            choice = Prompt.ask("Select session to resume (number)", 
+                              choices=[str(i) for i in range(1, len(displayed_sessions) + 1)])
+            resume_session(displayed_sessions[int(choice) - 1])
+        except (ValueError, KeyboardInterrupt):
+            console.print("[yellow]No session selected[/yellow]")
+
+if __name__ == "__main__":
+    main()
