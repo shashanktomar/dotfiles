@@ -58,8 +58,9 @@ printf "\033[34m%s\033[0m" "$DIR_DISPLAY"
 [[ -n "$GIT_BRANCH" ]] && printf " ⎇ \033[32m%s\033[0m\033[33m%s\033[0m" "$GIT_BRANCH" "$FILE_COUNTS"
 
 # Output status line 2
-printf "\n\033[36m%s\033[0m" "$MODEL"
-[[ -n "$VERSION" ]] && printf " \033[90m%s\033[0m" "$VERSION"
+printf "\n"
+[[ -n "$VERSION" ]] && printf "\033[90m%s\033[0m " "$VERSION"
+printf "\033[36m%s\033[0m" "$MODEL"
 if [[ -n "${UNKNOWN_FIELDS:-}" ]]; then
   printf " \033[91m(new-params:%s)\033[0m" "$UNKNOWN_FIELDS"
 fi
