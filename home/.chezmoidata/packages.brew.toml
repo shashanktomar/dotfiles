@@ -1,0 +1,123 @@
+[packages]
+brew_taps = [
+  "aws/tap",
+  "bats-core/bats-core",
+  "hashicorp/tap",
+  "homebrew/bundle",
+  "jandedobbeleer/oh-my-posh",
+  "jbreckmckye/formulae",
+  "TylerBrock/saw",
+]
+
+[packages.core]
+brews = [
+  "age",
+  "bash",
+  "bat",
+  "chezmoi",
+  "cmake",
+  "coreutils",
+  "jbreckmckye/formulae/daylight",
+  "eza",
+  "fd",
+  "ffmpeg",                               # used by yazi
+  "findutils",
+  "fzf",
+  "gawk",
+  "gh",
+  "git",
+  "git-delta",
+  "git-extras",
+  "gnu-getopt",
+  "gnu-indent",
+  "gnu-sed",
+  "gnu-units",
+  "gnu-tar",
+  "gnutls",
+  "gpg",
+  "grep",
+  "jandedobbeleer/oh-my-posh/oh-my-posh",
+  "jesseduffield/lazygit/lazygit",
+  "just",
+  "mise",                                 # universal language tooling manager
+  "make",                                 # gmake as make on mac is old 
+  '"neovim", args: ["HEAD"]',
+  "nushell",
+  "poppler",                              # pdf viewer used by yazi
+  "ripgrep",
+  "ruby",
+  "sevenzip",                             # used by yazi
+  "stow",
+  "tldx",                                 # A Domain Availability Research Tool
+  "tmux",
+  "tmuxp",
+  "tree",
+  "wget",
+  "yazi",
+  "zoxide",
+]
+
+[packages.utils]
+brews = [
+  "act",
+  "commitizen",
+  "dive",
+  "dua-cli",
+  "glow",
+  "gum",
+  "homeassistant-cli",
+  "htop",
+  "httpie",
+  "mods",
+  "neofetch",
+  "slides",
+  "spotify_player",
+  "ssh-copy-id",
+  "tz",
+  "urlview",
+  "wordnet",
+  "wtfutil",
+]
+
+[packages.extras]
+brews = ["agg", "asciinema", "imagemagick", "pandoc", "svn"]
+
+[packages.lang_json]
+brews = ["jid", "jless", "jq"]
+
+[packages.lang_bash]
+brews = ["bats-core", "bats-file", "bats-assert", "shellcheck"]
+
+[packages.lang_lua]
+brews = ["lua", "luajit", "luarocks", "stylua"]
+
+[packages.lang_python]
+brews = ["python", "pipenv", "poetry", "ruff"]
+
+[packages.lang_go]
+brews = ["go", "golangci-lint"]
+
+[packages.lang_node]
+brews = []
+
+[packages.lang_aws]
+brews = ["awscli", "aws-sam-cli", "saw", "steampipe"]
+
+[packages.lang_terraform]
+brews = ["hashicorp/tap/terraform"]
+
+[packages.lang_k8s]
+brews = [
+  "helm",
+  "krew",
+  "kubebuilder",
+  "kubectl",
+  "kubevela",
+  "kustomize",
+  "k9s",
+  "minikube",
+  "tilt",
+]
+
+[packages.lang_rust]
+brews = ["cargo-nextest"]

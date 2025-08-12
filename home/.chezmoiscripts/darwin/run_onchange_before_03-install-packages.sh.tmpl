@@ -24,7 +24,7 @@ cask {{ . | quote }}
 {{ end -}}
 {{- /* ==================================== */ -}}
 
-echo '🍺  Installing brew packages'
+echo '🍺  Installing brew packages on macOS'
 brew bundle --file=/dev/stdin <<EOF
 
 {{- /* ==============brew taps============== */ -}}
@@ -33,14 +33,19 @@ tap {{ . | quote }}
 {{- end }}
 
 {{- /* ========= Core and Util Packages ========= */ -}}
+{{- /* Common brew packages */ -}}
 {{ template "brewPackages" .packages.core.brews -}}
-{{ template "caskPackages" .packages.core.casks -}}
 {{ template "brewPackages" .packages.utils.brews -}}
+
+{{- /* Mac-specific packages and casks */ -}}
+{{ template "brewPackages" .darwin.core.brews -}}
+{{ template "caskPackages" .darwin.core.casks -}}
+{{ template "caskPackages" .darwin.utils.casks -}}
 
 {{/* ==============Extra Packages============== */ -}}
 {{ if ne .hostType "client" -}}
 {{ template "brewPackages" .packages.extras.brews -}}
-{{ template "caskPackages" .packages.extras.casks -}}
+{{ template "caskPackages" .darwin.extras.casks -}}
 {{ end -}}
 
 {{/* ==============Language Packages============== */ -}}
@@ -83,3 +88,5 @@ tap {{ . | quote }}
 {{ if .langRust -}}
 {{ template "brewPackages" .packages.lang_rust.brews -}}
 {{ end -}}
+
+EOF
