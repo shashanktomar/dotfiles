@@ -1,61 +1,64 @@
 #!/bin/bash
-
+# Read JSON input once
 input=$(cat)
 
-current_dir=$(echo "$input" | jq -r '.workspace.current_dir')
-project_dir=$(echo "$input" | jq -r '.workspace.project_dir')
-model_name=$(echo "$input" | jq -r '.model.display_name')
-session_id=$(echo "$input" | jq -r '.session_id')
+# Helper functions for common extractions
+get_model_name() { echo "$input" | jq -r '.model.display_name'; }
+get_current_dir() { echo "$input" | jq -r '.workspace.current_dir'; }
+get_project_dir() { echo "$input" | jq -r '.workspace.project_dir'; }
+get_version() { echo "$input" | jq -r '.version // ""' 2>/dev/null || true; }
+get_unknown_fields() {
+    local fields=$(echo "$input" | jq -r 'keys[]' 2>/dev/null || true)
+    local unknown=""
+    for field in $fields; do
+        case "$field" in
+            model|workspace|session_id|cwd|transcript_path|version) ;;
+            *) [[ -n "$field" ]] && unknown="$unknown,$field" ;;
+        esac
+    done
+    local result=$(echo "$unknown" | sed 's/^,//')
+    [[ -n "$result" ]] && echo "$result" || echo ""
+}
 
-os_icon=""
+# Use the helpers
+MODEL=$(get_model_name)
+CURRENT_DIR=$(get_current_dir)
+PROJECT_DIR=$(get_project_dir)
+VERSION=$(get_version)
+UNKNOWN_FIELDS=$(get_unknown_fields)
 
-current_basename=$(basename "$current_dir")
-project_basename=$(basename "$project_dir")
-
-if [[ "$current_dir" == "$project_dir" ]]; then
-    dir_display="$project_basename"
+# Get directory display name
+project_base=$(basename "$PROJECT_DIR")
+if [[ "$CURRENT_DIR" == "$PROJECT_DIR" ]]; then
+    DIR_DISPLAY="$project_base"
 else
-    if [[ "$current_dir" == "$project_dir"/* ]]; then
-        relative_path=${current_dir#$project_dir/}
-        dir_display="$project_basename/$relative_path"
-    else
-        dir_display="$current_basename"
-    fi
+    current_base=$(basename "$CURRENT_DIR")
+    DIR_DISPLAY="$project_base/…/$current_base"
 fi
 
-cd "$current_dir" 2>/dev/null || cd "$HOME"
+# Get git info
+cd "$CURRENT_DIR" 2>/dev/null || cd "$HOME"
+GIT_BRANCH=$(git branch --show-current 2>/dev/null)
 
-# Git branch and file status
-git_branch=$(git branch --show-current 2>/dev/null)
-git_file_counts=""
-
-if [[ -n "$git_branch" ]]; then
-    # Get git status
+# Get git file counts
+if [[ -n "$GIT_BRANCH" ]]; then
     git_status=$(git status --porcelain 2>/dev/null)
-    
     if [[ -n "$git_status" ]]; then
-        # Count different types of changes
-        modified_count=$(echo "$git_status" | rg -c "^ M|^M " || echo "0")
-        added_count=$(echo "$git_status" | rg -c "^\?\?|^A |^ A" || echo "0")
-        deleted_count=$(echo "$git_status" | rg -c "^ D|^D " || echo "0")
-        
-        # Build file count string
+        modified=$(echo "$git_status" | rg -c "^ M|^M " || echo "0")
+        added=$(echo "$git_status" | rg -c "^\?\?|^A |^ A" || echo "0")
         counts=""
-        [[ $modified_count -gt 0 ]] && counts="${counts}±${modified_count} "
-        [[ $added_count -gt 0 ]] && counts="${counts}+${added_count} "
-        [[ $deleted_count -gt 0 ]] && counts="${counts}-${deleted_count} "
-        
-        # Trim trailing space and add brackets if there are any counts
-        if [[ -n "$counts" ]]; then
-            counts="${counts% }"  # Remove trailing space
-            git_file_counts=" [${counts}]"
-        fi
+        [[ $modified -gt 0 ]] && counts="±$modified"
+        [[ $added -gt 0 ]] && counts="$counts +$added"
+        [[ -n "$counts" ]] && FILE_COUNTS=" [$counts]"
     fi
 fi
 
-# Build the status line
-printf "\033[36m%s\033[0m \033[34m%s\033[0m" "$os_icon $model_name" "$dir_display"
+# Output status line 1
+printf "\033[34m%s\033[0m" "$DIR_DISPLAY"
+[[ -n "$GIT_BRANCH" ]] && printf " ⎇ \033[32m%s\033[0m\033[33m%s\033[0m" "$GIT_BRANCH" "$FILE_COUNTS"
 
-if [[ -n "$git_branch" ]]; then
-    printf " ⎇ \033[32m%s\033[0m\033[33m%s\033[0m" "$git_branch" "$git_file_counts"
-fi
+# Output status line 2
+printf "\n\033[36m%s\033[0m" "$MODEL"
+[[ -n "$VERSION" ]] && printf " \033[90m%s\033[0m" "$VERSION"
+# [[ -n "${UNKNOWN_FIELDS:-}" ]] && printf " \033[91m(%s)\033[0m" "$UNKNOWN_FIELDS"
+# echo "DEBUG: UNKNOWN_FIELDS='$UNKNOWN_FIELDS'" >> /tmp/statusline-debug.log
