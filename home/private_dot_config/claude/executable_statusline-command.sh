@@ -7,12 +7,13 @@ get_model_name() { echo "$input" | jq -r '.model.display_name'; }
 get_current_dir() { echo "$input" | jq -r '.workspace.current_dir'; }
 get_project_dir() { echo "$input" | jq -r '.workspace.project_dir'; }
 get_version() { echo "$input" | jq -r '.version // ""' 2>/dev/null || true; }
+get_output_style() { echo "$input" | jq -r '.output_style.name // ""' 2>/dev/null || true; }
 get_unknown_fields() {
   local fields=$(echo "$input" | jq -r 'keys[]' 2>/dev/null || true)
   local unknown=""
   for field in $fields; do
     case "$field" in
-    model | workspace | session_id | cwd | transcript_path | version) ;;
+    model | workspace | session_id | cwd | transcript_path | version | output_style) ;;
     *) [[ -n "$field" ]] && unknown="$unknown,$field" ;;
     esac
   done
@@ -25,6 +26,7 @@ MODEL=$(get_model_name)
 CURRENT_DIR=$(get_current_dir)
 PROJECT_DIR=$(get_project_dir)
 VERSION=$(get_version)
+OUTPUT_STYLE=$(get_output_style)
 UNKNOWN_FIELDS=$(get_unknown_fields)
 
 # Get directory display name
@@ -55,12 +57,13 @@ fi
 
 # Output status line 1
 printf "\033[34m%s\033[0m" "$DIR_DISPLAY"
-[[ -n "$GIT_BRANCH" ]] && printf " ⎇ \033[32m%s\033[0m\033[33m%s\033[0m" "$GIT_BRANCH" "$FILE_COUNTS"
+[[ -n "$GIT_BRANCH" ]] && printf " \033[90m|\033[0m ⎇ \033[32m%s\033[0m\033[33m%s\033[0m" "$GIT_BRANCH" "$FILE_COUNTS"
 
 # Output status line 2
 printf "\n"
-[[ -n "$VERSION" ]] && printf "\033[90m%s\033[0m " "$VERSION"
+[[ -n "$VERSION" ]] && printf "\033[90m%s\033[0m \033[90m|\033[0m " "$VERSION"
 printf "\033[36m%s\033[0m" "$MODEL"
+[[ -n "$OUTPUT_STYLE" ]] && printf " \033[90m|\033[0m \033[35mStyle:%s\033[0m" "$OUTPUT_STYLE"
 if [[ -n "${UNKNOWN_FIELDS:-}" ]]; then
   printf " \033[91m(new-params:%s)\033[0m" "$UNKNOWN_FIELDS"
 fi

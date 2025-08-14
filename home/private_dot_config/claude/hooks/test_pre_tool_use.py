@@ -104,10 +104,16 @@ class TestPreToolUseHook:
         [
             ("find . -name test", True),
             ("find /home -type d", True),
-            ("ls | grep test", False),
+            ("ls | grep test", True),  # Now blocks grep in pipelines
+            ("cd .. && pwd && ls -la | grep just", True),  # Blocks grep in command chains
+            ("grep pattern file.txt", True),  # Blocks standalone grep
+            ("echo hello && grep test", True),  # Blocks grep after &&
+            ("grep test; ls", True),  # Blocks grep before ;
             ("fd --type f", False),
             ("echo find", False),  # Won't block - no space after find
             ("# find command", True),  # This will block
+            ("ls -la", False),  # Normal commands allowed
+            ("rg pattern", False),  # ripgrep allowed
         ],
     )
     def test_various_commands(self, command, should_block):

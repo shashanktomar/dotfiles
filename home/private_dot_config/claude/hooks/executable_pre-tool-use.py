@@ -12,6 +12,7 @@ from typing import Optional, List, Tuple
 # Commands that should be delegated to better alternatives
 COMMAND_DELEGATIONS: List[Tuple[str, str]] = [
     (r"\bfind\s+", "Use 'fd' instead of 'find' for faster and better search results"),
+    (r"(&&|;|\|).*?\bgrep\b|\bgrep\b.*?(\||&&|;)|\bgrep\s+", "Use 'rg' (ripgrep) instead of grep for faster and better search results"),
 ]
 
 # Commands that should be blocked entirely (for future use)
