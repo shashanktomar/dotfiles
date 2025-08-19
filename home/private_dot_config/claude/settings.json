@@ -2,15 +2,6 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "Grep",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "$CLAUDE_CONFIG_DIR/hooks/deny-grep.sh"
-          }
-        ]
-      },
-      {
         "matcher": "Bash",
         "hooks": [
           {
