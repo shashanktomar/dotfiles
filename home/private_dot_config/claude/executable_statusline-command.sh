@@ -8,12 +8,22 @@ get_current_dir() { echo "$input" | jq -r '.workspace.current_dir'; }
 get_project_dir() { echo "$input" | jq -r '.workspace.project_dir'; }
 get_version() { echo "$input" | jq -r '.version // ""' 2>/dev/null || true; }
 get_output_style() { echo "$input" | jq -r '.output_style.name // ""' 2>/dev/null || true; }
+get_cost_usd() { echo "$input" | jq -r 'if .cost.total_cost_usd then (.cost.total_cost_usd * 100 | round / 100) else "" end' 2>/dev/null || true; }
+get_duration_formatted() { 
+  local ms=$(echo "$input" | jq -r '.cost.total_duration_ms // ""' 2>/dev/null || true)
+  if [[ -n "$ms" ]]; then
+    local total_seconds=$((ms / 1000))
+    local minutes=$((total_seconds / 60))
+    local seconds=$((total_seconds % 60))
+    printf "%d:%02d" $minutes $seconds
+  fi
+}
 get_unknown_fields() {
   local fields=$(echo "$input" | jq -r 'keys[]' 2>/dev/null || true)
   local unknown=""
   for field in $fields; do
     case "$field" in
-    model | workspace | session_id | cwd | transcript_path | version | output_style) ;;
+    model | workspace | session_id | cwd | transcript_path | version | output_style | cost) ;;
     *) [[ -n "$field" ]] && unknown="$unknown,$field" ;;
     esac
   done
@@ -27,6 +37,8 @@ CURRENT_DIR=$(get_current_dir)
 PROJECT_DIR=$(get_project_dir)
 VERSION=$(get_version)
 OUTPUT_STYLE=$(get_output_style)
+COST_USD=$(get_cost_usd)
+DURATION=$(get_duration_formatted)
 UNKNOWN_FIELDS=$(get_unknown_fields)
 
 # Get directory display name
@@ -64,6 +76,11 @@ printf "\n"
 [[ -n "$VERSION" ]] && printf "\033[90m%s\033[0m \033[90m|\033[0m " "$VERSION"
 printf "\033[36m%s\033[0m" "$MODEL"
 [[ -n "$OUTPUT_STYLE" ]] && printf " \033[90m|\033[0m \033[35mStyle:%s\033[0m" "$OUTPUT_STYLE"
+if [[ -n "$COST_USD" ]] || [[ -n "$DURATION" ]]; then
+  printf " \033[90m|\033[0m"
+  [[ -n "$COST_USD" ]] && printf " \033[33m$%s\033[0m" "$COST_USD"
+  [[ -n "$DURATION" ]] && printf " \033[90m(%s)\033[0m" "$DURATION"
+fi
 if [[ -n "${UNKNOWN_FIELDS:-}" ]]; then
   printf " \033[91m(new-params:%s)\033[0m" "$UNKNOWN_FIELDS"
 fi
