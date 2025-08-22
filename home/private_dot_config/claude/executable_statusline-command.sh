@@ -18,12 +18,13 @@ get_duration_formatted() {
     printf "%d:%02d" $minutes $seconds
   fi
 }
+get_exceeds_200k_tokens() { echo "$input" | jq -r '.exceeds_200k_tokens // false' 2>/dev/null || true; }
 get_unknown_fields() {
   local fields=$(echo "$input" | jq -r 'keys[]' 2>/dev/null || true)
   local unknown=""
   for field in $fields; do
     case "$field" in
-    model | workspace | session_id | cwd | transcript_path | version | output_style | cost) ;;
+    model | workspace | session_id | cwd | transcript_path | version | output_style | cost | exceeds_200k_tokens) ;;
     *) [[ -n "$field" ]] && unknown="$unknown,$field" ;;
     esac
   done
@@ -39,6 +40,7 @@ VERSION=$(get_version)
 OUTPUT_STYLE=$(get_output_style)
 COST_USD=$(get_cost_usd)
 DURATION=$(get_duration_formatted)
+EXCEEDS_200K_TOKENS=$(get_exceeds_200k_tokens)
 UNKNOWN_FIELDS=$(get_unknown_fields)
 
 # Get directory display name
@@ -81,7 +83,7 @@ if [[ -n "$COST_USD" ]] || [[ -n "$DURATION" ]]; then
   [[ -n "$COST_USD" ]] && printf " \033[33m$%s\033[0m" "$COST_USD"
   [[ -n "$DURATION" ]] && printf " \033[90m(%s)\033[0m" "$DURATION"
 fi
+[[ "$EXCEEDS_200K_TOKENS" == "true" ]] && printf " \033[90m|\033[0m \033[31m200k+\033[0m"
 if [[ -n "${UNKNOWN_FIELDS:-}" ]]; then
   printf " \033[91m(new-params:%s)\033[0m" "$UNKNOWN_FIELDS"
 fi
-# echo "DEBUG: UNKNOWN_FIELDS='$UNKNOWN_FIELDS'" >> /tmp/statusline-debug.log
