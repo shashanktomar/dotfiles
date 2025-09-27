@@ -9,12 +9,12 @@ windows:
     start_directory: ~/.config/nvim
     panes:
       - nvim
-  - window_name: second-brain
-    start_directory: ~/personal/second-brain
+  - window_name: config
+    start_directory: ~/.config
     panes:
       - nvim
-  - window_name: second-brain-logseq
-    start_directory: ~/personal/second-brain-logseq
+  - window_name: notes
+    start_directory: ~/personal/notes
     panes:
       - nvim
   - window_name: term

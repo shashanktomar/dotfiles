@@ -1,0 +1,9 @@
+session_name: luno
+windows:
+  - window_name: project
+    start_directory: ~/personal/code/projects/luno
+    focus: true
+    panes:
+      - nvim
+  - window_name: term
+    start_directory: ~/personal/code/projects/luno

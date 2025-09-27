@@ -12,6 +12,7 @@ brew_taps = [
 [packages.core]
 brews = [
   "age",
+  "ast-grep",
   "bash",
   "bat",
   "chezmoi",
@@ -121,3 +122,4 @@ brews = [
 
 [packages.lang_rust]
 brews = ["cargo-nextest"]
+

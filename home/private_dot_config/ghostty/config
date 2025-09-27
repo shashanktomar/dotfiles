@@ -1,5 +1,5 @@
 font-size = 14
-theme = catppuccin-frappe
+theme = catppuccin-frappe.conf
 font-family = MesloLGL Nerd Font Mono
 macos-option-as-alt = true
 window-inherit-working-directory = true
