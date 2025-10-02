@@ -55,6 +55,7 @@ brews = [
   "tree",
   "wget",
   "yazi",
+  "yq",
   "zoxide",
 ]
 
@@ -122,4 +123,3 @@ brews = [
 
 [packages.lang_rust]
 brews = ["cargo-nextest"]
-
