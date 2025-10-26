@@ -7,8 +7,10 @@ alias ch='chezmoi'
 alias cha='chezmoi apply'
 
 # claude
+alias cld="claude"
 alias clc="claude --continue"
 alias clr="claude --resume"
+alias clfu="~/.config/claude/fix-update.sh"
 
 # eza
 alias l='eza'

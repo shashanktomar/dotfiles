@@ -1,0 +1,23 @@
+session_name: notes
+windows:
+  - window_name: root
+    start_directory: ~/personal/notes
+    focus: true
+    panes:
+      - nvim
+  - window_name: personal
+    start_directory: ~/personal/notes/personal
+    panes:
+      - nvim
+  - window_name: tech
+    start_directory: ~/personal/notes/tech
+    panes:
+      - nvim
+  - window_name: agents
+    start_directory: ~/personal/notes
+    layout: even-horizontal
+    panes:
+      -
+      -
+  - window_name: term
+    start_directory: ~/personal/notes

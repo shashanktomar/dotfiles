@@ -9,5 +9,9 @@ windows:
     start_directory: ~/personal/code/projects/home-assistant-dotfiles
     panes:
       - nvim
+  - window_name: tools
+    start_directory: ~/personal/code/projects/tools
+    panes:
+      - nvim
   - window_name: term
     start_directory: ~/personal/code/projects/personal-infra

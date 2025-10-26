@@ -1,0 +1,27 @@
+session_name: cgbr
+windows:
+  - window_name: census
+    start_directory: ~/work/code/cgbr/census
+    focus: true
+    panes:
+      - nvim
+  - window_name: mobile
+    start_directory: ~/work/code/cgbr/cgbr-mobile-app
+    panes:
+      - nvim
+  - window_name: ai
+    start_directory: ~/work/code/cgbr/cgbr-ai
+    panes:
+      - nvim
+  - window_name: cms
+    start_directory: ~/work/code/cgbr/cgbr-cms
+    panes:
+      - nvim
+  - window_name: agents
+    start_directory: ~/work/code/cgbr
+    layout: even-horizontal
+    panes:
+      -
+      -
+  - window_name: term
+    start_directory: ~/work/code/cgbr

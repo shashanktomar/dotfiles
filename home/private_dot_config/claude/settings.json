@@ -3,18 +3,18 @@
     "PreToolUse": [
       {
         "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "$CLAUDE_CONFIG_DIR/hooks/pre-tool-use.py"
-          }
-        ]
+        "hooks": []
       }
     ]
   },
   "statusLine": {
     "type": "command",
-    "command": "$CLAUDE_CONFIG_DIR/statusline-command.sh"
+    "command": "bunx -y ccstatusline@latest",
+    "padding": 0
+  },
+  "enabledPlugins": {
+    "feature-dev@claude-code-plugins": true,
+    "document-skills@anthropic-agent-skills": true
   },
   "alwaysThinkingEnabled": true
 }
