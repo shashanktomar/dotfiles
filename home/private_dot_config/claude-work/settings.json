@@ -12,9 +12,5 @@
     "command": "bunx -y ccstatusline@latest",
     "padding": 0
   },
-  "enabledPlugins": {
-    "feature-dev@claude-code-plugins": true,
-    "document-skills@anthropic-agent-skills": true
-  },
-  "alwaysThinkingEnabled": false
+  "alwaysThinkingEnabled": true
 }

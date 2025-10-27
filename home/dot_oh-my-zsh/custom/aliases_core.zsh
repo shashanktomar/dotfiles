@@ -12,6 +12,10 @@ alias clc="claude --continue"
 alias clr="claude --resume"
 alias clfu="~/.config/claude/fix-update.sh"
 
+wclaude() {
+  CLAUDE_CONFIG_DIR="$HOME/.config/claude-work" command claude "$@"
+}
+
 # eza
 alias l='eza'
 alias la='eza -a'
