@@ -10,4 +10,11 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+# bun completions
+[ -s "/Users/stomar/.bun/_bun" ] && source "/Users/stomar/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
 {{- end }}

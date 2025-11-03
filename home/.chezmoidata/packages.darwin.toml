@@ -4,6 +4,7 @@ brews = ["dockutil"]
 casks = [
   "1password",
   "1password-cli",
+  "claude-code",
   "nikitabobko/tap/aerospace",
   "firefox",
   "ghostty",
