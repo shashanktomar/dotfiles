@@ -14,7 +14,11 @@
   },
   "enabledPlugins": {
     "feature-dev@claude-code-plugins": true,
-    "document-skills@anthropic-agent-skills": true
+    "document-skills@anthropic-agent-skills": true,
+    "superpowers@claude-plugins-official": true
   },
-  "alwaysThinkingEnabled": false
+  "alwaysThinkingEnabled": false,
+  "permissions": {
+    "allow": ["mcp__pencil"]
+  }
 }

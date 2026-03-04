@@ -98,10 +98,9 @@ plugins=(
   git
   jsontools
   kubectl
-  macos 
+  macos
   node
   sudo
-  yarn 
   z
   zsh-syntax-highlighting
   zsh-vi-mode
