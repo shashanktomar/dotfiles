@@ -3,7 +3,6 @@ brew_taps = [
   "aws/tap",
   "bats-core/bats-core",
   "hashicorp/tap",
-  "homebrew/bundle",
   "jandedobbeleer/oh-my-posh",
   "jbreckmckye/formulae",
   "TylerBrock/saw",
@@ -38,7 +37,7 @@ brews = [
   "gpg",
   "grep",
   "jandedobbeleer/oh-my-posh/oh-my-posh",
-  "jesseduffield/lazygit/lazygit",
+  "lazygit",
   "just",
   "mise",                                 # universal language tooling manager
   "make",                                 # gmake as make on mac is old 
@@ -88,7 +87,7 @@ brews = ["agg", "asciinema", "imagemagick", "pandoc", "svn"]
 brews = ["jid", "jless", "jq"]
 
 [packages.lang_bash]
-brews = ["bats-core", "bats-file", "bats-assert", "shellcheck"]
+brews = ["bats-core",  "shellcheck"]
 
 [packages.lang_lua]
 brews = ["lua", "luajit", "luarocks", "stylua"]
@@ -103,7 +102,7 @@ brews = ["go", "golangci-lint"]
 brews = []
 
 [packages.lang_aws]
-brews = ["awscli", "aws-sam-cli", "saw", "steampipe"]
+brews = ["awscli", "aws-sam-cli", "steampipe"]
 
 [packages.lang_terraform]
 brews = ["hashicorp/tap/terraform"]

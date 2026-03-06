@@ -15,7 +15,7 @@ casks = [
 
 [darwin.utils]
 casks = [
-  "docker",
+  "docker-desktop",
   "google-chrome",
   "logseq",
   "notion",
@@ -48,8 +48,6 @@ casks = [
   "discord",
   "dropbox",
   "google-drive",
-  "kindle",
-  "mullvadvpn",
   "sourcetree",
-  "tailscale",
+  "tailscale-app",
 ]

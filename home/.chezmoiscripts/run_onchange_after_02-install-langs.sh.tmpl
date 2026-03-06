@@ -4,6 +4,7 @@ set -eufo pipefail
 
 {{ if .langNode -}}
 mise use -g node@lts
+mise use -g bun@latest
 {{- end }}
 
 {{ if .langPython -}}
