@@ -60,12 +60,12 @@ render-health-check:
 # Sync Claude skills from ~/.config back to dotfiles
 [group('claude')]
 sync-claude-skills:
-    rsync -av --delete ~/.config/claude/skills/ home/private_dot_config/claude/skills/
+    rsync -av ~/.config/claude/skills/ home/private_dot_config/claude/skills/
 
 # Sync Claude commands from ~/.config back to dotfiles
 [group('claude')]
 sync-claude-commands:
-    rsync -av --delete ~/.config/claude/commands/ home/private_dot_config/claude/commands/
+    rsync -av ~/.config/claude/commands/ home/private_dot_config/claude/commands/
 
 # Sync Claude settings from ~/.config back to dotfiles
 [group('claude')]
