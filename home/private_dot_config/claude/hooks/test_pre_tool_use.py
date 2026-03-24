@@ -2,7 +2,6 @@
 # /// script
 # dependencies = [
 #   "pytest>=7.0",
-#   "pytest-cov",
 # ]
 # requires-python = ">=3.9"
 # ///
@@ -125,7 +124,5 @@ class TestPreToolUseHook:
 
 
 if __name__ == "__main__":
-    pytest.main(
-        [__file__, "-v", "--cov=executable_pre-tool-use", "--cov-report=term-missing"]
-    )
+    pytest.main([__file__, "-v"])
 

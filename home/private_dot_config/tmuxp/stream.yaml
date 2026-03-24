@@ -1,0 +1,15 @@
+session_name: stream
+windows:
+  - window_name: stream
+    start_directory: ~/personal/code/projects/stream
+    focus: true
+    panes:
+      - nvim
+  - window_name: stream-term
+    start_directory: ~/personal/code/projects/stream
+  - window_name: cheese
+    start_directory: ~/personal/code/projects/ratatui-cheese
+    panes:
+      - nvim
+  - window_name: cheese-term
+    start_directory: ~/personal/code/projects/ratatui-cheese

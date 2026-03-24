@@ -54,6 +54,29 @@ render-health-check:
     bat home/.chezmoiscripts/run_after_11-health-check.sh.tmpl | chezmoi execute-template | bat
 
 ###############################################
+############### Claude ########################
+###############################################
+
+# Sync Claude skills from ~/.config back to dotfiles
+[group('claude')]
+sync-claude-skills:
+    rsync -av --delete ~/.config/claude/skills/ home/private_dot_config/claude/skills/
+
+# Sync Claude commands from ~/.config back to dotfiles
+[group('claude')]
+sync-claude-commands:
+    rsync -av --delete ~/.config/claude/commands/ home/private_dot_config/claude/commands/
+
+# Sync Claude settings from ~/.config back to dotfiles
+[group('claude')]
+sync-claude-settings:
+    cp ~/.config/claude/settings.json home/private_dot_config/claude/settings.json
+
+# Sync all Claude config (skills, commands, settings) back to dotfiles
+[group('claude')]
+sync-claude: sync-claude-skills sync-claude-commands sync-claude-settings
+
+###############################################
 ############### Testing #######################
 ###############################################
 
