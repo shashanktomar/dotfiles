@@ -1,9 +1,33 @@
 {
+  "permissions": {
+    "allow": [
+      "mcp__pencil"
+    ]
+  },
   "hooks": {
     "PreToolUse": [
       {
         "matcher": "Bash",
         "hooks": []
+      },
+      {
+        "matcher": "Skill",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bunx -y ccstatusline@latest --hook"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bunx -y ccstatusline@latest --hook"
+          }
+        ]
       }
     ]
   },
@@ -15,10 +39,9 @@
   "enabledPlugins": {
     "feature-dev@claude-code-plugins": true,
     "document-skills@anthropic-agent-skills": true,
-    "superpowers@claude-plugins-official": true
+    "superpowers@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": false,
-  "permissions": {
-    "allow": ["mcp__pencil"]
-  }
+  "autoMemoryEnabled": false
 }

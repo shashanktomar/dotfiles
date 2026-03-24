@@ -13,9 +13,5 @@ windows:
     start_directory: ~/.config
     panes:
       - nvim
-  - window_name: notes
-    start_directory: ~/personal/notes
-    panes:
-      - nvim
   - window_name: term
     start_directory: ~/.dotfiles

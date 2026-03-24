@@ -19,7 +19,7 @@ casks = [
   "google-chrome",
   "logseq",
   "notion",
-  "obsidian",
+  # "obsidian",                             # cask install does not install cli, so direct download install is required
   "spotify",
   "font-consolas-for-powerline",
   "font-fira-code",

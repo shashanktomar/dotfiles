@@ -61,10 +61,12 @@ brews = [
 [packages.utils]
 brews = [
   "act",
+  "bottom",
   "commitizen",
   "dive",
   "dua-cli",
   "glow",
+  "googleworkspace-cli",
   "gum",
   "homeassistant-cli",
   "htop",
