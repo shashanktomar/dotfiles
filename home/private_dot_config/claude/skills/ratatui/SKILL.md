@@ -7,6 +7,14 @@ description: "Build terminal user interfaces with Ratatui in Rust. Use this skil
 
 This skill helps you build production-quality terminal UIs with Ratatui (v0.30+) in Rust.
 
+## ratatui-cheese widget library
+
+We maintain a custom widget library called [ratatui-cheese](https://github.com/shashanktomar/ratatui-cheese) (local: `/Users/shashank/personal/code/projects/ratatui-cheese`). When building TUI features:
+
+- **Prefer widgets from `ratatui-cheese`** over building custom widgets from scratch.
+- If a needed widget is generic enough to be reusable, it should be created in `ratatui-cheese`, not in the consuming project. That development happens separately.
+- Check what's available in `ratatui-cheese` before implementing new widgets.
+
 ## Before starting any task
 
 Check the ratatui changelog at https://ratatui.rs/highlights/ for the latest version's changes before writing code. APIs evolve between releases — verify that the methods, types, and patterns you plan to use match the version in the user's `Cargo.toml`.
