@@ -48,5 +48,6 @@
     "skill-creator@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": false,
-  "autoMemoryEnabled": false
+  "autoMemoryEnabled": false,
+  "remoteControlEnabled": true
 }
